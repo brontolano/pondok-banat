@@ -27,10 +27,10 @@ Desktop.ini
 *.xlsx
 *.xls
 *.pdf
-*.db
-*.sqlite
-*.sqlite3
-*.json
+# *.db
+# *.sqlite
+# *.sqlite3
+# *.json
 
 # Test/Seed files
 *.pyc
