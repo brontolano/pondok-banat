@@ -37,9 +37,47 @@ Desktop.ini
 __pycache__/
 *.log
 
+# Revision/Cleanup tools — temporary development scripts (do NOT commit)
+*_rev*.py
+*rev*.py
+_fix*.py
+_update*.py
+_verify*.py
+_cron*.py
+_probe*.py
+_check*.py
+_db*.py
+_cleanup*.py
+_debug*.py
+_inspect*.py
+_show*.py
+_final*.py
+_fresh*.py
+_print*.py
+_copy*.py
+_fix_stray.py
+_revision*.md
+check_db_counts.py
+check_dist.py
+check_students_schema.py
+db_fresh_check.json
+_rev68_section.md
+
+# Backup files
+*.bak
+*.orig
+*.tmp
+
 # TypeScript
 tsconfig.tsbuildinfo
 
 # Local
 .local/
 coverage/
+
+# Agent profiles & config
+agents/
+.agents/
+.claude/
+.cursor/
+.devin/
