@@ -82,3 +82,4 @@ agents/
 .cursor/
 .devin/
 *.db
+*.db
