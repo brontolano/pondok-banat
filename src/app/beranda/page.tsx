@@ -11,7 +11,7 @@ interface Stats {
 
 export default function BerandaPage() {
   const [stats, setStats] = useState<Stats>({
-    totalSantri: 441,
+    totalSantri: 453,
     totalGuru: 54,
     totalKelas: 18,
     terbaru: 'Kegiatan Sekarang',

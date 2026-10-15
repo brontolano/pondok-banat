@@ -23,7 +23,7 @@ export default function Beranda() {
     // In production, this would be a real API call
     setTimeout(() => {
     setStats({
-      totalSantri: 441,
+      totalSantri: 453,
       totalGuru: 54,
       totalKelas: 18,
         terbaru: 'Kegiatan Sekarang',
