@@ -1,0 +1,263 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// ENTITAS MODULAR (Prisma Schema)
+// ============================================
+
+// 1. User & Role Management (M01)
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   // bcrypt hash
+  name      String
+  role      String   // 'admin' | 'guru' | 'wali_kelas' | 'pengasuh' | 'santri'
+  status    String   @default('active') // 'active' | 'inactive'
+  kelasId   String?  @map("kelas_id") // for wali_kelas
+  kelas     Kelas?   @relation("WaliKelas", fields: [kelasId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  WaliKelas   Kelas[] @relation("WaliKelas")
+  Permission  RolePermission[]
+  Student     Student[]
+  Sertakan    Sertakan[]
+}
+
+model Role {
+  id          String   @id @default(cuid())
+  name        String   @unique // 'admin' | 'guru' | 'wali_kelas' | 'pengasuh' | 'santri'
+  displayName String   // 'Admin', 'Wali Kelas', dst.
+  description String
+  permissions String[] // JSON: ['read:user', 'write:grade', ...]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  Users User[]
+}
+
+model RolePermission {
+  id        String   @id @default(cuid())
+  roleId    String
+  role      Role     @relation(fields: [roleId], references: [id])
+  permission String
+  createdAt DateTime @default(now())
+}
+
+// 2. Master Data Santri (M02)
+model Student {
+  id          String   @id @default(cuid())
+  nisn        String   @unique // NIS unik
+  name        String
+  jk          String   // 'L' | 'P'
+  ttl         String
+  kelasId     String
+  kelas       Kelas    @relation(fields: [kelasId], references: [id])
+  status      String   @default('active') // 'active' | 'non_active'
+  noHp        String?
+  alamat      String?
+  tertib      String?  @map("terbit") // tertib
+  photo       String?  // path to photo
+  uidNfc      String?  @map("uid_nfc") // NFC card UID: 'AF:C2:99:E7'
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Kelas {
+  id          String   @id @default(cuid())
+  kode        String   @unique // 'Takhosous', '1', '1A', '2B', ...
+  nama        String   // 'Takhosous', 'Kelas 1A', ...
+  seksi       String?  // 'A' | 'B' | null
+  jenjang     String   // 'Takhosous' | 'Damai' | '1' | '2' | ... | '6'
+  program     String?  // 'GSIM PAKET', 'QSIM', 'Tarbiyah', dst.
+  waliKelasId String?
+  waliKelas   User?    @relation("WaliKelas")
+  students    Student[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// 3. Master Data Guru & Staf (M03)
+model Teacher {
+  id         String   @id @default(cuid())
+  nip         String?  @unique // NIP unik
+  name        String
+  jk          String?  // 'L' | 'P'
+  jabatan     String   // 'Mudir'Am', 'Wali Kelas', 'Guru', 'Pembina', dst.
+  status      String   @default('active')
+  kelasId     String?
+  kelas       Kelas?   @relation("WaliKelas")
+  noHp        String?
+  email       String?
+  alamat      String?
+  createdTs    DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// 4. Kurikulum & Kitab Kuning (M04)
+model Subject {
+  id         String   @id @default(cuid())
+  kode        String
+  name        String
+  jmlJp       Int?     // jumlah jam pelajaran
+  pengajarId  String?
+  pengajar    Teacher? @relation("WaliKelas")
+  kelasId     String?
+  kelas       Kelas?   @relation("WaliKelas")
+  silabus     Silabus[]
+  rpp         RPP[]
+  // Kitab progress
+  KitabProgress KitabProgress[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Silabus {
+  id         String   @id @default(cuid())
+  kelasId    String
+  kelas      Kelas    @relation(fields: [kelasId], references: [id])
+  mapelId    String
+  mapel      Subject  @relation(fields: [mapelId], references: [id])
+  semester   String   // 'Semester 1' | 'Semester 2'
+  bahan     String[]
+  materi    String[]
+  target    String[]
+  metode    String[]
+  tujuan    String[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model RPP {
+  id         String   @id @default(cuid())
+  kelasId    String
+  kelas      Kelas    @relation(fields: [kelasId], references: [id])
+  mapelId    String
+  mapel      Subject  @relation(fields: [mapelId], references: [id])
+  minggu     Int
+  topik       String
+  metode     String
+  sumber      String?
+  file        String?  // path to pdf/ppt
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// 5. Akademik & Absensi (M05)
+model Absensi {
+  id         String   @id @default(cuid())
+  studentId  String
+  student    Student  @relation(fields: [studentId], references: [id])
+  kelasId    String
+  kelas      Kelas    @relation(fields: [kelasId], references: [id])
+  tanggal    DateTime
+  jam         String?
+  kegiatan    String
+  status      String   @default('H') // 'H' | 'P' | 'I'
+  createdBy   String?  // user who recorded
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Grade {
+  id         String   @id @default(cuid())
+  studentId  String
+  student    Student  @relation(fields: [studentId], references: [id])
+  kelasId    String
+  kelas      Kelas    @relation(fields: [kelasId], references: [id])
+  mapelId    String
+  mapel      Subject  @relation(fields: [mapelId], references: [id])
+  semester    String
+  minggu      Int?
+  mei        Float?   // Monthly Evaluation
+  smt        Float?   // Semester
+  absen       Float?   // Attendance
+  hasil       Float?   @default(0) // final result (auto-calculated)
+  note        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Rapor {
+  id         String   @id @default(cuid())
+  studentId  String
+  student    Student  @relation(fields: [studentId], references: [id])
+  kelasId    String
+  kelas      Kelas    @relation(fields: [kelasId], references: [id])
+  semester    String
+  tahun       String
+  nilai       String   // JSON: { mapel: { nilai, predikat, catatan } }
+  keterangan  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// 4. Kurikulum & Kitab Kuning — progress kitab per santri (M04, M06)
+model KitabProgress {
+  id         String   @id @default(cuid())
+  student    Student  @relation(fields: [studentId], references: [id])
+  studentId  String
+  subject    Subject  @relation(fields: [subjectId], references: [id])
+  subjectId  String?
+  kitab      String   // kitab: 'Nahwu' | 'Sharaf' | 'Balagoh' | 'Fiqih' | 'Hadits'
+  progress   Float    @default(0) // 0-100
+  status     String   @default('mulai') // 'mulai' | 'sedang' | 'selesai'
+  catatan    String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+// 1. User & Role Management — ayat/program yang "disertakan" kebidan user (M01)
+model Sertakan {
+  id         String   @id @default(cuid())
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
+  title      String   // judul ayat/program/bahan yang disertakan
+  jenis      String?  // 'ayat' | 'kegiatan' | 'program' | 'bahan'
+  status     String   @default('aktif') // 'aktif' | 'tidak_aktif'
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+// 8. Communication & Notification (M08)
+model Announcement {
+  id         String   @id @default(cuid())
+  title       String
+  body        String
+  kelasId     String?
+  kelas       Kelas?   @relation(fields: [kelasId], references: [id])
+  createdBy   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Message {
+  id         String   @id @default(cuid())
+  senderId   String
+  sender      User     @relation(fields: [senderId], references: [id])
+  receiverId String
+  receiver    User     @relation(fields: [receiverId], references: [id])
+  type        String   // 'announcement' | 'message' | 'notification'
+  title       String
+  body        String
+  isRead      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model Notification {
+  id         String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  type        String   // 'value_change' | 'attendance' | 'announcement' | 'message' | 'system'
+  title       String
+  body        String
+  isRead      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}

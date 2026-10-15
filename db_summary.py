@@ -1,0 +1,22 @@
+import sqlite3
+
+conn = sqlite3.connect('/opt/data/home/workspace/dev/pondok-banat/dev.db')
+cur = conn.cursor()
+
+print("=== DATABASE SUMMARY ===")
+print(f"users: {cur.execute('SELECT COUNT(*) FROM users').fetchone()[0]}")
+print(f"roles: {cur.execute('SELECT COUNT(*) FROM roles').fetchone()[0]}")
+print(f"role_permissions: {cur.execute('SELECT COUNT(*) FROM role_permissions').fetchone()[0]}")
+print(f"students: {cur.execute('SELECT COUNT(*) FROM students').fetchone()[0]}")
+print(f"classes: {cur.execute('SELECT COUNT(*) FROM classes').fetchone()[0]}")
+print(f"teachers: {cur.execute('SELECT COUNT(*) FROM teachers').fetchone()[0]}")
+print(f"subjects: {cur.execute('SELECT COUNT(*) FROM subjects').fetchone()[0]}")
+print(f"silabus: {cur.execute('SELECT COUNT(*) FROM silabus').fetchone()[0]}")
+print(f"rpp: {cur.execute('SELECT COUNT(*) FROM rpp').fetchone()[0]}")
+print(f"absensi: {cur.execute('SELECT COUNT(*) FROM absensi').fetchone()[0]}")
+print(f"grades: {cur.execute('SELECT COUNT(*) FROM grades').fetchone()[0]}")
+print(f"rapor: {cur.execute('SELECT COUNT(*) FROM rapor').fetchone()[0]}")
+print(f"announcements: {cur.execute('SELECT COUNT(*) FROM announcements').fetchone()[0]}")
+print(f"messages: {cur.execute('SELECT COUNT(*) FROM messages').fetchone()[0]}")
+print(f"notifications: {cur.execute('SELECT COUNT(*) FROM notifications').fetchone()[0]}")
+conn.close()

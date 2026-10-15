@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+.prisma/client/
+
+# Build output
+.next/
+dist/
+lib/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# OS
+.thumbs/
+Desktop.ini
+
+# Data
+.data-pondokbanat/
+*.xlsx
+*.xls
+*.pdf
+*.db
+*.sqlite
+*.sqlite3
+*.json
+
+# Test/Seed files
+*.pyc
+__pycache__/
+*.log
+
+# TypeScript
+tsconfig.tsbuildinfo
+
+# Local
+.local/
+coverage/
