@@ -81,3 +81,4 @@ agents/
 .claude/
 .cursor/
 .devin/
+*.db
