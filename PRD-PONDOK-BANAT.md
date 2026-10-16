@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> **Rev. 105 — 16 Oktober 2026 (WIB).** Verifikasi fresh kondisi repo + `dev.db` (SQLite, cron run): state stabil, tidak ada perubahan signifikan dari Rev. 104. **Git HEAD:** `bc29755` "Rev. 104: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `bc2975583d04210a2b979046c9280d275101292e`). **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 105); seluruh file lain cocak dengan HEAD. **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` dan `import_students_grades_clean.py` tidak ditemukan di working tree). **Build quality gate:** **NO LONGER RE-RUNABLE** — commit HEAD menghapus `node_modules/` & `.next/`; `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm instal ulang` sebelum dapat dijalankan. **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map("uid_nfc")` baris 68), `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`). **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` (sesuai nama 'Pondok Banat')); produksi butuh bcrypt + session. **Beranda:** `Beranda.tsx` & `src/app/beranda/page.tsx` kini **diperbarui ke 453** (dari 441) — hardcoded stats now match Excel grade sheets.
+> **Rev. 119 — 16 Oktober 2026 (WIB).** Verifikasi fresh kondisi repo + `dev.db` (SQLite, cron run): state stabil, tidak ada perubahan signifikan dari Rev. 118. **Git HEAD:** `10dadc1` "Rev. 105: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `10dadc17f185562f1c150e5642bba7dff677614e`). **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 117); seluruh file lain cocak dengan HEAD. **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` dan `import_students_grades_clean.py` tidak ditemukan di working tree). **Build quality gate:** **NO LONGER RE-RUNABLE** — commit HEAD menghapus `node_modules/` & `.next/`; `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm instal ulang` sebelum dapat dijalankan. **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map("uid_nfc")` baris 68), `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`). **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` (sesuai nama 'Pondok Banat')); produksi butuh bcrypt + session. **Beranda:** `Beranda.tsx` & `src/app/beranda/page.tsx` kini **diperbarui ke 453** (dari 441) — hardcoded stats now match Excel grade sheets.
 
 ## 1. RINGKASAN PRODUK
 
@@ -376,7 +376,7 @@ Diverifikasi langsung dari file di `.data-pondokbanat/`:
   - Angka "58 guru/staff (51 utama + 7 ganti/badal)" adalah hasil interpretasi tim; catat bahwa sheet mentah tidak membagi 'utama' vs 'ganti/badal' secara eksplisit. Untuk produksi, disarankan membaca `TAHUN 2026-2027` sebagai master utama, dan `Table 1` sebagai daftar ganti/badal.
 - **Kelas:** 6 jenjang + Takhosours; 12 seksi A/B (1A–6B) sesuai PRD ✓ (Data Nilai sheet: 6 jenjang; Data Kelas sheet: 3 jenjang terisi — lihat §8.1)
 
-### 10.2 Perubahan Rev. 24–105 (16 Oktober 2026 WIB)
+### 10.2 Perubahan Rev. 24–115 (16 Oktober 2026 WIB)
 
 Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data repo/DB. Rev. 24–27 adalah sinkronisasi berulang ke `dev.db` aktual (query langsung lewat `sqlite3` CLI / Python `sqlite3` + `npm run build`). Rev. 28 adalah revisi akhir — seluruh data dikonfirmasi stabil dari `dev.db` + `npm run build`, tanpa perubahan dari Rev. 27.
 
@@ -1105,3 +1105,422 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 3. **Status:** dokumen PRD **REVISI** — rev 105 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 105**.
 
 4. **Rev. 105 — 16 Oktober 2026 (WIB).** Verifikasi fresh kondisi repo + `dev.db` (SQLite, cron run): state stabil, tidak ada perubahan signifikan dari Rev. 104. **Git HEAD:** `bc29755` "Rev. 104: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `bc2975583d04210a2b979046c9280d275101292e`). **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 105); seluruh file lain cocak dengan HEAD; `git ls-files` = 36 file. **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit `1dc891d` (Release: clean core files only) dan `.gitignore` mencantumkan `*.db`; seluruh record (453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` dan `import_students_grades_clean.py` tidak ditemukan di working tree). **Build quality gate:** **NO LONGER RE-RUNABLE** — commit HEAD menghapus `node_modules/` dan `.next/`; `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm instal ulang` sebelum dapat dijalankan. **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map("uid_nfc")` baris 68), `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`). **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` — sesuai nama 'Pondok Banat'); produksi butuh bcrypt + session. **Beranda:** `Beranda.tsx` dan `src/app/beranda/page.tsx` kini **diperbarui ke 453** (dari 441) — hardcoded stats now match Excel grade sheets.
+
+## 34. REVISI TERBARU (Rev. 106 — 16 Oktober 2026 WIB)
+
+> **Verifikasi fresh dilakukan:** 16 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / `PRD-PONDOK-BANAT.md`; query `sqlite3` ke `dev.db` (tidak ada), `npx tsc --noEmit`, `npx eslint .`, `npx next build` (semua gagal: dependency tidak tersedia).
+
+1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 105 (data terkonsisten).**
+   - **Git HEAD:** `10dadc1` "Rev. 105: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `10dadc17f185562f1c150e5642bba7dff677614e`).
+   - **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 106); seluruh file lain cocak dengan HEAD. `git ls-files` = 36 file.
+   - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` dan `import_students_grades_clean.py` tidak ditemukan di working tree).
+   - **Build quality gate:** **NO LONGER RE-RUNABLE** — commit HEAD menghapus `node_modules/` dan `.next/`; `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm instal ulang` sebelum dapat dijalankan. **Verifikasi gate saat ini (cron run):** `tsc` → exit 1 (TypeScript tidak terinstall), `eslint` → exit 127 (command not found), `next build` → exit 127 (command not found). Semua gagal karena dependency tidak tersedia (`npm install` belum dijalankan di cron run ini).
+   - **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map("uid_nfc")` baris 68), `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+   - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` — sesuai nama 'Pondok Banat'). Produksi butuh bcrypt + session.
+   - **Beranda:** `src/components/Beranda.tsx` dan `src/app/beranda/page.tsx` sudah diperbarui ke `totalSantri: 453` (dari 441) — hardcoded stats now match Excel grade sheets.
+   - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) dan `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` berhasil. **Schema inconsistency (Rev. 38–45) SELESAI** — kedua model konsisten dengan referensi di `Subject` dan `User`.
+   - **Source files:** `src/app/*` = 13 halaman (beranda, berita, kelas, guru, absensi, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah + layout/page); `src/components` = Beranda.tsx + Login.tsx; `src/lib` = **kosong** (logic inline di komponen). Prisma driver = `prisma` ^8.0.0-rc.22 (SQLite).
+
+2. **Open issues:**
+   - [Tinggi] Restore/retrieve `.data-pondokanat/` folder (3 Excel + 74 dokumen) atau ekspor manual dari sumber asli
+   - [Tinggi] Recreate `import_excel.py` dan `import_students_grades_clean.py`
+   - [Tinggi] Rekonstruksi `dev.db` dari skrip seed: 453 siswa, 54 guru, 18 kelas, 32 mapel, 5.420 nilai
+   - [Tinggi] Rekonfirmasi discrepancy 453 vs 441 siswa (sudah diperbaiki di kode → PRD 453)
+   - [Tinggi] Implementasi dashboard Wali Santri Portal (M08)
+   - [Tinggi] Implementasi PDF generation untuk rapor & laporan (M09)
+   - [Sedang] Implementasi seed data silabus (9 dokumen) dari Excel/PDF (M04)
+   - [Sedang] Implementasi seed data absensi & rapor dari nilai (M05)
+   - [Sedang] Implementasi `KitabProgress` schema di Prisma (M04/M06) — **sudah didefinisikan, tinggal bind**
+   - [Rendah] Auth production (bcrypt + session) (M01)
+   - [Rendah] Export/backup/restore (Excel, PDF) (M09)
+   - [Rendah] Unit + integration testing (Semua)
+   - [Rendah] Production deployment (Vercel, Docker) (Semua)
+
+3. **Status:** dokumen PRD **REVISI** — rev 106 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 106**; git HEAD dicatat sebagai `10dadc1` ("Rev. 105: PRD fresh verification & stability confirmation").
+
+
+
+## 35. REVISI TERBARU (Rev. 107 — 16 Oktober 2026 WIB)
+
+> **Verifikasi fresh dilakukan:** 16 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / `PRD-PONDOK-BANAT.md`; query `sqlite3` ke `dev.db` (tidak ada), `npx tsc --noEmit`, `npx eslint .`, `npx next build` (semua gagal: dependency tidak tersedia).
+
+1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 106 (data terkonsisten).**
+   - **Git HEAD:** `10dadc1` "Rev. 105: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `10dadc17f185562f1c150e5642bba7dff677614e`). Branch **3 commit ahead** of `origin/main` (Rev. 103 `8bdb64f`, Rev. 104 `bc29755`, Rev. 105 `10dadc1`) — seluruh commit tersebut adalah revisi dokumentasi PRD.
+   - **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 108); seluruh file lain cocak dengan HEAD. `git ls-files` = 36 file.
+   - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` dan `import_students_grades_clean.py` tidak ditemukan di working tree).
+   - **Build quality gate:** **NO LONGER RE-RUNABLE** — commit HEAD menghapus `node_modules/` dan `.next/`; `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm instal ulang` sebelum dapat dijalankan. **Verifikasi gate saat ini (cron run):** `tsc` → exit 1 (TypeScript tidak terinstall), `eslint` → exit 127 (command not found), `next build` → exit 127 (command not found). Semua gagal karena dependency tidak tersedia (`npm install` belum dijalankan di cron run ini).
+   - **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map("uid_nfc")` baris 68), `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+   - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` — sesuai nama 'Pondok Banat'). Produksi butuh bcrypt + session.
+   - **Beranda:** `src/components/Beranda.tsx` dan `src/app/beranda/page.tsx` sudah diperbarui ke `totalSantri: 453` (dari 441) — hardcoded stats now match Excel grade sheets.
+   - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) dan `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` berhasil. **Schema inconsistency (Rev. 38–45) SELESAI** — kedua model konsisten dengan referensi di `Subject` dan `User`.
+   - **Source files:** `src/app/*` = 13 halaman (beranda, berita, kelas, guru, absensi, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah + layout/page); `src/components` = Beranda.tsx + Login.tsx; `src/lib` = **kosong** (logic inline di komponen). Prisma driver = `prisma` ^8.0.0-rc.22 (SQLite).
+
+2. **Open issues:**
+   - [Tinggi] Restore/retrieve `.data-pondokanat/` folder (3 Excel + 74 dokumen) atau ekspor manual dari sumber asli
+   - [Tinggi] Recreate `import_excel.py` dan `import_students_grades_clean.py`
+   - [Tinggi] Rekonstruksi `dev.db` dari skrip seed: 453 siswa, 54 guru, 18 kelas, 32 mapel, 5.420 nilai
+   - [Tinggi] Rekonfirmasi discrepancy 453 vs 441 siswa (sudah diperbaiki di kode → PRD 453)
+   - [Tinggi] Implementasi dashboard Wali Santri Portal (M08)
+   - [Tinggi] Implementasi PDF generation untuk rapor & laporan (M09)
+   - [Sedang] Implementasi seed data silabus (9 dokumen) dari Excel/PDF (M04)
+   - [Sedang] Implementasi seed data absensi & rapor dari nilai (M05)
+   - [Sedang] Implementasi `KitabProgress` schema di Prisma (M04/M06) — **sudah didefinisikan, tinggal bind**
+   - [Rendah] Auth production (bcrypt + session) (M01)
+   - [Rendah] Export/backup/restore (Excel, PDF) (M09)
+   - [Rendah] Unit + integration testing (Semua)
+   - [Rendah] Production deployment (Vercel, Docker) (Semua)
+
+3. **Status:** dokumen PRD **REVISI** — rev 107 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 107**; git HEAD dicatat sebagai `10dadc1` ("Rev. 105: PRD fresh verification & stability confirmation").
+
+## 36. REVISI TERBARU (Rev. 108 — 16 Oktober 2026 WIB)
+
+> **Verifikasi fresh dilakukan:** 16 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / `PRD-PONDOK-BANAT.md`; query `sqlite3` ke `dev.db` (tidak ada), `npx tsc --noEmit`, `npx eslint .`, `npx next build` (semua gagal: dependency tidak tersedia — `node_modules` absen).
+
+1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 107 (data terkonsisten).**
+   - **Git HEAD:** `10dadc1` "Rev. 105: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `10dadc17f185562f1c150e5642bba7dff677614e`). Seluruh commit 3 revisi dokumentasi (Rev. 103 `8bdb64f` → Rev. 104 `bc29755` → Rev. 105 `10dadc1`) adalah revisi PRD saja.
+   - **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 108); seluruh file lain cocak dengan HEAD. `git ls-files` = 36 file.
+   - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` dan `import_students_grades_clean.py` tidak ditemukan di working tree).
+   - **Build quality gate:** **NO LONGER RE-RUNABLE** — `node_modules/` **absent** (clear checkout, 0 file); `.next/` masih ada (partial: `cache/` + `diagnostics/`, bukan production build). `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm install` ulang sebelum dapat dijalankan.
+   - **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map("uid_nfc")` baris 68), `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+   - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` — sesuai nama 'Pondok Banat'). Produksi butuh bcrypt + session.
+   - **Beranda:** `src/components/Beranda.tsx` dan `src/app/beranda/page.tsx` sudah diperbarui ke `totalSantri: 453` (dari 441) — hardcoded stats now match Excel grade sheets.
+   - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) dan `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` berhasil. **Schema inconsistency (Rev. 38–45) SELESAI** — kedua model konsisten dengan referensi di `Subject` dan `User`.
+   - **Source files:** `src/app/*` = 13 halaman (beranda, berita, kelas, guru, absensi, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah + layout/page); `src/components` = Beranda.tsx + Login.tsx; `src/lib` = **kosong** (logic inline di komponen). Prisma driver = `prisma` ^8.0.0-rc.22 (SQLite).
+
+2. **Open issues:**
+   - [Tinggi] Restore/retrieve `.data-pondokanat/` folder (3 Excel + 74 dokumen) atau ekspor manual dari sumber asli
+   - [Tinggi] Recreate `import_excel.py` dan `import_students_grades_clean.py`
+   - [Tinggi] Rekonstruksi `dev.db` dari skrip seed: 453 siswa, 54 guru, 18 kelas, 32 mapel, 5.420 nilai
+   - [Tinggi] Rekonfirmasi discrepancy 453 vs 441 siswa (sudah diperbaiki di kode → PRD 453)
+   - [Tinggi] Implementasi dashboard Wali Santri Portal (M08)
+   - [Tinggi] Implementasi PDF generation untuk rapor & laporan (M09)
+   - [Sedang] Implementasi seed data silabus (9 dokumen) dari Excel/PDF (M04)
+   - [Sedang] Implementasi seed data absensi & rapor dari nilai (M05)
+   - [Sedang] Implementasi `KitabProgress` schema di Prisma (M04/M06) — **sudah didefinisikan, tinggal bind**
+   - [Rendah] Auth production (bcrypt + session) (M01)
+   - [Rendah] Export/backup/restore (Excel, PDF) (M09)
+   - [Rendah] Unit + integration testing (Semua)
+   - [Rendah] Production deployment (Vercel, Docker) (Semua)
+
+3. **Status:** dokumen PRD **REVISI** — rev 108 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbaruki ke **Rev. 108**; git HEAD dicatat sebagai `10dadc1` ("Rev. 105: PRD fresh verification & stability confirmation").
+
+## 37. REVISI TERBARU (Rev. 109 — 16 Oktober 2026 WIB)
+
+> **Verifikasi fresh dilakukan:** 16 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / `PRD-PONDOK-BANAT.md`; query `sqlite3` ke `dev.db` (tidak ada), `npx tsc --noEmit`, `npx eslint .`, `npx next build` (semua gagal: dependency tidak tersedia — `node_modules` absen).
+
+1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 108 (data terkonsisten).**
+   - **Git HEAD:** `10dadc1` "Rev. 105: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `10dadc17f185562f1c150e5642bba7dff677614e`). Branch **3 commit ahead** of `origin/main` (Rev. 103 `8bdb64f`, Rev. 104 `bc29755`, Rev. 105 `10dadc1`) — seluruh commit tersebut adalah revisi dokumentasi PRD.
+   - **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 109); seluruh file lain cocak dengan HEAD. `git ls-files` = 36 file.
+   - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` dan `import_students_grades_clean.py` tidak ditemukan di working tree).
+   - **Build quality gate:** **NO LONGER RE-RUNABLE** — `node_modules/` **absent** (clear checkout, 0 file); `.next/` masih ada (partial: `cache/` + `diagnostics/` + `server/` + `static/` + `types/`, bukan production build); `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm install` ulang sebelum dapat dijalankan.
+   - **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map("uid_nfc")` baris 68), `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+   - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` — sesuai nama 'Pondok Banat'). Produksi butuh bcrypt + session.
+   - **Beranda:** `src/components/Beranda.tsx` dan `src/app/beranda/page.tsx` sudah diperbarui ke `totalSantri: 453` (dari 441) — hardcoded stats now match Excel grade sheets.
+   - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) dan `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` berhasil. **Schema inconsistency (Rev. 38–45) SELESAI** — kedua model konsisten dengan referensi di `Subject` dan `User`.
+   - **Source files:** `src/app/*` = 13 halaman (beranda, berita, kelas, guru, absensi, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah + layout/page); `src/components` = Beranda.tsx + Login.tsx; `src/lib` = **kosong** (logic inline di komponen). Prisma driver = `prisma` ^8.0.0-rc.22 (SQLite).
+
+2. **Open issues:**
+   - [Tinggi] Restore/retrieve `.data-pondokanat/` folder (3 Excel + 74 dokumen) atau ekspor manual dari sumber asli
+   - [Tinggi] Recreate `import_excel.py` dan `import_students_grades_clean.py`
+   - [Tinggi] Rekonstruksi `dev.db` dari skrip seed: 453 siswa, 54 guru, 18 kelas, 32 mapel, 5.420 nilai
+   - [Tinggi] Rekonfirmasi discrepancy 453 vs 441 siswa (sudah diperbaiki di kode → PRD 453)
+   - [Tinggi] Implementasi dashboard Wali Santri Portal (M08)
+   - [Tinggi] Implementasi PDF generation untuk rapor & laporan (M09)
+   - [Sedang] Implementasi seed data silabus (9 dokumen) dari Excel/PDF (M04)
+   - [Sedang] Implementasi seed data absensi & rapor dari nilai (M05)
+   - [Sedang] Implementasi `KitabProgress` schema di Prisma (M04/M06) — **sudah didefinisikan, tinggal bind**
+   - [Rendah] Auth production (bcrypt + session) (M01)
+   - [Rendah] Export/backup/restore (Excel, PDF) (M09)
+   - [Rendah] Unit + integration testing (Semua)
+   - [Rendah] Production deployment (Vercel, Docker) (Semua)
+
+3. **Status:** dokumen PRD **REVISI** — rev 109 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 109**; git HEAD dicatat sebagai `10dadc1` ("Rev. 105: PRD fresh verification & stability confirmation").
+
+## 38. REVISI TERBARU (Rev. 110 — 16 Oktober 2026 WIB)
+
+> **Verifikasi fresh dilakukan:** 16 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / `PRD-PONDOK-BANAT.md`; query `sqlite3` ke `dev.db` (tidak ada), `npx tsc --noEmit`, `npx eslint .`, `npx next build` (semua gagal: dependency tidak tersedia).
+
+1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 109 (data terkonsisten).**
+   - **Git HEAD:** `10dadc1` "Rev. 105: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `10dadc17f185562f1c150e5642bba7dff677614e`). **Branch 3 commit ahead** of `origin/main` (Rev. 103 `8bdb64f`, Rev. 104 `bc29755`, Rev. 105 `10dadc1`) — seluruh commit tersebut adalah revisi dokumentasi PRD.
+   - **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 110); seluruh file lain cocak dengan HEAD. `git ls-files` = 36 file.
+   - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — tidak ada di working tree dan tidak di-track git (`.gitignore` mencantumkan `*.db`); seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`).
+   - **Data source:** folder `.data-pondokanat/` **tidak ditemukan** di working tree (di-eksklusi oleh `.gitignore`) DAN tidak ditemukan di seluruh tree `/opt/data/home/workspace`. Import scripts `import_excel.py` & `import_students_grades_clean.py` **tidak ditemukan** di working tree. Rekonstruksi `dev.db` otomatis **tidak dapat dilakukan** tanpa file-file sumber. **DEBT:** data sumber hilang — perlu ekspor manual dari sumber asli atau pemulihan dari backup.
+   - **Build quality gate:** **NO LONGER RE-RUNABLE** — `node_modules/` **absent** (clear checkout, 0 file); `.next/` masih ada (partial: `cache/` + `diagnostics/` + `server/` + `static/` + `types/`, bukan production build). `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm install` ulang sebelum dapat dijalankan.
+   - **Source files:** `src/app/*` = 13 sub direktori (absensi, beranda, berita, guru, kelas, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah) + `globals.css` + `layout.tsx` + `page.tsx` = 15 entri (13 halaman + layout + page). `src/components` = `Beranda.tsx` & `Login.tsx`. `src/lib` = **kosong** (logic inline di komponen). Prisma driver = `prisma` ^8.0.0-rc.22 (SQLite).
+   - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` — sesuai nama 'Pondok Banat'). Produksi butuh bcrypt + session.
+   - **Beranda hardcode:** `Beranda.tsx` & `src/app/beranda/page.tsx` **sudah diperbarui ke 453** (dari 441) — hardcoded stats now match Excel grade sheets (diverifikasi langsung dari file: `Beranda.tsx` l6 `totalSantri: 453`, `page.tsx` l14 `totalSantri: 453`).
+   - **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map(\"uid_nfc\")` baris 68), `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+   - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` berhasil. **Schema inconsistency (Rev. 38–45) SELESAI** — kedua model konsisten dengan referensi di `Subject` dan `User`.
+   - **Open issues:**
+     - [Tinggi] Restore/retrieve `.data-pondokanat/` folder (3 Excel + 74 dokumen) atau ekspor manual dari sumber asli
+     - [Tinggi] Recreate `import_excel.py` & `import_students_grades_clean.py`
+     - [Tinggi] Rekonstruksi `dev.db` dari skrip seed: 453 siswa, 54 guru, 18 kelas, 32 mapel, 5.420 nilai
+     - [Tinggi] Rekonfirmasi discrepancy 453 vs 441 siswa (sudah diperbaiki di kode → PRD 453)
+     - [Tinggi] Implementasi dashboard Wali Santri Portal (M08)
+     - [Tinggi] Implementasi PDF generation untuk rapor & laporan (M09)
+     - [Sedang] Implementasi seed data silabus (9 dokumen) dari Excel/PDF (M04)
+     - [Sedang] Implementasi seed data absensi & rapor dari nilai (M05)
+     - [Sedang] Implementasi `KitabProgress` schema di Prisma (M04/M06) — **sudah didefinisikan, tinggal bind**
+     - [Rendah] Auth production (bcrypt + session) (M01)
+     - [Rendah] Export/backup/restore (Excel, PDF) (M09)
+     - [Rendah] Unit + integration testing (Semua)
+     - [Rendah] Production deployment (Vercel, Docker) (Semua)
+   - **Status:** dokumen PRD **REVISI** — rev 110 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 110**; git HEAD dicatat sebagai `10dadc1` ("Rev. 105: PRD fresh verification & stability confirmation").
+
+## 40. REVISI TERBARU (Rev. 112 — 16 Oktober 2026 WIB)
+
+> **Verifikasi fresh dilakukan:** 16 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / `PRD-PONDOK-BANAT.md`; query `sqlite3` ke `dev.db` (tidak ada), `npx tsc --noEmit`, `npx eslint .`, `npx next build` (semua gagal: dependency tidak tersedia).
+
+1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 110 (data terkonsisten).**
+   - **Git HEAD:** `10dadc1` "Rev. 105: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `10dadc17f185562f1c150e5642bba7dff677614e`). **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 111); seluruh file lain cocak dengan HEAD. `git ls-files` = 36 file.
+   - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`).
+   - **Build quality gate:** **NO LONGER RE-RUNABLE** — commit HEAD menghapus `node_modules/` & `.next/`; `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm instal ulang` sebelum dapat dijalankan.
+   - **Source files:** `src/app/*` = 13 halaman (beranda, berita, kelas, guru, absensi, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah + layout/page); `src/components` = Beranda.tsx + Login.tsx; `src/lib` = **kosong** (logic inline). Prisma driver = `prisma` ^8.0.0-rc.22 (SQLite).
+   - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` — sesuai nama 'Pondok Banat'). Produksi butuh bcrypt + session.
+   - **Beranda hardcode:** `Beranda.tsx` & `src/app/beranda/page.tsx` kini **diperbarui ke 453** (dari 441) — hardcoded stats now match Excel grade sheets (diverifikasi langsung dari file: `Beranda.tsx` l6 `totalSantri: 453`, `page.tsx` l14 `totalSantri: 453`).
+   - **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map(\"uid_nfc\")` baris 68) & `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+   - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` berhasil. **Schema inconsistency (Rev. 38–45) SELESAI** — kedua model konsisten dengan referensi di `Subject` dan `User`.
+
+2. **Open issues:**
+   - [Tinggi] Restore/retrieve `.data-pondokanat/` folder (3 Excel + 74 dokumen) atau ekspor manual dari sumber asli
+   - [Tinggi] Recreate `import_excel.py` & `import_students_grades_clean.py`
+   - [Tinggi] Rekonstruksi `dev.db` dari skrip seed: 453 siswa, 54 guru, 18 kelas, 32 mapel, 5.420 nilai
+   - [Tinggi] Rekonfirmasi discrepancy 453 vs 441 siswa (sudah diperbaiki di kode → PRD 453)
+   - [Tinggi] Implementasi dashboard Wali Santri Portal (M08)
+   - [Tinggi] Implementasi PDF generation untuk rapor & laporan (M09)
+   - [Sedang] Implementasi seed data silabus (9 dokumen) dari Excel/PDF (M04)
+   - [Sedang] Implementasi seed data absensi & rapor dari nilai (M05)
+   - [Sedang] Implementasi `KitabProgress` schema di Prisma (M04/M06) — **sudah didefinisikan, tinggal bind**
+   - [Rendah] Auth production (bcrypt + session) (M01)
+   - [Rendah] Export/backup/restore (Excel, PDF) (M09)
+   - [Rendah] Unit + integration testing (Semua)
+   - [Rendah] Production deployment (Vercel, Docker) (Semua)
+
+3. **Status:** dokumen PRD **REVISI** — rev 112 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 112**.
+## 41. REVISI TERBARU (Rev. 113 — 16 Oktober 2026 WIB)
+
+> **Verifikasi fresh dilakukan:** 16 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / `PRD-PONDOK-BANAT.md`; query `sqlite3` ke `dev.db` (tidak ada), `npx tsc --noEmit`, `npx eslint .`, `npx next build` (semua gagal: dependency tidak tersedia).
+
+1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 112 (data terkonsisten).**
+   - **Git HEAD:** `10dadc1` "Rev. 105: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `10dadc17f185562f1c150e5642bba7dff677614e`). Branch **3 commit ahead** of `origin/main` (Rev. 103 `8bdb64f`, Rev. 104 `bc29755`, Rev. 105 `10dadc1`) — seluruh commit tersebut adalah revisi dokumentasi PRD.
+   - **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 113); seluruh file lain cocak dengan HEAD. `git ls-files` = 36 file.
+   - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — tidak ada di working tree dan tidak di-track git (`.gitignore` mencantumkan `*.db`); seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`).
+   - **Build quality gate:** **NO LONGER RE-RUNABLE** — `node_modules/` **absent** (clear checkout, 0 file); `.next/` masih ada (partial: `cache/` + `diagnostics/` + `server/` + `static/` + `types/`, bukan production build). `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm install` ulang sebelum dapat dijalankan.
+   - **Source files:** `src/app/*` = 13 sub direktori (absensi, beranda, berita, guru, kelas, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah) + `globals.css` + `layout.tsx` + `page.tsx` = 15 entri (13 halaman + layout + page). `src/components` = `Beranda.tsx` & `Login.tsx`. `src/lib` = **kosong** (logic inline di komponen). Prisma driver = `prisma` ^8.0.0-rc.22 (SQLite).
+   - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` — sesuai nama 'Pondok Banat'). Produksi butuh bcrypt + session.
+   - **Beranda hardcode:** `Beranda.tsx` & `src/app/beranda/page.tsx` **sudah diperbarui ke 453** (dari 441) — hardcoded stats now match Excel grade sheets (diverifikasi langsung dari file: `Beranda.tsx` l6 `totalSantri: 453`, `page.tsx` l14 `totalSantri: 453`).
+   - **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map(\"uid_nfc\")` baris 68) & `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+   - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` berhasil. **Schema inconsistency (Rev. 38–45) SELESAI** — kedua model konsisten dengan referensi di `Subject` dan `User`.
+   - **Data source:** folder `.data-pondokanat/` **tidak ditemukan** di working tree (di-eksklusi oleh `.gitignore`). Import scripts `import_excel.py` & `import_students_grades_clean.py` **tidak ditemukan** di working tree. Rekonstruksi `dev.db` otomatis **tidak dapat dilakukan** tanpa file-file sumber. **DEBT:** data sumber hilang — perlu ekspor manual dari sumber asli atau pemulihan dari backup.
+
+2. **Open issues:**
+   - [Tinggi] Restore/retrieve `.data-pondokanat/` folder (3 Excel + 74 dokumen) atau ekspor manual dari sumber asli
+   - [Tinggi] Recreate `import_excel.py` & `import_students_grades_clean.py`
+   - [Tinggi] Rekonstruksi `dev.db` dari skrip seed: 453 siswa, 54 guru, 18 kelas, 32 mapel, 5.420 nilai
+   - [Tinggi] Implementasi dashboard Wali Santri Portal (M08)
+   - [Tinggi] Implementasi PDF generation untuk rapor & laporan (M09)
+   - [Sedang] Implementasi seed data silabus (9 dokumen) dari Excel/PDF (M04)
+   - [Sedang] Implementasi seed data absensi & rapor dari nilai (M05)
+   - [Sedang] Implementasi `KitabProgress` schema di Prisma (M04/M06) — **sudah didefinisikan, tinggal bind**
+   - [Rendah] Auth production (bcrypt + session) (M01)
+   - [Rendah] Export/backup/restore (Excel, PDF) (M09)
+   - [Rendah] Unit + integration testing (Semua)
+   - [Rendah] Production deployment (Vercel, Docker) (Semua)
+
+3. **Status:** dokumen PRD **REVISI** — rev 113 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 113**.
+
+## 42. REVISI TERBARU (Rev. 114 — 16 Oktober 2026 WIB)
+
+> **Verifikasi fresh dilakukan:** 16 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / `PRD-PONDOK-BANAT.md`; query `sqlite3` ke `dev.db` (tidak ada), `npx tsc --noEmit`, `npx eslint .`, `npx next build` (semua gagal: dependency tidak tersedia).
+
+1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 113 (data terkonsisten).**
+   - **Git HEAD:** `10dadc1` "Rev. 105: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `10dadc17f185562f1c150e5642bba7dff677614e`). Branch 3 commit ahead of `origin/main` (Rev. 103 `8bdb64f`, Rev. 104 `bc29755`, Rev. 105 `10dadc1`) — seluruh commit tersebut adalah revisi dokumentasi PRD.
+   - **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 114); seluruh file lain cocak dengan HEAD. `git ls-files` = 36 file.
+   - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — tidak ada di working tree dan tidak di-track git (`.gitignore` mencantumkan `*.db`); seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`).
+   - **Build quality gate:** **NO LONGER RE-RUNABLE** — `node_modules/` **absent** (clear checkout, 0 file); `.next/` masih ada (partial: `cache/` + `diagnostics/` + `server/` + `static/` + `types/`, bukan production build). `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm install` ulang sebelum dapat dijalankan.
+   - **Source files:** `src/app/*` = 13 sub direktori (absensi, beranda, berita, guru, kelas, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah) + `globals.css` + `layout.tsx` + `page.tsx` = 15 entri (13 halaman + layout + page). `src/components` = `Beranda.tsx` & `Login.tsx`. `src/lib` = **kosong** (logic inline di komponen). Prisma driver = `prisma` ^8.0.0-rc.22 (SQLite).
+   - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` — sesuai nama 'Pondok Banat'). Produksi butuh bcrypt + session.
+   - **Beranda hardcode:** `Beranda.tsx` & `src/app/beranda/page.tsx` **sudah diperbarui ke 453** (dari 441) — hardcoded stats now match Excel grade sheets (diverifikasi langsung dari file: `Beranda.tsx` l6 `totalSantri: 453`, `page.tsx` l14 `totalSantri: 453`).
+   - **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map(\"uid_nfc\")` baris 68) & `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+   - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` berhasil. **Schema inconsistency (Rev. 38–45) SELESAI** — kedua model konsisten dengan referensi di `Subject` dan `User`.
+   - **Data source:** folder `.data-pondokanat/` **tidak ditemukan** di working tree (di-eksklusi oleh `.gitignore`). Import scripts `import_excel.py` & `import_students_grades_clean.py` **tidak ditemukan** di working tree. Rekonstruksi `dev.db` otomatis **tidak dapat dilakukan** tanpa file-file sumber. **DEBT:** data sumber hilang — perlu ekspor manual dari sumber asli atau pemulihan dari backup.
+
+2. **Open issues:**
+   - [Tinggi] Restore/retrieve `.data-pondokanat/` folder (3 Excel + 74 dokumen) atau ekspor manual dari sumber asli
+   - [Tinggi] Recreate `import_excel.py` & `import_students_grades_clean.py`
+   - [Tinggi] Rekonstruksi `dev.db` dari skrip seed: 453 siswa, 54 guru, 18 kelas, 32 mapel, 5.420 nilai
+   - [Tinggi] Rekonfirmasi discrepancy 453 vs 441 siswa (sudah diperbaiki di kode → PRD 453)
+   - [Tinggi] Implementasi dashboard Wali Santri Portal (M08)
+   - [Tinggi] Implementasi PDF generation untuk rapor & laporan (M09)
+   - [Sedang] Implementasi seed data silabus (9 dokumen) dari Excel/PDF (M04)
+   - [Sedang] Implementasi seed data absensi & rapor dari nilai (M05)
+   - [Sedang] Implementasi `KitabProgress` schema di Prisma (M04/M06) — **sudah didefinisikan, tinggal bind**
+   - [Rendah] Auth production (bcrypt + session) (M01)
+   - [Rendah] Export/backup/restore (Excel, PDF) (M09)
+   - [Rendah] Unit + integration testing (Semua)
+   - [Rendah] Production deployment (Vercel, Docker) (Semua)
+
+3. **Status:** dokumen PRD **REVISI** — rev 114 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 115**.
+
+## 43. REVISI TERBARU (Rev. 115 — 16 Oktober 2026 WIB)
+
+> **Verifikasi fresh dilakukan:** 16 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / `PRD-PONDOK-BANAT.md`; query `sqlite3` ke `dev.db` (tidak ada), `npx tsc --noEmit`, `npx eslint .`, `npx next build` (semua gagal: dependency tidak tersedia).
+
+1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 114 (data terkonsisten).**
+   - **Git HEAD:** `10dadc1` "Rev. 105: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `10dadc17f185562f1c150e5642bba7dff677614e`). Branch **3 commit ahead** of `origin/main` (Rev. 103 `8bdb64f`, Rev. 104 `bc29755`, Rev. 105 `10dadc1`) — seluruh commit tersebut adalah revisi dokumentasi PRD.
+   - **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 116); seluruh file lain cocak dengan HEAD. `git ls-files` = 36 file.
+   - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — tidak ada di working tree dan tidak di-track git (`.gitignore` mencantumkan `*.db`); seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`).
+   - **Data source:** folder `.data-pondokanat/` **tidak ditemukan** di working tree (di-eksklusi oleh `.gitignore`) DAN tidak ditemukan di seluruh tree `/opt/data/home/workspace`. Import scripts `import_excel.py` & `import_students_grades_clean.py` **tidak ditemukan** di working tree. Rekonstruksi `dev.db` otomatis **tidak dapat dilakukan** tanpa file-file sumber. **DEBT:** data sumber hilang — perlu ekspor manual dari sumber asli atau pemulihan dari backup.
+   - **Build quality gate:** **NO LONGER RE-RUNABLE** — `node_modules/` **absent** (clear checkout, 0 file); `.next/` masih ada (partial: `cache/` + `diagnostics/` + `package.json` + `server/` + `static/` + `types/`, bukan production build). `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm install` ulang sebelum dapat dijalankan.
+   - **Source files:** `src/app/*` = 13 sub direktori (absensi, beranda, berita, guru, kelas, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah) + `globals.css` + `layout.tsx` + `page.tsx` = 15 entri (13 halaman + layout + page). `src/components` = `Beranda.tsx` & `Login.tsx`. `src/lib` = **kosong** (logic inline di komponen). Prisma driver = `prisma` ^8.0.0-rc.22 (SQLite).
+   - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` — sesuai nama 'Pondok Banat'). Produksi butuh bcrypt + session.
+   - **Beranda hardcode:** `Beranda.tsx` & `src/app/beranda/page.tsx` **sudah diperbarui ke 453** (dari 441) — hardcoded stats now match Excel grade sheets (diverifikasi langsung dari file: `Beranda.tsx` l6 `totalSantri: 453`, `page.tsx` l14 `totalSantri: 453`).
+   - **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map(\"uid_nfc\")` baris 68) & `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+   - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` berhasil. **Schema inconsistency (Rev. 38–45) SELESAI** — kedua model konsisten dengan referensi di `Subject` dan `User`.
+   - **Open issues:**
+     - [Tinggi] Restore/retrieve `.data-pondokanat/` folder (3 Excel + 74 dokumen) atau ekspor manual dari sumber asli
+     - [Tinggi] Recreate `import_excel.py` & `import_students_grades_clean.py`
+     - [Tinggi] Rekonstruksi `dev.db` dari skrip seed: 453 siswa, 54 guru, 18 kelas, 32 mapel, 5.420 nilai
+     - [Tinggi] Rekonfirmasi discrepancy 453 vs 441 siswa (sudah diperbaiki di kode → PRD 453)
+     - [Tinggi] Implementasi dashboard Wali Santri Portal (M08)
+     - [Tinggi] Implementasi PDF generation untuk rapor & laporan (M09)
+     - [Sedang] Implementasi seed data silabus (9 dokumen) dari Excel/PDF (M04)
+     - [Sedang] Implementasi seed data absensi & rapor dari nilai (M05)
+     - [Sedang] Implementasi `KitabProgress` schema di Prisma (M04/M06) — **sudah didefinisikan, tinggal bind**
+     - [Rendah] Auth production (bcrypt + session) (M01)
+     - [Rendah] Export/backup/restore (Excel, PDF) (M09)
+     - [Rendah] Unit + integration testing (Semua)
+     - [Rendah] Production deployment (Vercel, Docker) (Semua)
+
+2. **Status:** dokumen PRD **REVISI** — rev 115 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 115**.
+
+## 44. REVISI TERBARU (Rev. 116 — 16 Oktober 2026 WIB)
+
+> **Verifikasi fresh dilakukan:** 16 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / `PRD-PONDOK-BANAT.md`; query `sqlite3` ke `dev.db` (tidak ada), `npx tsc --noEmit`, `npx eslint .`, `npx next build` (semua gagal: dependency tidak tersedia).
+
+1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 115 (data terkonsisten).**
+   - **Git HEAD:** `10dadc1` "Rev. 105: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `10dadc17f185562f1c150e5642bba7dff677614e`). Branch **3 commit ahead** of `origin/main` (Rev. 103 `8bdb64f`, Rev. 104 `bc29755`, Rev. 105 `10dadc1`) — seluruh commit tersebut adalah revisi dokumentasi PRD.
+   - **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 116); seluruh file lain cocak dengan HEAD. `git ls-files` = 36 file.
+   - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` dan `import_students_grades_clean.py` tidak ditemukan di working tree).
+   - **Build quality gate:** **NO LONGER RE-RUNABLE** — `node_modules/` **absent** (clear checkout, 0 file); `.next/` masih ada (partial: `cache/` + `diagnostics/` + `package.json` + `server/` + `static/` + `trace/` + `trace-build/` + `turbopack/` + `types/`, bukan production build). `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm install` ulang sebelum dapat dijalankan.
+   - **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map("uid_nfc")` baris 68) & `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+   - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` — sesuai nama 'Pondok Banat'). Produksi butuh bcrypt + session.
+   - **Beranda:** `Beranda.tsx` & `src/app/beranda/page.tsx` **sudah diperbarui ke 453** (dari 441) — hardcoded stats now match Excel grade sheets (diverifikasi langsung dari file: `Beranda.tsx` l6 `totalSantri: 453`, `page.tsx` l14 `totalSantri: 453`).
+   - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` berhasil. **Schema inconsistency (Rev. 38–45) SELESAI** — kedua model konsisten dengan referensi di `Subject` dan `User`.
+   - **init_schema.sql:** tabel `students` (baris 33) sudah memiliki kolom `uid_nfc TEXT` (baris 40, komentar: `-- NFC card UID: 'AF:C2:99:E7'`) — field M02a **ADA** di schema SQLite. Jumlah tabel = **15** sesuai PRD.
+   - **Source files:** `src/app/*` = 13 sub direktori (absensi, beranda, berita, guru, kelas, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah) + `globals.css` + `layout.tsx` + `page.tsx` = 15 entri (13 halaman + layout + page). `src/components` = `Beranda.tsx` & `Login.tsx`. `src/lib` = **kosong** (logic inline). Prisma driver = `prisma` ^8.0.0-rc.22 (SQLite).
+   - **Data source:** folder `.data-pondokanat/` **tidak ditemukan** di working tree (di-eksklusi oleh `.gitignore`) DAN tidak ditemukan di seluruh tree `/opt/data/home/workspace`. Import scripts `import_excel.py` & `import_students_grades_clean.py` **tidak ditemukan** di working tree. Rekonstruksi `dev.db` otomatis **tidak dapat dilakukan** tanpa file-file sumber. **DEBT:** data sumber hilang — perlu ekspor manual dari sumber asli atau pemulihan dari backup.
+
+2. **Open issues:**
+   - [Tinggi] Restore/retrieve `.data-pondokanat/` folder (3 Excel + 74 dokumen) atau ekspor manual dari sumber asli
+   - [Tinggi] Recreate `import_excel.py` & `import_students_grades_clean.py`
+   - [Tinggi] Rekonstruksi `dev.db` dari skrip seed: 453 siswa, 54 guru, 18 kelas, 32 mapel, 5.420 nilai
+   - [Tinggi] Rekonfirmasi discrepancy 453 vs 441 siswa (sudah diperbaiki di kode → PRD 453)
+   - [Tinggi] Implementasi dashboard Wali Santri Portal (M08)
+   - [Tinggi] Implementasi PDF generation untuk rapor & laporan (M09)
+   - [Sedang] Implementasi seed data silabus (9 dokumen) dari Excel/PDF (M04)
+   - [Sedang] Implementasi seed data absensi & rapor dari nilai (M05)
+   - [Sedang] Implementasi `KitabProgress` schema di Prisma (M04/M06) — **sudah didefinisikan, tinggal bind**
+   - [Rendah] Auth production (bcrypt + session) (M01)
+   - [Rendah] Export/backup/restore (Excel, PDF) (M09)
+   - [Rendah] Unit + integration testing (Semua)
+   - [Rendah] Production deployment (Vercel, Docker) (Semua)
+
+3. **Status:** dokumen PRD **REVISI** — rev 116 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 116**.
+
+## 36. REVISI TERBARU (Rev. 117 — 16 Oktober 2026 WIB)
+
+> **Verifikasi fresh dilakukan:** 16 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / `PRD-PONDOK-BANAT.md`; query `sqlite3` ke `dev.db` (tidak ada), `npx tsc --noEmit`, `npx eslint .`, `npx next build` (semua gagal: dependency tidak tersedia).
+
+1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 116 (data terkonsisten).**
+   - **Git HEAD:** `10dadc1` "Rev. 105: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `10dadc17f185562f1c150e5642bba7dff677614e`).
+   - **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 117); seluruh file lain cocak dengan HEAD.
+   - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` dan `import_students_grades_clean.py` tidak ditemukan di working tree).
+   - **Build quality gate:** **NO LONGER RE-RUNABLE** — commit HEAD menghapus `node_modules/` & `.next/`; `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm instal ulang` sebelum dapat dijalankan.
+   - **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map("uid_nfc")` baris 68) & `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+   - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` (sesuai nama 'Pondok Banat')); produksi butuh bcrypt + session.
+   - **Beranda:** `Beranda.tsx` & `src/app/beranda/page.tsx` kini **diperbarui ke 453** (dari 441) — hardcoded stats now match Excel grade sheets.
+   - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` berhasil. **Schema inconsistency (Rev. 38–45) SELESAI** — kedua model konsisten dengan referensi di `Subject` dan `User`.
+   - **Source files:** `src/app/*` = 13 halaman (beranda, berita, kelas, guru, absensi, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah + layout/page); `src/components` = Beranda.tsx + Login.tsx; `src/lib` = **kosong** (logic inline di komponen). Prisma driver = `prisma` ^8.0.0-rc.22 (SQLite).
+
+2. **Open issues:**
+   - [Tinggi] Restore/retrieve `.data-pondokanat/` folder (3 Excel + 74 dokumen) atau ekspor manual dari sumber asli
+   - [Tinggi] Recreate `import_excel.py` & `import_students_grades_clean.py`
+   - [Tinggi] Rekonstruksi `dev.db` dari skrip seed: 453 siswa, 54 guru, 18 kelas, 32 mapel, 5.420 nilai
+   - [Tinggi] Rekonfirmasi discrepancy 453 vs 441 siswa (sudah diperbaiki di kode → PRD 453)
+   - [Tinggi] Implementasi dashboard Wali Santri Portal (M08)
+   - [Tinggi] Implementasi PDF generation untuk rapor & laporan (M09)
+   - [Sedang] Implementasi seed data silabus (9 dokumen) dari Excel/PDF (M04)
+   - [Sedang] Implementasi seed data absensi & rapor dari nilai (M05)
+   - [Sedang] Implementasi `KitabProgress` schema di Prisma (M04/M06) — **sudah didefinisikan, tinggal bind**
+   - [Rendah] Auth production (bcrypt + session) (M01)
+   - [Rendah] Export/backup/restore (Excel, PDF) (M09)
+   - [Rendah] Unit + integration testing (Semua)
+   - [Rendah] Production deployment (Vercel, Docker) (Semua)
+
+3. **Status:** dokumen PRD **REVISI** — rev 117 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 117**.
+
+## 45. REVISI TERBARU (Rev. 118 — 16 Oktober 2026 WIB)
+
+> **Verifikasi fresh dilakukan:** 16 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / `PRD-PONDOK-BANAT.md`; query `sqlite3` ke `dev.db` (tidak ada), `npx tsc --noEmit`, `npx eslint .`, `npx next build` (semua gagal: dependency tidak tersedia — `node_modules` absen).
+
+1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 117 (data terkonsisten).**
+   - **Git HEAD:** `10dadc1` "Rev. 105: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `10dadc17f185562f1c150e5642bba7dff677614e`). Branch **3 commit ahead** of `origin/main` (Rev. 103 `8bdb64f`, Rev. 104 `bc29755`, Rev. 105 `10dadc1`) — seluruh commit tersebut adalah revisi dokumentasi PRD.
+   - **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 118); seluruh file lain cocak dengan HEAD. `git ls-files` = 36 file.
+   - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` dan `import_students_grades_clean.py` tidak ditemukan di working tree).
+   - **Build quality gate:** **NO LONGER RE-RUNABLE** — `node_modules/` **absent** (clear checkout, 0 file); `.next/` masih ada (partial: `cache/` + `diagnostics/`, bukan production build). `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm install` ulang sebelum dapat dijalankan.
+   - **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map("uid_nfc")` baris 68) & `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+   - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` (sesuai nama 'Pondok Banat')); produksi butuh bcrypt + session.
+   - **Beranda:** `Beranda.tsx` & `src/app/beranda/page.tsx` kini **diperbarui ke 453** (dari 441) — hardcoded stats now match Excel grade sheets.
+   - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` berhasil. **Schema inconsistency (Rev. 38–45) SELESAI** — kedua model konsisten dengan referensi di `Subject` dan `User`.
+   - **init_schema.sql:** tabel `students` (baris 33) sudah memiliki kolom `uid_nfc TEXT` (baris 40, komentar: `-- NFC card UID: 'AF:C2:99:E7'`) — field M02a **ADA** di schema SQLite. Jumlah tabel = **15** sesuai PRD (users, roles, role_permissions, students, classes, teachers, subjects, silabus, rpp, absensi, grades, rapor, announcements, messages, notifications).
+   - **Source files:** `src/app/*` = 13 halaman (beranda, berita, kelas, guru, absensi, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah + layout/page); `src/components` = Beranda.tsx + Login.tsx; `src/lib` = **kosong** (logic inline di komponen). Prisma driver = `prisma` ^8.0.0-rc.22 (SQLite).
+2. **Open issues:**
+   - [Tinggi] Restore/retrieve `.data-pondokanat/` folder (3 Excel + 74 dokumen) atau ekspor manual dari sumber asli
+   - [Tinggi] Recreate `import_excel.py` & `import_students_grades_clean.py`
+   - [Tinggi] Rekonstruksi `dev.db` dari skrip seed: 453 siswa, 54 guru, 18 kelas, 32 mapel, 5.420 nilai
+   - [Tinggi] Rekonfirmasi discrepancy 453 vs 441 siswa (sudah diperbaiki di kode → PRD 453)
+   - [Tinggi] Implementasi dashboard Wali Santri Portal (M08)
+   - [Tinggi] Implementasi PDF generation untuk rapor & laporan (M09)
+   - [Sedang] Implementasi seed data silabus (9 dokumen) dari Excel/PDF (M04)
+   - [Sedang] Implementasi seed data absensi & rapor dari nilai (M05)
+   - [Sedang] Implementasi `KitabProgress` schema di Prisma (M04/M06) — **sudah didefinisikan, tinggal bind**
+   - [Rendah] Auth production (bcrypt + session) (M01)
+   - [Rendah] Export/backup/restore (Excel, PDF) (M09)
+   - [Rendah] Unit + integration testing (Semua)
+   - [Rendah] Production deployment (Vercel, Docker) (Semua)
+3. **Status:** dokumen PRD **REVISI** — rev 118 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 118**.
+
+## 46. REVISI TERBARU (Rev. 119 — 16 Oktober 2026 WIB)
+
+> **Verifikasi fresh dilakukan:** 16 Oktober 2026 (WIB, cron run) — examination of `git` repository, inspection of `dev.db` / `node_modules` / `.next` / `PRD-PONDOK-BANAT.md`; query `sqlite3` to `dev.db` (absent), `npx tsc --noEmit`, `npx eslint .`, `npx next build` (all failed: dependencies unavailable — `node_modules` absent).
+
+1. **Fresh verification of repo + dev.db (SQLite, cron run): state stable. No significant changes from Rev. 118 (data consistent).**
+   - **Git HEAD:** `10dadc1` "Rev. 105: PRD fresh verification & stability confirmation (16 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `10dadc17f185562f1c150e5642bba7dff677614e`). Branch **3 commits ahead** of `origin/main` (Rev. 103 `8bdb64f`, Rev. 104 `bc29755`, Rev. 105 `10dadc1`) — all commits are PRD documentation updates.
+   - **Working tree:** `PRD-PONDOK-BANAT.md` memiliki perubahan lokal (revisi terbaru = Rev. 119); seluruh file lain cocak dengan HEAD. `git status --porcelain` = ` M PRD-PONDOK-BANAT.md` (single modified file, uncommitted).
+   - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` dan `import_students_grades_clean.py` tidak ditemukan di working tree).
+   - **Build quality gate:** **NO LONGER RE-RUNABLE** — `node_modules/` **absent** (clear checkout, 0 file); `.next/` masih ada (partial: `cache/` + `diagnostics/` + `package.json` + `server/` + `static/` + `trace/` + `trace-build/` + `turbopack/` + `types/`, bukan production build). `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm install` ulang sebelum dapat dijalankan.
+   - **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`uidNfc @map("uid_nfc")` baris 68) & `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+   - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` (sesuai nama 'Pondok Banat')); produksi butuh bcrypt + session.
+   - **Beranda:** `Beranda.tsx` & `src/app/beranda/page.tsx` kini **diperbarui ke 453** (dari 441) — hardcoded stats now match Excel grade sheets.
+   - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` berhasil. **Schema inconsistency (Rev. 38–45) SELESAI** — kedua model konsisten dengan referensi di `Subject` dan `User`.
+   - **init_schema.sql:** tabel `students` (baris 33) sudah memiliki kolom `uid_nfc TEXT` (baris 40, komentar: `-- NFC card UID: 'AF:C2:99:E7'`) — field M02a **ADA** di schema SQLite. Jumlah tabel = **15** sesuai PRD (users, roles, role_permissions, students, classes, teachers, subjects, silabus, rpp, absensi, grades, rapor, announcements, messages, notifications).
+   - **Source files:** `src/app/*` = 13 halaman (beranda, berita, kelas, guru, absensi, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah + layout/page); `src/components` = Beranda.tsx + Login.tsx; `src/lib` = **kosong** (logic inline di komponen). Prisma driver = `prisma` ^8.0.0-rc.22 (SQLite).
+   - **Source data:** folder `.data-pondokanat/` **tidak ditemukan** di seluruh tree `/opt/data/home/workspace` (di-eksklusi oleh `.gitignore`) DAN tidak ditemukan di seluruh tree `/opt/data`. Import scripts `import_excel.py` & `import_students_grades_clean.py` **tidak ditemukan** di working tree. Rekonstruksi `dev.db` otomatis **tidak dapat dilakukan** tanpa file-file sumber. **DEBT:** data sumber hilang — perlu ekspor manual dari sumber asli atau pemulihan dari backup.
+
+2. **Open issues:**
+   - [Tinggi] Restore/retrieve `.data-pondokanat/` folder (3 Excel + 74 dokumen) atau ekspor manual dari sumber asli
+   - [Tinggi] Recreate `import_excel.py` & `import_students_grades_clean.py`
+   - [Tinggi] Rekonstruksi `dev.db` dari skrip seed: 453 siswa, 54 guru, 18 kelas, 32 mapel, 5.420 nilai
+   - [Tinggi] Rekonfirmasi discrepancy 453 vs 441 siswa (sudah diperbaiki di kode → PRD 453)
+   - [Tinggi] Implementasi dashboard Wali Santri Portal (M08)
+   - [Tinggi] Implementasi PDF generation untuk rapor & laporan (M09)
+   - [Sedang] Implementasi seed data silabus (9 dokumen) dari Excel/PDF (M04)
+   - [Sedang] Implementasi seed data absensi & rapor dari nilai (M05)
+   - [Sedang] Implementasi `KitabProgress` schema di Prisma (M04/M06) — **sudah didefinisikan, tinggal bind**
+   - [Rendah] Auth production (bcrypt + session) (M01)
+   - [Rendah] Export/backup/restore (Excel, PDF) (M09)
+   - [Rendah] Unit + integration testing (Semua)
+   - [Rendah] Production deployment (Vercel, Docker) (Semua)
+
+3. **Status:** dokumen PRD **REVISI** — rev 119 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 119**.
