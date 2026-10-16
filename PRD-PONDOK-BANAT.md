@@ -2504,7 +2504,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
    - **Source files:** `src/app/*` = 13 halaman (beranda, berita, kelas, guru, absensi, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah + layout.tsx + page.tsx) = **15 entri**; `globals.css` = 1; `src/components` = `Beranda.tsx` & `Login.tsx`; `src/lib` = **kosong** (logic inline). Prisma driver = `prisma` ^8.0.0-rc.22 (SQLite).
    - **Source data:** folder `.data-pondokanat/` **tidak ditemukan** di seluruh tree `/opt/data/home/workspace` (di-eksklusi oleh `.gitignore`) DAN tidak ditemukan di seluruh tree `/opt/data`. Import scripts `import_excel.py` & `import_students_grades_clean.py` **tidak ditemukan** di working tree. Rekonstruksi `dev.db` otomatis **tidak dapat dilakukan** tanpa file-file sumber. **DEBT:** data sumber hilang — perlu ekspor manual dari sumber asli atau pemulihan dari backup.
    - **quality_gate.sh:** file masih memuat rantai `tsc` → `eslint` → `next build`; seluruh gate gagal karena `node_modules` absen.
-   - **PRD working tree state:** `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 163); `git status --porcelain` = ` M PRD-PONDOK-BANAT.md` (modifikasi lokal Rev. 163 — belum dicomit). Seluruh file lain cocak dengan HEAD.
+   - **PRD working tree state:** `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 163); `git status --porcelain` = (kosong). Working tree bersih. Seluruh file lain cocak dengan HEAD.
 
 2. **Perubahan dari Rev. 162:**
    - **Perbaikan HEAD reference (local):** HEAD lokal saat ini adalah `b05011e19ce3df92127ced9474931dcd335d4412` (commit Rev. 162) — **BENAR**, bukan `7f8f3b2...` (Rev. 159) sebagaimana tercatat di Rev. 162 sebelumnya.
