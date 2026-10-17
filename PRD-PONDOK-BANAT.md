@@ -2579,7 +2579,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 3. **Status:** dokumen PRD **REVISI** — rev 170 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD = `7d36def0ade82706d81c80cf2cd386cdbd836ac2` (Rev. 169). Working tree bersih untuk tracked files. Branch 0 commit ahead `origin/main` (`7d36def`). Seluruh perubahan akan dicomit ke HEAD.
 
---- ## 58. REVISI TERBARU (Rev. 171 — 17 Oktober 2026 WIB)
+--- 
 
 > **Verifikasi fresh dilakukan:** 17 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / `PRD-PONDOK-BANAT.md`; query `sqlite3` ke `dev.db` (tidak ada); verifikasi isi file: header PRD.
 
