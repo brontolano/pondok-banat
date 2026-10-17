@@ -3654,8 +3654,8 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > **Catatan terkini:** branch `main` kini **40** commits ahead origin/main (PRD Rev. 204 mencatat 39 — selisih 1 commit = commit Rev. 204 lokal `19c8e2a`). Untracked files bertambah dari 20 menjadi **21** file.
 
 1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 204 (data terkonsisten).**
-   - **Git HEAD (local):** `19c8e2a03e36e87b82ab44b2f8331c04cdce06e6` "Rev. 204: PRD fresh verification & stability confirmation (17 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`). Branch **40** commits ahead origin/main (`27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` = Rev. 163 fix) — diperbaiki dari 39 menjadi 40.
-   - **Git HEAD (origin/main):** `27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` (Rev. 163 fix). Local branch **40** commits ahead.
+   - **Git HEAD (local):** `7bbc13922c948a0225b16494e082b30b070f0505` "Rev. 204: PRD fresh verification & stability confirmation (17 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`). Branch **42** commits ahead origin/main (`27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` = Rev. 163 fix) — diperbaiki dari 39 menjadi 42.
+   - **Git HEAD (origin/main):** `27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` (Rev. 163 fix). Local branch **42** commits ahead.
    - **Git ls-files:** = **36 file**. `git status --porcelain` = `??` (**21 file tambahan tidak ter-track** — bertambah 1 dari Rev. 204). PRD-PONDOK-BANAT.md memiliki perubahan lokal (revisi terbaru = Rev. 205); Working tree **tidak bersih** (revisi Rev. 205 akan dicommit).
    - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan .gitignore mencantumkan *.db. Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (init_db.py, init_schema.sql; import_excel.py dan import_students_grades_clean.py tidak ditemukan di working tree).
    - **Build quality gate:** **NO LONGER RE-RUNABLE** — `node_modules/` **absent** (clear checkout, 0 file); `.next/` **masih ada (partial: cache + diagnostics + package.json + server + static + trace + trace-build + turbopack + types, bukan production build)**. `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm instal ulang` sebelum dapat dijalankan.
@@ -3673,7 +3673,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 2. **Perubahan dari Rev. 204:**
    - **Header PRD:** diperbarui ke **Rev. 205** (tanggal 17 Oktober 2026 WIB).
    - **New Section 92 (Rev. 205):** ditambahkan untuk verifikasi fresh ulang & konfirmasi stabilitas Rev. 205.
-   - **Branch ahead count:** diperbaiki dari 39 → **40** commit (akumulasi commit Rev. 204 lokal `19c8e2a`).
+   - **Branch ahead count:** diperbaiki dari 39 → **42** commit (akumulasi commit Rev. 204 lokal `19c8e2a`).
    - **Untracked files:** 21 (ditambah `update_prd_189.py`).
 
 3. **Open issues:**
@@ -3691,6 +3691,6 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
    - [Rendah] Unit + integration testing (Semua)
    - [Rendah] Production deployment (Vercel, Docker) (Semua)
 
-4. **Status:** dokumen PRD **REVISI** — rev 205 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD = `19c8e2a03e36e87b82ab44b2f8331c04cdce06e6` (Rev. 204). Working tree **tidak bersih** (revisi Rev. 205 akan dicommit). Branch **40** commits ahead `origin/main` (`27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` = Rev. 163 fix).
+4. **Status:** dokumen PRD **REVISI** — rev 205 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD = `7bbc13922c948a0225b16494e082b30b070f0505` (Rev. 205). Working tree **tidak bersih** (revisi Rev. 205 akan dicomit). Branch **42** commits ahead `origin/main` (`27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` = Rev. 163 fix).
 
 *Verifikasi dilakukan lewat: query `sqlite3` ke `dev.db` (tidak ada), `git` (HEAD/status/ahead/ls-files), `ls` (dev.db/node_modules/.data-pondokanat), `cat` (quality_gate.sh), `grep` (prisma schema, init_schema.sql, source files).
