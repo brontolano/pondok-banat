@@ -4219,8 +4219,8 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 218 (data terkonsisten).**
 
-   - **Git HEAD (local):** `<NEW_COMMIT>` "Rev. 219: PRD fresh verification & stability confirmation (18 Oct 2026 WIB); added section 65" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `<NEW_COMMIT>`). Local branch **60** commits ahead dari `origin/main` (`27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` = Rev. 163 fix).
-   - **Git HEAD (origin/main):** `27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` (Rev. 163 fix). Local branch **60** commits ahead.
+   - **Git HEAD (local):** `27603a67daa7d0ac48e59aae7b8503cc7ad2d1ee` "Rev. 219: PRD fresh verification & stability confirmation (18 Oct 2026 WIB); added section 65" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `27603a67daa7d0ac48e59aae7b8503cc7ad2d1ee`). Local branch **61** commits ahead dari `origin/main` (`27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` = Rev. 163 fix).
+   - **Git HEAD (origin/main):** `27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` (Rev. 163 fix). Local branch **61** commits ahead.
    - **Git ls-files:** = **36 file**. `git status --porcelain` = `??` (**27 file tambahan tidak ter-track** — skrip helper development). PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi Rev. 219 akan ditambahkan sebagai lokasi baru; Rev. 218 telah dicomit ke HEAD). Working tree **bersih** untuk tracked files, selain 27 file helper development yang tidak ter-track.
    - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan .gitignore mencantumkan *.db. Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` dan `import_students_grades_clean.py` tidak ditemukan di working tree).
    - **Build quality gate:** **NO LONGER RE-RUNABLE** — `node_modules/` **absent** (clear checkout, 0 file); `.next/` **masih ada (partial: cache + diagnostics + package.json + server + static + trace + trace-build + turbopack + types, bukan production build)**. `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm instal ulang` sebelum dapat dijalankan.
@@ -4234,14 +4234,14 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
    - **quality_gate.sh:** file masih memuat rantai `tsc` → `eslint` → `next build`; seluruh gate gagal karena `node_modules` absen.
    - **`.next/` directory:** entri = cache, diagnostics, package.json, server, static, trace, trace-build, turbopack, types (**9 entri** — dikonfirmasi; node_modules absen).
    - **Untracked files:** **27 file** (bersih vs HEAD; `git status --porcelain` = `??`): clean_prd.py, clean_prd2.py, clean_prd3.py, clean_prd4.py, fix_header_status.py, fix_newline.py, fix_prd.py, fix_prd2.py, fix_prd3.py, fix_prd4.py, fix_prd5.py, fix_prd6.py, fix_prd7.py, fix_prd8.py, fix_prd9.py, fix_prd218.py, fix_prd218b.py, hex_dump.py, rev186_section.md, rev206_section.md, rev218_content.md, section61.md, section85.md, update_prd.py, update_prd_165.py, update_prd_188.py, update_prd_189.py. Semua adalah skrip pengembangan sementara (untuk manipulasi Rev. 163–219), tidak termasuk commit.
-   - **Branch ahead count:** **60** commit (sesuai `git rev-list --count origin/main..HEAD`).
-   - **HEAD citation:** `<NEW_COMMIT>` (Rev. 219: PRD fresh verification & stability confirmation; added section 65).
+   - **Branch ahead count:** **61** commit (sesuai `git rev-list --count origin/main..HEAD`).
+   - **HEAD citation:** `27603a67daa7d0ac48e59aae7b8503cc7ad2d1ee` (Rev. 219: PRD fresh verification & stability confirmation; added section 65).
 
 2. **Perubahan dari Rev. 218:**
    - **Header PRD:** diperbarui ke **Rev. 219** (tanggal 18 Oktober 2026 WIB).
    - **New Section 65 (Rev. 219):** ditambahkan untuk verifikasi fresh ulang & konfirmasi stabilitas.
-   - **HEAD:** diperbarui ke `<NEW_COMMIT>`.
-   - **Branch ahead:** **60** commit (sebelumnya 59).
+   - **HEAD:** diperbarui ke `27603a67daa7d0ac48e59aae7b8503cc7ad2d1ee`.
+   - **Branch ahead:** **61** commit (sebelumnya 59).
    - **Working tree:** bersih untuk tracked files; PRD telah dicomit ke HEAD.
 
 3. **Open issues:**
@@ -4259,4 +4259,4 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
    - [Rendah] Unit + integration testing (Semua)
    - [Rendah] Production deployment (Vercel, Docker) (Semua)
 
-4. **Status:** dokumen PRD **REVISI** — rev 219 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD = `<NEW_COMMIT>`. Working tree bersih untuk tracked files. Branch **60** commits ahead `origin/main` (`27ca1d2a53b79c513cae9746cc0be9dfe9d783fa`). Seluruh perubahan telah dicomit ke HEAD.
+4. **Status:** dokumen PRD **REVISI** — rev 219 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD = `27603a67daa7d0ac48e59aae7b8503cc7ad2d1ee`. Working tree bersih untuk tracked files. Branch **61** commits ahead `origin/main` (`27ca1d2a53b79c513cae9746cc0be9dfe9d783fa`). Seluruh perubahan telah dicomit ke HEAD.
