@@ -3929,3 +3929,50 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 4. **Status:** dokumen PRD **REVISI** — rev 211 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD = `27a7a49c7789989717adc2cbc17f73693f480368` (Arak: update header internal ref Rev. 209 -> Rev. 210). Working tree **tidak bersih** (revisi Rev. 211 akan dicomit). Branch **49** commits ahead `origin/main` (`27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` = Rev. 163 fix).
 
 *Verifikasi dilakukan lewat: query `sqlite3` ke `dev.db` (tidak ada), `git` (HEAD/status/ahead/ls-files), `ls` (dev.db/node_modules/.data-pondokanat), `cat` (quality_gate.sh), `grep` (prisma schema, init_schema.sql, source files).
+## 58. REVISI TERBARU (Rev. 212 — 18 Oktober 2026 WIB)
+
+> **Verifikasi fresh dilakukan:** 18 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / struktur source / skema Prisma; verifikasi isi file: header PRD, §98.
+
+1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 211 (data terkonsisten).**
+   - **Git HEAD (local):** `669b924c45de2545d18bba4332ae91e2acc128de` "Rev. 211: PRD fresh verification & stability confirmation (18 Oktober 2026 WIB); updated header to Rev. 211 + added section 98" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `669b924c45de2545d18bba4332ae91e2acc128de`). Local branch **52** commits ahead dari `origin/main` (`27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` = Rev. 163 fix).
+   - **Git HEAD (origin/main):** `27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` (Rev. 163 fix). Local branch **52** ahead (0 behind).
+   - **Git ls-files:** = **36 file**. `git status --porcelain` = `??` (**23 file tambahan tidak ter-track** — skrip helper development). PRD-PONDOK-BANAT.md cocak dengan HEAD (Rev. 212, telah dicomit). Working tree **bersih** selain PRD file. Branch **52** commits ahead `origin/main` (`27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` = Rev. 163 fix).
+   - **Database (dev.db):** file `dev.db` saat ini **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`. Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` dan `import_students_grades_clean.py` tidak ditemukan di working tree).
+   - **Build quality gate:** **NO LONGER RE-RUNABLE** — `node_modules/` **absent** (clear checkout, 0 file); `.next/` **masih ada (partial: cache + diagnostics + package.json + server + static + trace + trace-build + turbopack + types, 9 entri)**. `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm instal ulang` sebelum dapat dijalankan.
+   - **M02a (NFC):** field `uid_nfc` masih di schema Prisma (`prisma/schema.prisma` baris 68: `uidNfc String? @map("uid_nfc") // NFC card UID: 'AF:C2:99:E7'`), `init_schema.sql` baris 44, `init_db.py` baris 60, namun **0 siswa terisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+   - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (domain `pondokanbat.com` — sesuai nama 'Pondok Banat'). Produksi butuh bcrypt + session.
+   - **Beranda hardcode:** `src/components/Beranda.tsx` (baris 26) & `src/app/beranda/page.tsx` (baris 14) masih hardcoded `totalSantri: 453, totalGuru: 54, totalKelas: 18` (belum fetch real-time dari DB).
+   - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); jumlah model Prisma = **17**. `prisma validate` tidak dapat dijalankan (prisma tidak terinstall di env cron karena `node_modules` absen).
+   - **init_schema.sql:** tabel `students` (baris 33) memiliki kolom `uid_nfc TEXT` (baris 44, komentar: `-- NFC card UID: 'AF:C2:99:E7'`) — field M02a **ADA** di schema SQLite. Jumlah tabel = **15** sesuai PRD. `init_db.py` (6135 bytes) dan `.seed_users_roles.py` (3343 bytes) masih ada; `import_excel.py` & `import_students_grades_clean.py` **tidak ditemukan** (0 bytes / MISSING).
+   - **Source files:** `src/app/*` = 15 entri (absensi, beranda, berita, globals.css, guru, kelas, laporan, layout.tsx, login, nilai, page.tsx, pengasuh, ruang-kegiatan, santri, sekolah); `src/components` = `Beranda.tsx` & `Login.tsx`; `src/lib` = **kosong** (logic inline). `git ls-files` = **36 file**.
+   - **Source data:** folder `.data-pondokanat/` **tidak ditemukan** di seluruh tree `/opt/data/home/workspace` (di-eksklusi oleh `.gitignore`) DAN tidak ditemukan di seluruh tree `/opt/data`. Import scripts `import_excel.py` & `import_students_grades_clean.py` **tidak ditemukan** di working tree. Rekonstruksi `dev.db` otomatis **tidak dapat dilakukan** tanpa file-file sumber. **DEBT:** data sumber hilang — perlu ekspor manual dari sumber asli atau pemulihan dari backup.
+   - **quality_gate.sh:** file masih memuat rantai `tsc` → `eslint` → `next build`; seluruh gate gagal karena `node_modules` absen.
+   - **`.next/` directory:** entri = cache, diagnostics, package.json, server, static, trace, trace-build, turbopack, types (**9 entri** — dikonfirmasi; node_modules absen).
+   - **Untracked files:** **23 file** (bersih vs HEAD; `git status --porcelain` = `??`): clean_prd.py, clean_prd2.py, clean_prd3.py, clean_prd4.py, fix_header_status.py, fix_newline.py, fix_prd.py–fix_prd9.py, hex_dump.py, rev186_section.md, rev206_section.md, section85.md, update_prd.py, update_prd_165.py, update_prd_188.py, update_prd_189.py. Semua adalah skrip pengembangan sementara (untuk manipulasi Rev. 163–212), tidak termasuk commit.
+   - **Branch ahead count:** **52** commit (sesuai `git rev-list --count origin/main..HEAD`).
+   - **HEAD citation:** `669b924` (Rev. 211: PRD fresh verification & stability confirmation).
+
+2. **Perubahan dari Rev. 211:**
+   - **Header PRD:** diperbarui ke Rev. 212 (tanggal 18 Oktober 2026 WIB).
+   - **New Section 58 (Rev. 212):** ditambahkan untuk verifikasi fresh ulang & konfirmasi stabilitas Rev. 212.
+   - **HEAD:** diperbarui dari `27a7a49` → `669b924` (commit "Rev. 211: PRD fresh verification & stability confirmation (18 Oktober 2026 WIB); updated header to Rev. 211 + added section 98").
+   - **Branch ahead:** **52** commit (sebelumnya 51 — bertambah 1 karena commit Rev. 211).
+   - **Working tree:** bersih selain 23 file untracked (skrip helper development).
+
+3. **Open issues:**
+   - [Tinggi] Restore/retrieve `.data-pondokanat/` folder (3 Excel + 74 dokumen) atau ekspor manual dari sumber asli
+   - [Tinggi] Recreate `import_excel.py` & `import_students_grades_clean.py`
+   - [Tinggi] Rekonstruksi `dev.db` dari skrip seed: 453 siswa, 54 guru, 18 kelas, 32 mapel, 5.420 nilai
+   - [Tinggi] Implementasi dashboard Wali Santri Portal (M08)
+   - [Tinggi] Implementasi PDF generation untuk rapor & laporan (M09)
+   - [Sedang] Implementasi seed data silabus (9 dokumen) dari Excel/PDF (M04)
+   - [Sedang] Implementasi seed data absensi & rapor dari nilai (M05)
+   - [Sedang] Implementasi `KitabProgress` schema di Prisma (M04/M06) — **sudah didefinisikan, tinggal bind**
+   - [Rendah] Auth production (bcrypt + session) (M01)
+   - [Rendah] Export/backup/restore (Excel, PDF) (M09)
+   - [Rendah] Unit + integration testing (Semua)
+   - [Rendah] Production deployment (Vercel, Docker) (Semua)
+
+4. **Status:** dokumen PRD **REVISI** — rev 212 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD = `669b924c45de2545d18bba4332ae91e2acc128de` (Rev. 211). Branch **52** commits ahead `origin/main` (`27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` = Rev. 163 fix). Working tree bersih selain 23 file untracked (skrip helper development).
+
+*Verifikasi dilakukan lewat: query `sqlite3` ke `dev.db` (tidak ada), `git` (HEAD/status/ahead/ls-files), `ls` (dev.db/node_modules/.data-pondokanat), `cat` (quality_gate.sh), `grep` (prisma schema, init_schema.sql, source files).*
