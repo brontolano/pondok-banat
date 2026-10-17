@@ -3651,7 +3651,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 > **Verifikasi fresh dilakukan:** 17 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / `.data-pondokanat` / struktur source / skema Prisma; verifikasi isi file: header PRD, §1–§91.
 >
-> **Catatan terkini:** branch `main` kini **40** commits ahead origin/main (PRD Rev. 204 mencatat 39 — selisih 1 commit = commit Rev. 204 lokal `19c8e2a`). Untracked files bertambah dari 20 menjadi **21** file.
+> **Catatan terkini:** branch `main` kini **42** commits ahead origin/main (PRD Rev. 204 mencatat 39 — selisih 1 commit = commit Rev. 204 lokal `19c8e2a`). Untracked files bertambah dari 20 menjadi **21** file.
 
 1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 204 (data terkonsisten).**
    - **Git HEAD (local):** `7bbc13922c948a0225b16494e082b30b070f0505` "Rev. 204: PRD fresh verification & stability confirmation (17 Oct 2026 WIB)" (branch `main`, remote `brontolano/pondok-banat`). Branch **42** commits ahead origin/main (`27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` = Rev. 163 fix) — diperbaiki dari 39 menjadi 42.
