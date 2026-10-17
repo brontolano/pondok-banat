@@ -3693,7 +3693,9 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 4. **Status:** dokumen PRD **REVISI** — rev 205 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD = `7bbc13922c948a0225b16494e082b30b070f0505` (Rev. 205). Working tree **tidak bersih** (revisi Rev. 205 akan dicomit). Branch **42** commits ahead `origin/main` (`27ca1d2a53b79c513cae9746cc0be9dfe9d783fa` = Rev. 163 fix).
 
-*Verifikasi dilakukan lewat: query `sqlite3` ke `dev.db` (tidak ada), `git` (HEAD/status/ahead/ls-files), `ls` (dev.db/node_modules/.data-pondokanat), `cat` (quality_gate.sh), `grep` (prisma schema, init_schema.sql, source files).## 93. REVISI TERBARU (Rev. 206 — 18 Oktober 2026 WIB)
+*Verifikasi dilakukan lewat: query `sqlite3` ke `dev.db` (tidak ada), `git` (HEAD/status/ahead/ls-files), `ls` (dev.db/node_modules/.data-pondokanat), `cat` (quality_gate.sh), `grep` (prisma schema, init_schema.sql, source files).
+
+## 93. REVISI TERBARU (Rev. 206 — 18 Oktober 2026 WIB)
 
 > **Verifikasi fresh dilakukan:** 18 Oktober 2026 (WIB, cron run) — pemeriksaan `git` ke repo, pemeriksaan `dev.db` / `node_modules` / `.next` / struktur source / skema Prisma; verifikasi isi file: header PRD, §92.
 
