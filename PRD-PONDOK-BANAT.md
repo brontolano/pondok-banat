@@ -6940,10 +6940,6 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 3. **Status:** dokumen PRD **REVISI** — rev 313 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 313**. Git HEAD = `1d0b86c` (Rev. 311, commit 1d0b86c). Origin/main = `74b54cfde74daeb356595d0abacee173537f7992` (Rev. 309); **4 commits ahead**, **0 commit behind**.
 
----
-
-## 92. REVISI TERBARU (Rev. 313 — 19 Oktober 2026 WIB)
-
 > **Verifikasi fresh dilakukan:** 19 Oktober 2026 (WIB, cron run) — query `sqlite3` ke `dev.db`, `npx tsc --noEmit`, `npx eslint .`, `npx next build`.
 
 1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 312 (data terkonsisten).**
