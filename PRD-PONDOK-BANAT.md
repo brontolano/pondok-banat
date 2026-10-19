@@ -7318,7 +7318,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 2. **Perubahan dari Rev. 324:**
    - **Header PRD:** diperbarui ke **Rev. 325** (tanggal 20 Oktober 2026 WIB).
    - **New Section 110 (Rev. 325):** ditambahkan untuk verifikasi fresh ulang & konfirmasi stabilitas Rev. 325.
-   - **Referensi HEAD:** section 109 (Rev. 324) mencatat HEAD sebagai `4b24651` (Rev. 323, commit dbf2fe0) sebab state verifikasi dites sebelum commit Rev. 324. State terkini HEAD = `4b246510265ea3b38962d400cba6426a68105458` (Rev. 324, commit 4b24651, **18 commits ahead** origin.main.
+   - **Referensi HEAD:** section 109 (Rev. 324) mencatat HEAD sebagai `dbf2fe0` (Rev. 323, commit dbf2fe0) sebab state verifikasi dites sebelum commit Rev. 324. State terkini HEAD = `4b246510265ea3b38962d400cba6426a68105458` (Rev. 324, commit 4b24651, **18 commits ahead** origin.main.
    - **Perbaikan hitungan branch:** `git rev-list --count origin/main..HEAD` = **18** (sebelumnya 17); `git rev-list --count HEAD..origin/main` = **0**.
 
 3. **Status:** dokumen PRD **REVISI** — rev 325 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 325**. Git HEAD = `4b24651` (Rev. 324, commit 4b24651, **18 commits ahead** origin.main.
