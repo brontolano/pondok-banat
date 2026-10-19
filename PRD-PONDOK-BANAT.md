@@ -7070,7 +7070,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
    - [Rendah] Unit + integration testing (Semua)
    - [Rendah] Production deployment (Vercel, Docker) (Semua)
 
-3. **Status:** dokumen PRD **REVISI** — rev 314 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 314**. Git HEAD = `b241c36` (Rev. 314, commit b241c36). Origin/main = `74b54cfde74daeb356595d0abacee173537f7992` (Rev. 309); **6 commits ahead**, **0 commit behind**.</span>
+3. **Status:** dokumen PRD **REVISI** — rev 314 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbaruki ke **Rev. 314**. Git HEAD = `6d459e0` (Rev. 314, commit 6d459e0). Origin/main = `74b54cfde74daeb356595d0abacee173537f7992` (Rev. 309); **7 commits ahead**, **0 commit behind**.
 
 
 ## 100. REVISI TERBARU (Rev. 315 — 19 Oktober 2026 WIB)
