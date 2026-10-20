@@ -1,0 +1,12 @@
+Rev. 291: PRD fresh verification & stability confirmation (20 Oct 2026 WIB); updated header to Rev. 291 + added new section 69
+
+- Git HEAD (local): 725c689ac2b3c473cd3e0702f4944918f30ddc52 (Rev. 290)
+- git rev-parse HEAD updated to 725c689ac...
+- Local branch: 4 commit ahead of origin/main
+- dev.db: absent (released by commit HEAD "Release: clean core files only" 1dc891d)
+- Build quality gate: NO LONGER RE-RUNABLE (node_modules absent)
+- M02a (NFC): uid_nfc field exists but 0 siswa terisi (all NULL)
+- Auth: Login.tsx still hardcoded admin@pondokanbat.com / admin123
+- Build: Next.js 16.4.0 + ESLint 10.12.0 + TypeScript 6.0.3
+- Source files: 15 entries (12 subdirs + globals.css, layout.tsx, page.tsx)
+- Prisma schema: 17 models, all defined
