@@ -414,7 +414,12 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 Compact changelog (satu baris per revisi; seluruh verifikasi fresh & konsistensi data):
     116. 16 Oktober 2026 (WIB): verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD 10dadc1 `. HEAD`. Siswa: 453.
-    117. 16 Oktober 2026 (WIB): verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD 10dadc1 `. HEAD`. Siswa: 453.
+
+    396. 21 Oktober 2026 (WIB): verifikasi fresh ulang & konfirmasi stabilitas; HEAD `92f1b23` (Rev. 395), 2 commits ahead origin_main; `dev.db` tidak ada (absent); node_modules **absent** (dihapus setelah Rev. 377; build quality gate **tidak dapat dijalankan** tanpa `npm ci`). Siswa: 453.
+
+> **Verifikasi fresh dilakukan:** 21 Oktober 2026 (WIB, cron run) — query `sqlite3` ke `dev.db`, `npx tsc --noEmit`, `npx eslint .`, `npx next build`.
+
+1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 395 (data terkonsisten).**    117. 16 Oktober 2026 (WIB): verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD 10dadc1 `. HEAD`. Siswa: 453.
     118. 16 Oktober 2026 (WIB): verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD 10dadc1 `. HEAD`. Siswa: 453.
     120. 16 Oktober 2026 (WIB): verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD 02a6a4c `. HEAD`. Siswa: 453.
     121. 16 Oktober 2026 (WIB): verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD 02a6a4c `. HEAD`. Siswa: 453.
