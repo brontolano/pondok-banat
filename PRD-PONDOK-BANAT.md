@@ -410,7 +410,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 *Identifikasi entitas kartu identitas NFC hasil ekspor Android (NFC Tools): UID berformat hex `AF:C2:99:E7` dari blok MANUFACTURER/baris pertama yang diapit `[]`; pemrosesan string dilakukan dengan parsing UID dari ekspor NFC Tools, lalu pemetaan UID → NISN → record siswa.*
 
 
-## 11. REVISI TERBARU (Rev. 116–392 — 26 Oktober 2026 WIB)
+## 11. REVISI TERBARU (Rev. 116–393 — 28 Oktober 2026 WIB)
 
 Compact changelog (satu baris per revisi; seluruh verifikasi fresh & konsistensi data):
     116. 16 Oktober 2026 (WIB): verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. HEAD 10dadc1 `. HEAD`. Siswa: 453.
