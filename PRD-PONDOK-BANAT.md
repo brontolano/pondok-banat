@@ -717,13 +717,13 @@ Compact changelog (satu baris per revisi; seluruh verifikasi fresh & konsistensi
    - **Beranda hardcode:** `Beranda.tsx` & `src/app/beranda/page.tsx` sudah menggunakan `totalSantri: 453` (konsisten dengan konstanta PRD §9.1/§10.1).
    - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses. Schema inconsistency (Rev. 38–45) SELESAI — kedua model konsisten dengan referensi di `Subject` dan `User`.
    - **Status:** dokumen PRD **REVISI** — rev 379 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. State stabil, tidak ada perubahan signifikan dari Rev. 378.
-## 12. REVISI TERBARU (Rev. 422 — 22 Oktober 2026 WIB)
+## 12. REVISI TERBARU (Rev. 423 — 22 Oktober 2026 WIB)
 
 > **Verifikasi fresh dilakukan:** 22 Oktober 2026 (WIB, cron run) — query `sqlite3` ke `dev.db`, `npx tsc --noEmit`, `npx eslint .`, `npx next build`.
 
 1. **Verifikasi fresh kondisi repository + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 420 (data terkonsisten).**
-   - **Git HEAD (local):** `b9f57c8ca5ce4a34a896ecc0612b8d67657c07f7` (Rev. 422: PRD fresh verification & stability confirmation; HEAD b9f57c8 (Rev. 422), 29 / 0 (29 commits ahead origin_main)).
-   - **Working tree:** `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 422 — lihat §13); seluruh file lain cocak dengan HEAD; untracked: skrip utility (tidak terpantau dalam git). `git ls-files` = 186 file.
+   - **Git HEAD (local):** `2ffa0eb2e017e21f1a2bd97bfc287322cac1d155` (Rev. 423: PRD fresh verification & stability confirmation; HEAD 2ffa0eb (Rev. 423), 30 / 0 (30 commits ahead origin_main)).
+   - **Working tree:** `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 423 — lihat §13); seluruh file lain cocak dengan HEAD; untracked: skrip utility (tidak terpantau dalam git). `git ls-files` = 186 file.
    - **Database (dev.db):** file `dev.db` **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` & `import_students_grades_clean.py` tidak ditemukan di working tree).
    - **Data sumber:** folder `.data-pondokanat/` **tidak ditemukan** di working tree (di-eksklusi oleh `.gitignore`). Import scripts `import_excel.py` & `import_students_grades_clean.py` **tidak ditemukan** di working tree. Rekonstruksi `dev.db` otomatis **tidak dapat dilakukan** tanpa file-file sumber.
    - **Build quality gate:** **NOT RE-RUNABLE** — `node_modules/` **absent** (dihapus setelah Rev. 377; `npm ci` diperlukan untuk memulihkan); `.next/` masih ada (partial: `cache/` + `diagnostics/` + `package.json` + `server/` + `static/` + `types/` + trace files, bukan production build). `tsc --noEmit`, `npm run lint`, `npm run build` **tidak dapat dijalankan** karena `node_modules/` **absent**; `npm ci` diperlukan untuk memulihkan sebelum melakukan type-check/lint/build.
@@ -732,7 +732,7 @@ Compact changelog (satu baris per revisi; seluruh verifikasi fresh & konsistensi
    - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (typo domain `pondokanat.com`); produksi butuh bcrypt + session.
    - **Beranda hardcode:** `Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri: 453, totalGuru: 54, totalKelas: 18` (belum fetch real-time dari DB).
    - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses. Schema inconsistency (Rev. 38–45) SELESAI — kedua model konsisten dengan referensi di `Subject` dan `User`.
-   - **Status:** dokumen PRD **REVISI** — rev 422 = verifikasi fresh ulang & konfirmasi stabilitas di 22 Oktober 2026 (cron run); HEAD `b9f57c8ca5ce4a34a896ecc0612b8d67657c07f7` (Rev. 422: PRD fresh verification & stability confirmation), 29 / 0 (29 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 421.
+   - **Status:** dokumen PRD **REVISI** — rev 423 = verifikasi fresh ulang & konfirmasi stabilitas di 22 Oktober 2026 (cron run); HEAD `2ffa0eb2e017e21f1a2bd97bfc287322cac1d155` (Rev. 423: PRD fresh verification & stability confirmation), 30 / 0 (30 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 422.
 
 > *Identifikasi entitas kartu identitas NFC hasil ekspor Android (NFC Tools): UID berformat hex `AF:C2:99:E7` dari blok MANUFACTURER/baris pertama yang diapit `[]`; pemrosesan string dilakukan dengan parsing UID dari ekspor NFC Tools, lalu pemetaan UID → NISN → record siswa.*
 ## 13. DAFTAR REVISI (REFERENSI)
