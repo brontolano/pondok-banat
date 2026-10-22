@@ -751,7 +751,7 @@ Compact changelog (satu baris per revisi; seluruh verifikasi fresh & konsistensi
    - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (typo domain `pondokanat.com`); produksi butuh bcrypt + session.
    - **Beranda hardcode:** `Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri: 453, totalGuru: 54, totalKelas: 18` (belum fetch real-time dari DB).
    - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses. Schema inconsistency (Rev. 38–45) SELESAI — kedua model konsisten dengan referensi di `Subject` dan `User`.
-   - **Status:** dokumen PRD **REVISI** — rev 448 = verifikasi fresh ulang & konfirmasi stabilitas di 22 Oktober 2026 (cron run); HEAD `bfce01f5484af019823c1a318d3d10b95710b5b02` (Rev. 448: PRD fresh verification & stability confirmation), 8 / 0 (8 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 447 (data terkonsisten).
+   - **Status:** dokumen PRD **REVISI** — rev 448 = verifikasi fresh ulang & konfirmasi stabilitas di 22 Oktober 2026 (cron run); HEAD `bfe01f5484af019823c1a318d3d10b95710b5b02` (Rev. 448: PRD fresh verification & stability confirmation), 9 / 0 (9 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 447 (data terkonsisten).
 
 > *Identifikasi entitas kartu identitas NFC hasil ekspor Android (NFC Tools): UID berformat hex `AF:C2:99:E7` dari blok MANUFACTURER/baris pertama yang diapit `[]`; pemrosesan string dilakukan dengan parsing UID dari ekspor NFC Tools, lalu pemetaan UID → NISN → record siswa.*
 ## 13. DAFTAR REVISI (REFERENSI)
