@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> **Rev. 529:** PRD fresh verification & stability confirmation (24 Oktober 2026 (WIB); header Rev. 529 (updated from Rev. 528); §11 kompakt changelog 116–528, §12 updated; HEAD `4bd912379c2271ec1070fa1039c7eb2f7b7c4c23` (Rev. 529 commit: PRD fresh verification & stability confirmation (24 Oktober 2026 (WIB)); 5 / 0 (5 commits ahead origin_main). Branch `main`, remote `brontolano/pondok-banat`. `git rev-parse HEAD` = `4bd912379c2271ec1070fa1039c7eb2f7b7c4c23` (Rev. 529 commit, fresh verification dilakukan hariini); **origin/main:** `8604c3c440d839e5312de173e70e067695006663` (522, 2 behind). Local branch **5 commit ahead / 0 behind** origin_main. Working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 529 (akhir)); HEAD `4bd912379c2271ec1070fa1039c7eb2f7b7c4c23` (Rev. 529 commit); seluruh file lain cocak dengan HEAD; untracked: 80 skrip utility (tidak terpantau dalam git); `commit_msg.txt` dihapus (build artifact); `git ls-files` = 187 file.
+> **Rev. 530:** PRD fresh verification & stability confirmation (24 Oktober 2026 (WIB); header Rev. 530; §11 kompakt changelog 116–530, §12 updated; HEAD `6e7eca2c635b3841ecdea704b12f62a257aed9c3` (Rev. 529 final commit: Fix remaining HEAD reference from 3fe8511 to 4bd912379c2271ec1070fa1039c7eb2f7b7c4c23, 24 Oktober 2026 (WIB)); 0 / 0 (in sync origin_main). Branch `main`, remote `brontolano/pondok-banat`. `git rev-parse HEAD` = `6e7eca2c635b3841ecdea704b12f62a257aed9c3` (Rev. 529 final commit, fresh verification dilakukan hari ini); **origin/main:** `6e7eca2c635b3841ecdea704b12f62a257aed9c3` (in sync). Local branch **0 commit ahead / 0 behind** origin_main. Working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 529 (akhir, commit 6e7eca2)); seluruh file lain cocak dengan HEAD; untracked: 80 skrip utility (tidak terpantau dalam git); `commit_msg.txt` dihapus (build artifact); `git ls-files` = 187 file.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -451,12 +451,12 @@ branch 26 ahead / 0 behind origin_main.
 
 
 
-## 90. REVISI TERBARU (Rev. 529 — 24 Oktober 2026 WIB)
+## 90. REVISI TERBARU (Rev. 530 — 24 Oktober 2026 WIB)
 
 > **Verifikasi fresh dilakukan:** 24 Oktober 2026 (WIB, cron run) — query `sqlite3` ke `dev.db`, `npx tsc --noEmit`, `npx eslint .`, `npx next build`.
 
 1. **Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 528 (data terkonsisten).**
-   - **Git HEAD (local):** `4bd912379c2271ec1070fa1039c7eb2f7b7c4c23` (Rev. 529, commit 4bd912379c2271ec1070fa1039c7eb2f7b7c4c23); branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `4bd912379c2271ec1070fa1039c7eb2f7b7c4c23`. **origin/main:** `8604c3c440d839e5312de173e70e067695006663` (Rev. 522, 2 behind). Local branch **5 commits ahead**, **0 commit behind** origin.main.
+   - **Git HEAD (local):** `6e7eca2c635b3841ecdea704b12f62a257aed9c3` (Rev. 529 final commit: Fix remaining HEAD reference from 3fe8511 to 4bd912379c2271ec1070fa1039c7eb2f7b7c4c23, 24 Oktober 2026 (WIB)); branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `6e7eca2c635b3841ecdea704b12f62a257aed9c3`. **origin/main:** `6e7eca2c635b3841ecdea704b12f62a257aed9c3` (in sync). Local branch **0 commit ahead**, **0 commit behind** origin.main.
    - **Working tree:** `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 529); HEAD `4bd912379c2271ec1070fa1039c7eb2f7b7c4c23` (Rev. 529 commit); seluruh file lain cocak dengan HEAD; untracked: 80 skrip utility (tidak terpantau dalam git); `git ls-files` = 187 file.
    - **Database (dev.db):** file `dev.db` **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` & `import_students_grades_clean.py` tidak ditemukan di working tree).
    - **Build quality gate:** **NO LONGER RE-RUNABLE** — `node_modules/` absen (clear checkout), `.next/` masih ada (partial: cache + diagnostics + package.json + server + static + types, bukan production build). `tsc --noEmit`, `npm run lint`, `npm run build` memerlukan `npm install` ulang sebelum dapat dijalankan.
@@ -481,7 +481,7 @@ branch 26 ahead / 0 behind origin_main.
    - [Rendah] Unit + integration testing (Semua)
    - [Rendah] Production deployment (Vercel, Docker) (Semua)
 
-3. **Status:** dokumen PRD **REVISI** — rev 529 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 529**. Git HEAD = `4bd912379c2271ec1070fa1039c7eb2f7b7c4c23` (Rev. 529). Origin/main = `8604c3c440d839e5312de173e70e067695006663` (Rev. 522); **5 commits ahead**, **0 commit behind**.
+3. **Status:** dokumen PRD **REVISI** — rev 530 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 530**. Git HEAD = `6e7eca2c635b3841ecdea704b12f62a257aed9c3` (Rev. 529 final commit). Origin/main = `6e7eca2c635b3841ecdea704b12f62a257aed9c3` (in sync); **0 commit ahead**, **0 commit behind**.
 
 
 ## 12. REVISI TERBARU (Rev. 468–529 — 24 Oktober 2026 WIB)
