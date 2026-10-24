@@ -481,7 +481,7 @@ branch 26 ahead / 0 behind origin_main.
    - [Rendah] Unit + integration testing (Semua)
    - [Rendah] Production deployment (Vercel, Docker) (Semua)
 
-3. **Status:** dokumen PRD **REVISI** — rev 529 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 529**. Git HEAD = `3fe8511` (Rev. 529). Origin/main = `8604c3c440d839e5312de173e70e067695006663` (Rev. 522); **5 commits ahead**, **0 commit behind**.
+3. **Status:** dokumen PRD **REVISI** — rev 529 = verifikasi fresh ulang & konfirmasi stabilitas; `dev.db` tidak ada (absent), skema tetap lengkap, rekonstruksi seed diperlukan. Header PRD diperbarui ke **Rev. 529**. Git HEAD = `4bd912379c2271ec1070fa1039c7eb2f7b7c4c23` (Rev. 529). Origin/main = `8604c3c440d839e5312de173e70e067695006663` (Rev. 522); **5 commits ahead**, **0 commit behind**.
 
 
 ## 12. REVISI TERBARU (Rev. 468–529 — 24 Oktober 2026 WIB)
