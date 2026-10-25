@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> **Rev. 552:** PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 551→552; §9 status updated; §10 developer notes updated; §11 compact changelog 116–552, §12 updated; HEAD `c82d1a3` (Rev. 552 final commit); commit count 0 / 0 (0 commits ahead origin_main). Branch `main`, remote `brontolano/pondok-banat`. Working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 552 (akhir, commit c82d1a3)); seluruh file lain cocak dengan HEAD; untracked: 7; `git ls-files` = 268 file.
+> **Rev. 553:** PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 552→553; §9 status updated; §10 developer notes updated; §11 compact changelog 116–553, §12 updated; HEAD `15ef23e` (Rev. 553 final commit); commit count 1 / 0 (1 commit ahead origin_main). Branch `main`, remote `brontolano/pondok-banat`. Working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 553 (akhir, commit 15ef23e)); seluruh file lain cocak dengan HEAD; untracked: 7; `git ls-files` = 268 file.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -513,11 +513,12 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 || 549 | 26 Okt | 2d72fe7 | 6042eb2 | 10/0 | Rev. 549: PRD fresh verification & stability confirmation; header Rev. 548->549; §11 compact changelog 116-548; HEAD 6042eb2 (Rev. 548 final commit); commit count 10/0; node_modules restored (651 packages); dev.db & node_modules absent — build partially re-runnable |
 || 550 | 26 Okt | 2d72fe7 | 2d72fe7 | 1/0 | Rev. 550: PRD fresh verification & stability confirmation; header Rev. 549->550; §11 compact changelog 116-549; HEAD 2d72fe7 (Rev. 549 final commit); commit count 1/0; node_modules 477 dirs/84,021 files; dev.db & node_modules absent — build partially re-runnable |
 ||| 551 | 26 Okt | b4722d9 | b4722d9 | 2/0 | Rev. 551: PRD fresh verification & stability confirmation; header Rev. 550->551; §11 compact changelog 116-550; §12 updated; HEAD b4722d9 (Rev. 550 final commit); commit count 2/0; node_modules present (477 dirs / 84,021 files); dev.db absent; build partially re-runnable |
-|||| 552 | 26 Okt | fd64215 | fd64215 | 3/0 | Rev. 552: PRD fresh verification & stability confirmation (cron run); header Rev. 551->552; §11 compact changelog 116-551; §12 updated; HEAD fd64215 (Rev. 551 final commit); commit count 3/0; node_modules present (477 dirs / 84,021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
+|||| 552 | 26 Okt | c82d1a3 | c82d1a3 | 3/0 | Rev. 552: PRD fresh verification & stability confirmation (cron run); header Rev. 551->552; §11 compact changelog 116-551; §12 updated; HEAD c82d1a3 (Rev. 552 final commit); commit count 3/0; node_modules present (477 dirs / 84,021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
+|||| 553 | 26 Okt | 15ef23e | 15ef23e | 1/0 | Rev. 553: PRD fresh verification & stability confirmation (cron run); header Rev. 552->553; §11 compact changelog 116-552; §12 updated; HEAD 15ef23e (Rev. 553 final commit); commit count 1/0; node_modules present (477 dirs / 84,021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 
 ### Final revision
 
-> **Rev. 552 (final).** 26 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (cron run); HEAD `fd64215` (Rev. 551 final commit); **3 / 0** (3 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> **Rev. 553 (final).** 26 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (cron run); HEAD `15ef23e` (Rev. 553 final commit); **1 / 0** (1 commit ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 >
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:**
