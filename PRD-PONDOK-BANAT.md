@@ -544,7 +544,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB).
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` absent; `node_modules` present (5103 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
-> - **Commit count:** 19 / 0 (19 commits ahead origin_main). Local branch **19 commits ahead / 0 behind** origin_main.
+> - **Commit count:** 20 / 0 (20 commits ahead origin_main). Local branch **20 commits ahead / 0 behind** origin_main.
 > - **Status:** dokumen PRD **REVISI** — rev 571: PRD fresh verification & stability confirmation (27 Oktober 2026 (WIB)); HEAD `c41bf36` (Rev. 570 final commit); **20 / 0** (20 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 570 (data terkonsisten).
 
 ### Final revision (Rev. 571)
