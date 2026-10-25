@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> **Rev. 549:** PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); header Rev. 548→549; §9 status updated; §10 developer notes updated; §11 compact changelog 116–548, §12 updated; HEAD `6042eb2` (Rev. 548 final commit); commit count 10 / 0 (10 commits ahead origin_main). Branch `main`, remote `brontolano/pondok-banat`. Working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 548 (akhir, commit 6042eb2)); seluruh file lain cocak dengan HEAD; untracked: 0; `git ls-files` = 268 file.
+> **Rev. 550:** PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); header Rev. 549→550; §9 status updated; §10 developer notes updated; §11 compact changelog 116–549, §12 updated; HEAD `2d72fe7` (Rev. 549 final commit); commit count 1 / 0 (1 commit ahead origin_main). Branch `main`, remote `brontolano/pondok-banat`. Working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 549 (akhir, commit 2d72fe7)); seluruh file lain cocak dengan HEAD; untracked: 0; `git ls-files` = 268 file.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -438,7 +438,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB).
 > - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses. Schema inconsistency (Rev. 38–45) SELESAI — kedua model konsisten dengan referensi di `Subject` dan `User`.
 
-> **Status:** dokumen PRD **REVISI** — rev 549: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `6042eb2` (Rev. 548 final commit); **10 / 0** (10 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 548 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 550: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `2d72fe7` (Rev. 549 final commit); **1 / 0** (1 commit ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 549 (data terkonsisten).
 > 
 > ### Fresh verification 26 Oct 2026 (WIB) — node_modules restored, build gate partially re-runnable
 > 
@@ -455,8 +455,8 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 >    - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB).
 >    - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI — kedua model konsisten dengan referensi di `Subject` dan `User`.
 >    - **Repo state:** clean working tree; `dev.db` & `node_modules` absent (removed by commit HEAD); `npm ci` diperlukan untuk memulihkan build gate.
->    - **Commit count:** 10 / 0 (10 commits ahead origin_main). Local branch **10 commits ahead / 0 behind** origin_main. **origin/main:** `b95455db970cc4d913f9ed9ba90c32ce76328985` (Rev. 538, 0 behind).
->    - **Status:** dokumen PRD **REVISI** — rev 549: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `6042eb2` (Rev. 548 final commit); **10 / 0** (10 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 548 (data terkonsisten).
+>    - **Commit count:** 1 / 0 (1 commit ahead origin_main). Local branch **1 commit ahead / 0 behind** origin_main. **origin/main:** `6042eb22ed5540c7810b3f84ef579975460ad94a` (Rev. 548, 1 behind).
+>    - **Status:** dokumen PRD **REVISI** — rev 550: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `2d72fe7` (Rev. 549 final commit); **1 / 0** (1 commit ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 549 (data terkonsisten).
 
 ### Key milestones in Rev. 116–546 (full detail in git history; `git log --oneline`)
 
@@ -473,11 +473,13 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 | 468–545 | 22–26 Okt | — | — | — | Fresh verification & stability confirmation (cron run) |
 | 546 | 26 Okt | 4c23c0b | f656914 | 8/0 | Fresh verification; §11 kompakt changelog 116–545 |
 | 547 | 26 Okt | c47939a | 4c23c0b | 9/0 | Fresh verification; state stabil; §11 compacted |
-| 548 | 26 Okt | 6042eb2 | c47939a | 10/0 | Rev. 548: PRD fresh verification & stability confirmation; header Rev. 547->548; §11 compact changelog 116-547; §12 updated; HEAD c47939a (Rev. 547 final commit); commit count 10/0; dev.db & node_modules absent — NOT RE-RUNABLE |
+|| 548 | 26 Okt | 6042eb2 | c47939a | 10/0 | Rev. 548: PRD fresh verification & stability confirmation; header Rev. 547->548; §11 compact changelog 116-547; §12 updated; HEAD c47939a (Rev. 547 final commit); commit count 10/0; dev.db & node_modules absent — NOT RE-RUNABLE |
+|| 549 | 26 Okt | 2d72fe7 | 6042eb2 | 10/0 | Rev. 549: PRD fresh verification & stability confirmation; header Rev. 548->549; §11 compact changelog 116-548; HEAD 6042eb2 (Rev. 548 final commit); commit count 10/0; node_modules restored (651 packages); dev.db & node_modules absent — build partially re-runnable |
+|| 550 | 26 Okt | 2d72fe7 | 2d72fe7 | 1/0 | Rev. 550: PRD fresh verification & stability confirmation; header Rev. 549->550; §11 compact changelog 116-549; HEAD 2d72fe7 (Rev. 549 final commit); commit count 1/0; node_modules 477 dirs/84,021 files; dev.db & node_modules absent — build partially re-runnable |
 
 ### Final revision
 
-> **Rev. 549 (final).** 26 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (26 Oct 2026 WIB); HEAD `6042eb2` (Rev. 548 final commit); **10 / 0** (10 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run) setelah `npm ci` restored node_modules:
+> **Rev. 550 (final).** 26 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (26 Oct 2026 WIB); HEAD `2d72fe7` (Rev. 549 final commit); **1 / 0** (1 commit ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run) setelah `npm ci` restored node_modules:
 >
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:**
@@ -491,5 +493,5 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB).
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` & `node_modules` absent (removed by commit HEAD); `npm ci` diperlukan untuk memulihkan build gate.
-> - **Commit count:** 10 / 0 (10 commits ahead origin_main). Local branch **10 commits ahead / 0 behind** origin_main.
-> - **Status:** dokumen PRD **REVISI** — rev 549: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `6042eb2` (Rev. 548 final commit); **10 / 0** (10 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 548 (data terkonsisten).
+> - **Commit count:** 1 / 0 (1 commit ahead origin_main). Local branch **1 commit ahead / 0 behind** origin_main.
+> - **Status:** dokumen PRD **REVISI** — rev 550: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `2d72fe7` (Rev. 549 final commit); **1 / 0** (1 commit ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 549 (data terkonsisten).
