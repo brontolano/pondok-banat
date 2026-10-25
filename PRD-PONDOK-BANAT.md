@@ -544,7 +544,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 ### Final revision (Rev. 578)
 
-> **Rev. 578 (fresh).** 25 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `47daf31` (Rev. 577 final commit); **46 / 0** (46 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> **Rev. 578 (fresh).** 25 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `47daf31` (Rev. 577 final commit); **48 / 0** (48 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:** NOT RE-RAN (blocked by security scan: lifecycle guard cannot scan `node_modules/typescript/lib/_tsc.js`, size > 1 MiB).
@@ -554,5 +554,5 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB).
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` absent; `node_modules` present (5103 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
-> - **Commit count:** 45 / 0 (45 commits ahead origin_main). Local branch **45 commits ahead / 0 behind** origin_main.
-> - **Status:** dokumen PRD **REVISI** — rev 577: PRD fresh verification & stability confirmation (27 Oktober 2026 (WIB)); HEAD `9a76082` (Rev. 577 final commit); **45 / 0** (45 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 575 (data terkonsisten).
+> - **Commit count:** 48 / 0 (48 commits ahead origin_main). Local branch **48 commits ahead / 0 behind** origin_main.
+> - **Status:** dokumen PRD **REVISI** — rev 578: PRD fresh verification & stability confirmation (25 Oktober 2026 (WIB)); HEAD `47daf31` (Rev. 577 final commit); **48 / 0** (48 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 577 (data terkonsisten).
