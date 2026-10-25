@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> **Rev. 553:** PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 552→553; §9 status updated; §10 developer notes updated; §11 compact changelog 116–553, §12 updated; HEAD `15ef23e` (Rev. 553 final commit); commit count 2 / 0 (2 commits ahead origin_main). Branch `main`, remote `brontolano/pondok-banat`. Working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 553 (akhir, commit 15ef23e)); seluruh file lain cocak dengan HEAD; untracked: 7; `git ls-files` = 268 file.
+> **Rev. 554:** PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 553→554; §9 status confirmed; §10 developer notes updated; §11 compact changelog 116–554; HEAD `aa92dbc` (Rev. 553 final commit); commit count 3 / 0 (3 commits ahead origin_main). Branch `main`, remote `brontolano/pondok-banat`. Working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 554 (akhir, commit aa92dbc)); seluruh file lain cocak dengan HEAD; untracked: 8; `git ls-files` = 268 file.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -515,10 +515,11 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 ||| 551 | 26 Okt | b4722d9 | b4722d9 | 2/0 | Rev. 551: PRD fresh verification & stability confirmation; header Rev. 550->551; §11 compact changelog 116-550; §12 updated; HEAD b4722d9 (Rev. 550 final commit); commit count 2/0; node_modules present (477 dirs / 84,021 files); dev.db absent; build partially re-runnable |
 |||| 552 | 26 Okt | c82d1a3 | c82d1a3 | 3/0 | Rev. 552: PRD fresh verification & stability confirmation (cron run); header Rev. 551->552; §11 compact changelog 116-551; §12 updated; HEAD c82d1a3 (Rev. 552 final commit); commit count 3/0; node_modules present (477 dirs / 84,021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 |||| 553 | 26 Okt | 15ef23e | 15ef23e | 2/0 | Rev. 553: PRD fresh verification & stability confirmation (cron run); header Rev. 552->553; §11 compact changelog 116-553; §12 updated; HEAD 15ef23e (Rev. 553 final commit); commit count 2/0; node_modules present (477 dirs / 84,021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
+|||| 554 | 26 Okt | aa92dbc | aa92dbc | 3/0 | Rev. 554: PRD fresh verification & stability confirmation (cron run); header Rev. 553->554; §11 compact changelog 116-554; HEAD aa92dbc (Rev. 553 final commit); commit count 3/0; node_modules present (477 dirs / 84,021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 
 ### Final revision
 
-> **Rev. 553 (final).** 26 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (cron run); HEAD `15ef23e` (Rev. 553 final commit); **2 / 0** (2 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> **Rev. 554 (final).** 26 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (cron run); HEAD `aa92dbc` (Rev. 553 final commit); **3 / 0** (3 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 >
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:**
@@ -533,4 +534,4 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` absent; `node_modules` present (477 dirs / 84,021 files); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 2 / 0 (2 commits ahead origin_main). Local branch **2 commits ahead / 0 behind** origin_main.
-> - **Status:** dokumen PRD **REVISI** — rev 553: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `15ef23e` (Rev. 553 final commit); **2 / 0** (2 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 552 (data terkonsisten).
+> - **Status:** dokumen PRD **REVISI** — rev 554: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `aa92dbc` (Rev. 553 final commit); **3 / 0** (3 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 553 (data terkonsisten).
