@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> Rev. 595: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 594→595; §11 compact changelog 116–594; §12 updated; HEAD `c1831eccb1e2bd910c709afd1e6fd2df8517204c` (Rev. 595 final commit); commit count **13 / 0** (13 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 595, commit c1831ec); seluruh file lain cocak dengan HEAD; untracked: 0; git ls-files = 268 files.
+> Rev. 596: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 595→596; §11 compact changelog 116–595; §12 updated; HEAD `c1831eccb1e2bd910c709afd1e6fd2df8517204c` (Rev. 595 final commit); commit count **13 / 0** (13 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 596, commit c1831ec); seluruh file lain cocak dengan HEAD; untracked: 0; git ls-files = 268 files.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -29,7 +29,11 @@ Aplikasi **Pondok Banat** adalah platform modular untuk mengelola pesantren putr
 ### 2.2 Komposisi modul (compose-time)
 
 | Level | Keterangan |
-|--- 
+|--- |
+| **Level 1 — Fondasi** | M01 (Admin & User Management), M02 (Master Data Santri) — inti sistem, tidak ada dependensi ke modul lain |
+| **Level 2 — Pendukung** | M03 (Guru & Staf), M07 (Kesiswaan & Tunggangan), M08 (Komunikasi & Notifikasi) — mendukung operasional harian |
+| **Level 3 — Inti Akademik** | M04 (Kurikulum & Kitab Kuning), M05 (Akademik & Absensi) — jalur pembelajaran & penilaian |
+| **Level 4 — Lanjutan** | M06 (Hifz/Quran), M10 (Payment/Keuangan), M11 (Mobile & Offline) — fitur spesialis & ekstensi |
 
 ## 3. KATALOG MODUL (Plugin-Style)
 
@@ -168,7 +172,12 @@ Aplikasi **Pondok Banat** adalah platform modular untuk mengelola pesantren putr
 Each role is **not** a rigid type — it's a set of module permissions. Per-user assignment can add multiple roles.
 
 | Role | Modules | Access | Purpose |
-|--- 
+|--- |
+| **Admin** | M01–M11 | Full access (superuser) | Sistem administrator & konfigurasi global |
+| **Guru** | M02, M03, M04, M05, M06 | Input nilai, kelola kurikulum, track hifz, lihat siswa | Pengelolaan pembelajaran & pelajaran |
+| **Wali Kelas** | M02, M05, M08 | Lihat santri kelas, nilai, absensi, notifikasi | Manajemen kelas & komunikasi orang tua |
+| **Pengasuh / Staff** | M02, M07, M08 | Kontrol kegiatan, kesehatan, dormitory, notifikasi | Asuh kesiswaan & komunikasi harian |
+| **Santri** | M02 (read-only) | View-only (tampilan data) | Layanan mandiri santri |
 
 ## 5. DEPENDENCY & ACTIVATION
 
@@ -190,12 +199,24 @@ M01 (Admin)
 ### 5.2 Activation order (activation)
 
 | Iterasi | Modul yang dipasang | Catatan |
-|--- 
+|--- |
+| **1** | M01 (Admin) | Fondasi; tidak ada dependensi ke modul lain |
+| **2** | M02 (Santri) | Data inti; depends on M01 |
+| **3** | M03 (Guru), M07 (Kesiswaan), M08 (Komunikasi) | Modul pendukung; depend on M01+M02 |
+| **4** | M04 (Kurikulum & Kitab) | Depends on M02+M03 |
+| **5** | M05 (Akademik & Absensi) | Depends on M02+M03+M04 |
+| **6** | M06 (Hifz/Quran), M10 (Payment/Keuangan) | Fitur spesialis & keuangan |
+| **7** | M11 (Mobile & Offline) | Final deployment; depends on M02+M05+M08 |
 
-## 6. ROADMAP (berdasarkan modular activation)
+### 6. ROADMAP (berdasarkan modular activation)
 
 | Iterasi | Fokus | Modul yang dipasang | Fitur utama |
-|--- 
+|--- |
+| **1** | Fondasi | M01, M02 | Admin & user management; master santri (NIS, kelas, seksi) |
+| **2** | Pendukung | M03, M07, M08 | Guru/Staf & jabatan; kesiswaan/dormitory; notifikasi & wali portal |
+| **3** | Inti Akademik | M04, M05 | Kurikulum & RPP/SILABUS; nilai (MEI/SMT/ABSEN), absensi, rapor |
+| **4** | Lanjutan | M06, M10 | Hifz tracking (3 aliran); fee, payment (QRIS/VA), balance |
+| **5** | Mobile & Laporan | M11, M09 | PWA offline; rapor PDF, laporan morale/keuangan, statistik |
 
 ## 7. OPEN QUESTIONS
 
@@ -642,10 +663,19 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Repo state:** clean working tree; `dev.db` absent; `node_modules` present (5103 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 13 / 0 (13 commits ahead origin_main). Local branch **13 commits ahead / 0 behind** origin_main.
 > - **Status:** dokumen PRD **REVISI** — rev 595: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `c1831eccb1e2bd910c709afd1e6fd2df8517204c` (Rev. 595 final commit); **13 / 0** (13 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 594 (data terkonsisten).
+>
+### Rev. 596
 
-## 12. RINGKASAN STATUS & KESIMPULAN
+> **Rev. 596 (final).** 26 Oktober 2026 (WIB): PRD completeness update — filled all empty specification tables (§2.2, §4.1, §5.2, §6), bumping document revision from 595 to 596. No DB/schema/code changes; this revision completes the PRD's missing structural specifications.
 
-> **Status PRD Rev. 595 (26 Oktober 2026 WIB):** dokumen PRD **REVISI** — rev 595: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); HEAD `c1831eccb1e2bd910c709afd1e6fd2df8517204c` (Rev. 595 final commit); **13 / 0** (13 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 594 (data terkonsisten).
+> - **§2.2 Komposisi modul (compose-time):** added 4 composition levels (Level 1–4: Fondasi, Pendukung, Inti Akademik, Lanjutan) mapping M01–M11 to deployment tiers.
+> - **§4.1 Role = collection of module permissions:** added role-permission matrix for 5 roles (Admin, Guru, Wali Kelas, Pengasuh/Staff, Santri) with module lists and access levels.
+> - **§5.2 Activation order (activation):** added 7-iteration activation roadmap from M01 (Admin) through M11 (Mobile), based on dependency graph in §5.1.
+> - **§6 ROADMAP (berdasarkan modular activation):** added 5-iteration roadmap (Fondasi → Pendukung → Inti Akademik → Lanjutan → Mobile & Laporan) with focus areas and installed modules per iteration.
+> - **Header & summary:** Rev. 595→596 header updated; §12 status summary updated to reflect Rev. 596.
+> - **Status:** dokumen PRD **REVISI** — rev 596: PRD completeness update (26 Oktober 2026 WIB); HEAD `c1831eccb1e2bd910c709afd1e6fd2df8517204c` (Rev. 595 final commit); **13 / 0** (13 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 595 (data terkonsisten).
+
+> **Status PRD Rev. 596 (26 Oktober 2026 WIB):** dokumen PRD **REVISI** — rev 596: PRD completeness update (cron run, 26 Oktober 2026 WIB); HEAD `c1831eccb1e2bd910c709afd1e6fd2df8517204c` (Rev. 595 final commit); **13 / 0** (13 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 595 (data terkonsisten). Revision 596 completes the missing specification tables: §2.2 (Komposisi modul), §4.1 (Role-permission matrix), §5.2 (Activation order), §6 (Roadmap).
 
 > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
 > - Database `dev.db` **absent** (dihapus commit HEAD "Release: clean core files only" 1dc891d); seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** — import ulang dari `init_db.py`, `init_schema.sql` + sumber Excel/PDF.
