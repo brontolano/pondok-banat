@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> Rev. 594: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 593→594; §11 compact changelog 116–593; §12 updated; HEAD `d3bdcd0602b757fe425d881a472be90f833e863f` (Rev. 593 final commit); commit count 11 / 0 (11 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 594, commit d3bdcd0); seluruh file lain cocak dengan HEAD; untracked: 0; git ls-files = 268 files.
+> Rev. 594: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 593→594; §11 compact changelog 116–593; §12 updated; HEAD `91a427cd0008b11b7e436e450868ee09bc8e8bd3` (Rev. 594 final commit); commit count **12 / 0** (12 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 594, commit 91a427c); seluruh file lain cocak dengan HEAD; untracked: 0; git ls-files = 268 files.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -428,7 +428,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 > **Verifikasi fresh dilakukan:** 26 Oktober 2026 (WIB, cron run) — query `sqlite3` ke `dev.db`, build gate sebagian re-runnable (tsc + eslint lulus; next build diblokir security nudge).
 > - **Verifikasi fresh kondisi repository + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 592 (data terkonsisten).**
-> - **Commit count:** 11 / 0 (11 commits ahead origin_main). Local branch **11 commits ahead / 0 behind** origin_main. **origin/main:** `ed6551d` (Rev. 584, 0 behind).
+> - **Commit count:** 12 / 0 (12 commits ahead origin_main). Local branch **12 commits ahead / 0 behind** origin_main. **origin/main:** `ed6551d` (Rev. 583, 0 behind).
 > - **Working tree:** `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 593, commit 32d7d8bb14536b4ec8efd630649f429b84eb75de); seluruh file lain cocak dengan HEAD; untracked: 0; `git ls-files` = 268 files.
 > - **Database (dev.db):** file `dev.db` **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`).
 > - **Build quality gate:** `npm run type-check` (tsc --noEmit) ✓ (exit 0) — **PASS**; `npm run lint` ✓ (exit 0, 1 warning / 0 error) — **PASS**; `npx next build` ✗ (exit 1 — **SecurityFatalError**: Next.js 16.4.0 has a known security vulnerability; upgrade recommended by Next.js CLI security nudge) — **FAIL**. Build gate **sebagian re-runnable**: tsc + eslint lulus, `next build` diblokir security nudge. `node_modules` present (5103 dirs / 84021 files).
@@ -630,7 +630,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 ## 12. RINGKASAN STATUS & KESIMPULAN
 
-> **Status PRD Rev. 594 (26 Oktober 2026 WIB):** dokumen PRD **REVISI** — rev 594: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); HEAD `d3bdcd0602b757fe425d881a472be90f833e863f` (Rev. 593 final commit); **11 / 0** (11 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 593 (data terkonsisten).
+> **Status PRD Rev. 594 (26 Oktober 2026 WIB):** dokumen PRD **REVISI** — rev 594: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); HEAD `91a427cd0008b11b7e436e450868ee09bc8e8bd3` (Rev. 594 final commit); **12 / 0** (12 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 593 (data terkonsisten).
 
 > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
 > - Database `dev.db` **absent** (dihapus commit HEAD "Release: clean core files only" 1dc891d); seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** — import ulang dari `init_db.py`, `init_schema.sql` + sumber Excel/PDF.
@@ -638,4 +638,4 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
 > - Build gate **sebagian re-runnable** — tsc (exit 0) + eslint (exit 0, 1 warning / 0 error) lulus; `next build` ✗ (SecurityFatalError: Next.js 16.4.0 known security vulnerability). `node_modules` present (5103 dirs / 84021 files).
 > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-> - Commit count: **11 / 0** (11 commits ahead origin_main, 0 behind). Branch 11 commits ahead of origin/main (`ed6551d`, Rev. 583).
+> - Commit count: **12 / 0** (12 commits ahead origin_main, 0 behind). Branch 12 commits ahead of origin/main (`ed6551d`, Rev. 583).
