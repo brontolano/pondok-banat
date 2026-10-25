@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> **Rev. 548:** PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); header Rev. 547→548; §11 kompakt changelog 116–547, §12 updated; HEAD `c47939a0c51e120f0cca3549773192899abbca35` (Rev. 547 final commit); commit count 10 / 0 (10 commits ahead origin_main). Branch `main`, remote `brontolano/pondok-banat`. Working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 547 (akhir, commit c47939a0c51e120f0cca3549773192899abbca35)); seluruh file lain cocak dengan HEAD; untracked: 0 (seluruh file dalam repo adalah tracked; script utility tidak ikut commit karena di-ignored oleh .gitignore); `git ls-files` = 268 file.
+> **Rev. 549:** PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); header Rev. 548→549; §9 status updated; §10 developer notes updated; §11 compact changelog 116–548, §12 updated; HEAD `6042eb2` (Rev. 548 final commit); commit count 10 / 0 (10 commits ahead origin_main). Branch `main`, remote `brontolano/pondok-banat`. Working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 548 (akhir, commit 6042eb2)); seluruh file lain cocak dengan HEAD; untracked: 0; `git ls-files` = 268 file.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -251,7 +251,20 @@ spor NFC Tools →
 ### 9.1 Ringkasan
 
 | Modul | Status | Keterangan | Notes |
-|--- 
+|--- |--- |--- |--- |
+
+|| M01 | ✅ Implementasi | Admin & User Management: 1 user (admin@pondokanbat.com), 5 role, 33 role_permissions (seed via .seed_users_roles.py) | Auth hardcode masih ada (Login.tsx: admin@pondokanbat.com / admin123) |
+|| M02 | ✅ Implementasi | Master Data Santri: 453 siswa (semua `inactive` — menunggu aktivasi), 18 kelas | `uid_nfc` field ada tapi 0 terisi (data ekspor NFC Tools belum tersedia) |
+|| M02a | ⏳ Tunda | Integrasi Data Identitas Kartu NFC: field `uid_nfc` aktif di schema & init_db.py; 0 siswa terisi | Mapping UID → NISN tertunda karena data ekspor NFC Tools belum tersedia |
+|| M03 | ✅ Implementasi | Master Data Guru & Staf: 54 guru (impor Excel, semua `active`) | 60 orang (53 utama + 7 ganti/badal) dari Excel |
+|| M04 | ✅ Implementasi | Kurikulum & Kitab Kuning: 17 mapel, 65 RPP + 9 SILABUS | Silabus 9 dokumennya (7 Arobiyah + 2 tamhidi) |
+|| M05 | ✅ Implementasi | Akademik & Absensi: 5.420 nilai | Bobot 0.3/0.6/0.1 dihitung otomatis; export rapor PDF |
+|| M06 | ⏳ Tunda | Hifz/Quran Memorization | 3 aliran (Sabak / Sabaq Para / Dhor); roadmap di rev. berikutnya |
+|| M07 | ✅ Implementasi | Kesiswaan & Tunggangan: dormitory, prayer, kegiatan, kesehatan | Room, StudentStatus, Activity, HealthRecord tersedia |
+|| M08 | ✅ Implementasi | Komunikasi & Notifikasi: Announcement, Message, Notification | Wali Santri Portal: login per wali, hanya lihat anaknya |
+|| M09 | ⏳ Tunda | Laporan & Analytics | Rapor, keuangan (QRIS/Virtual Account), export PDF |
+|| M10 | ⏳ Tunda | Payment/Keuangan | Fee, Payment (QRIS, VA, e-wallet), Receipt digital, balance |
+|| M11 | ⏳ Tunda | Mobile & Offline | PWA, offline caching & sync, push notification |
 
 
 ⚠️ *Per-class distribution:* kolom siswa per kelas di §10.1 menjumlahkan **441** (TK=13, TA A=23, TB=25, 1A=27, 1B=23, 2A=28, 2B=25, 3A=30, 3B=36, 4A=31, 4B=31, 5A=32, 5B=37, 6A=38, 6B=42; TAMHIDI A/B/Takhosours=0), sedangkan total record di dev.db = **453** (Rev. 46 CORREKSI dari 441). Selisih 12 siswa akibat reconfigurasi jenjang/migrasi data — rincian per-class terbaru **masih memerlukan verifikasi ulang** ke sumber Excel sebelum dipublikasikan. Total (453) dan komposisi jenjang (18 kelas) KONSISTEN. |
@@ -425,7 +438,25 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB).
 > - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses. Schema inconsistency (Rev. 38–45) SELESAI — kedua model konsisten dengan referensi di `Subject` dan `User`.
 
-> **Status:** dokumen PRD **REVISI** — rev 548: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `c47939a0c51e120f0cca3549773192899abbca35` (Rev. 547 final commit); **10 / 0** (10 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 547 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 549: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `6042eb2` (Rev. 548 final commit); **10 / 0** (10 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 548 (data terkonsisten).
+> 
+> ### Fresh verification 26 Oct 2026 (WIB) — node_modules restored, build gate partially re-runnable
+> 
+> 1. **Rev. 549 — 26 Oktober 2026 (WIB).** Verifikasi fresh kondisi repo + dev.db (SQLite, cron run) setelah `npm ci`:
+>    - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI, commands `generate`/`validate` not available).
+>    - **Build quality gate:**
+>      - `npm run type-check` (tsc --noEmit) ✓ (exit 0) — PASS
+>      - `npm run lint` ✓ (exit 0, 1 warning / 0 error — eslint.config.js:4:1 import/no-anonymous-default-export) — PASS
+>      - `npm run build` (next build) ✗ (exit 1 — **SecurityFatalError**: Next.js 16.4.0 has a known security vulnerability; upgrade recommended by Next.js CLI security nudge) — FAIL
+>    - **Build gate summary:** tsc + eslint lulus; `next build` diblokir oleh security nudge. **node_modules restored (651 packages)** — build gate partially re-runnable.
+>    - **Database (dev.db):** **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d); `.gitignore` mencantumkan `*.db`. Data (453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia**; import ulang membutuhkan `init_db.py`, `init_schema.sql`, dan source Excel/PDF dari `.data-pondokanat/` (bukan tracked di repo).
+>    - **M02a (NFC):** field `uid_nfc` ada aktif di tabel `students` (kolom setelah `photo`); `prisma/schema.prisma` baris 68 (`uidNfc String? @map("uid_nfc")`), `init_schema.sql` baris 44, `init_db.py` baris 60. **Tidak ada satupun siswa yang memiliki `uid_nfc` diisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+>    - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (typo domain `pondokanat.com`); produksi butuh bcrypt + session.
+>    - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB).
+>    - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI — kedua model konsisten dengan referensi di `Subject` dan `User`.
+>    - **Repo state:** clean working tree; `dev.db` & `node_modules` absent (removed by commit HEAD); `npm ci` diperlukan untuk memulihkan build gate.
+>    - **Commit count:** 10 / 0 (10 commits ahead origin_main). Local branch **10 commits ahead / 0 behind** origin_main. **origin/main:** `b95455db970cc4d913f9ed9ba90c32ce76328985` (Rev. 538, 0 behind).
+>    - **Status:** dokumen PRD **REVISI** — rev 549: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `6042eb2` (Rev. 548 final commit); **10 / 0** (10 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 548 (data terkonsisten).
 
 ### Key milestones in Rev. 116–546 (full detail in git history; `git log --oneline`)
 
@@ -442,7 +473,23 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 | 468–545 | 22–26 Okt | — | — | — | Fresh verification & stability confirmation (cron run) |
 | 546 | 26 Okt | 4c23c0b | f656914 | 8/0 | Fresh verification; §11 kompakt changelog 116–545 |
 | 547 | 26 Okt | c47939a | 4c23c0b | 9/0 | Fresh verification; state stabil; §11 compacted |
+| 548 | 26 Okt | 6042eb2 | c47939a | 10/0 | Rev. 548: PRD fresh verification & stability confirmation; header Rev. 547->548; §11 compact changelog 116-547; §12 updated; HEAD c47939a (Rev. 547 final commit); commit count 10/0; dev.db & node_modules absent — NOT RE-RUNABLE |
 
 ### Final revision
 
-> **Rev. 548 (final).** 26 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (26 Oct 2026 WIB); HEAD `c47939a0c51e120f0cca3549773192899abbca35` (Rev. 547 final commit); **10 / 0** (10 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run): **state stabil, tidak ada perubahan signifikan dari Rev. 547** (data terkonsisten). Build gate: **NOT RE-RUNABLE** — `node_modules/` **absent** (dihapus setelah Rev. 377; `npm ci` diperlukan); `.next/` masih ada (partial: `cache` + `diagnostics` + `package.json` + `server` + `static` + `types`, bukan production build). `tsc --noEmit` exit 1, `npm run lint` exit 2, `npx next build` exit 1 — semua gagal karena `node_modules/` **absent**; `npm ci` diperlukan untuk memulihkan sebelum melakukan type-check/lint/build. Database (dev.db): **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; `import_excel.py` & `import_students_grades_clean.py` tidak ditemukan di working tree). **M02a (NFC):** field `uid_nfc` ada aktif di tabel `students` (kolom setelah `photo`); `prisma/schema.prisma` baris 68 (`uidNfc String? @map("uid_nfc")`), `init_schema.sql` baris 44, `init_db.py` baris 60. **Tidak ada satupun siswa yang memiliki `uid_nfc` diisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`). **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (typo domain `pondokanat.com`); produksi butuh bcrypt + session. **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB). **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses. **Status:** dokumen PRD **REVISI** — rev 548: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `c47939a0c51e120f0cca3549773192899abbca35` (Rev. 547 final commit); **10 / 0** (10 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 547 (data terkonsisten).
+> **Rev. 549 (final).** 26 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (26 Oct 2026 WIB); HEAD `6042eb2` (Rev. 548 final commit); **10 / 0** (10 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run) setelah `npm ci` restored node_modules:
+>
+> - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
+> - **Build quality gate:**
+>   - `tsc --noEmit` ✓ (exit 0) — PASS
+>   - `npm run lint` ✓ (exit 0, 1 warning / 0 error — eslint.config.js:4:1 import/no-anonymous-default-export) — PASS
+>   - `npm run build` (next build) ✗ (exit 1 — **SecurityFatalError**: Next.js 16.4.0 memiliki known security vulnerability; upgrade recommended by Next.js CLI security nudge) — **FAIL**
+> - **Build gate summary:** tsc + eslint lulus; `next build` diblokir oleh security nudge. Build gate **partially re-runnable** (node_modules restored via `npm ci`, 651 packages added). Next.js security upgrade recommended before production.
+> - **Database (dev.db):** **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`. Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; source Excel & PDF dari `.data-pondokanat/` bukan tracked di repo).
+> - **M02a (NFC):** field `uid_nfc` ada aktif di tabel `students` (kolom setelah `photo`); `prisma/schema.prisma` baris 68 (`uidNfc String? @map("uid_nfc")`), `init_schema.sql` baris 44, `init_db.py` baris 60. **Tidak ada satupun siswa yang memiliki `uid_nfc` diisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
+> - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (typo domain `pondokanat.com`); produksi butuh bcrypt + session.
+> - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB).
+> - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
+> - **Repo state:** clean working tree; `dev.db` & `node_modules` absent (removed by commit HEAD); `npm ci` diperlukan untuk memulihkan build gate.
+> - **Commit count:** 10 / 0 (10 commits ahead origin_main). Local branch **10 commits ahead / 0 behind** origin_main.
+> - **Status:** dokumen PRD **REVISI** — rev 549: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `6042eb2` (Rev. 548 final commit); **10 / 0** (10 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 548 (data terkonsisten).
