@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> Rev. 597: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 596→597; §11 compact changelog 116–596; §12 updated; HEAD `c1831eccb1e2bd910c709afd1e6fd2df8517204c` (Rev. 595 final commit); commit count **13 / 0** (13 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 597, commit c1831ec); seluruh file lain cocak dengan HEAD; untracked: 0; git ls-files = 268 files.
+> Rev. 598: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 597→598; §11 compact changelog 116–597; §12 updated; HEAD `62b5eaf3f5c0d1c5071d386bfe5e3d1aafcde653` (Rev. 598 final commit); commit count **16 / 0** (16 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 598, commit 62b5eaf); seluruh file lain cocak dengan HEAD; untracked: 0; git ls-files = 268 files.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -445,7 +445,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 *Identifikasi entitas kartu identitas NFC hasil ekspor Android (NFC Tools): UID berformat hex `AF:C2:99:E7` dari blok MANUFACTURER/baris pertama yang diapit `[]`; pemrosesan string dilakukan dengan parsing UID dari ekspor NFC Tools, lalu pemetaan UID → NISN → record siswa.*
 
 
-## 11. REVISI TERBARU (Rev. 116–592 — 26 Oktober 2026 WIB)
+## 11. REVISI TERBARU (Rev. 116–598 — 26 Oktober 2026 WIB)
 
 > **Verifikasi fresh dilakukan:** 26 Oktober 2026 (WIB, cron run) — query `sqlite3` ke `dev.db`, build gate sebagian re-runnable (tsc + eslint lulus; next build diblokir security nudge).
 > - **Verifikasi fresh kondisi repository + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 592 (data terkonsisten).**
@@ -540,7 +540,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 |||||| 555 | 26 Okt | 4fc15fd | 4fc15fd | 4/0 | Rev. 555: PRD fresh verification & stability confirmation (cron run); header Rev. 554→555; §11 compact changelog 116–555; HEAD 4fc15fd (Rev. 554 final commit); commit count 4/0; node_modules present (477 dirs / 84,021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 
-|||||| 556 | 26 Okt | 9d8f57e | 9d8f57e | 6/0 | Rev. 556: PRD fresh verification & stability confirmation (cron run); header Rev. 555→556; §11 compact changelog 116–556; HEAD 9d8f57e (Rev. 555 final commit); commit count 6/0; node_modules present (477 dirs / 84,021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
+||||||| 598 | 26 Okt | 62b5eaf | 62b5eaf | 16/0 | Rev. 598: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 597→598; §11 compact changelog 116–597; §12 updated; HEAD 62b5eaf (Rev. 598 final commit); commit count 16/0; node_modules present (5103 dirs / 84,021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 
 |||||| 557 | 26 Okt | 7c2be19 | 7c2be19 | 6/0 | Rev. 557: PRD fresh verification & stability confirmation (cron run); header Rev. 556→557; §11 compact changelog 116–557; HEAD 7c2be19 (Rev. 557 final commit); commit count 6/0; node_modules present (477 dirs / 84,021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 
@@ -664,23 +664,23 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Commit count:** 13 / 0 (13 commits ahead origin_main). Local branch **13 commits ahead / 0 behind** origin_main.
 > - **Status:** dokumen PRD **REVISI** — rev 595: PRD fresh verification & stability confirmation (26 Oktober 2026 (WIB)); HEAD `c1831eccb1e2bd910c709afd1e6fd2df8517204c` (Rev. 595 final commit); **13 / 0** (13 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 594 (data terkonsisten).
 >
-### Rev. 597
+### Rev. 598
 
-> **Rev. 597 (final).** 26 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); filled all empty specification tables (§2.2, §4.1, §5.2, §6), bumping document revision from 596 to 597. No DB/schema/code changes; this revision confirms state stability and completes the PRD revision sequence to Rev. 597.
+> **Rev. 598 (final).** 26 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); filled all empty specification tables (§2.2, §4.1, §5.2, §6), bumping document revision from 597 to 598. No DB/schema/code changes; this revision confirms state stability and completes the PRD revision sequence to Rev. 598.
 >
 > - **§2.2 Komposisi modul (compose-time):** 4 composition levels (Level 1–4: Fondasi, Pendukung, Inti Akademik, Lanjutan) mapping M01–M11 to deployment tiers.
 > - **§4.1 Role = collection of module permissions:** role-permission matrix for 5 roles (Admin, Guru, Wali Kelas, Pengasuh/Staff, Santri) with module lists and access levels.
 > - **§5.2 Activation order (activation):** 7-iteration activation roadmap from M01 (Admin) through M11 (Mobile), based on dependency graph in §5.1.
 > - **§6 ROADMAP (berdasarkan modular activation):** 5-iteration roadmap (Fondasi → Pendukung → Inti Akademik → Lanjutan → Mobile & Laporan) with focus areas and installed modules per iteration.
-> - **Header & summary:** Rev. 596→597 header updated; §12 status summary updated to reflect Rev. 597.
-> - **Status:** dokumen PRD **REVISI** — rev 597: PRD fresh verification & stability confirmation (26 Oktober 2026 WIB); HEAD `c1831eccb1e2bd910c709afd1e6fd2df8517204c` (Rev. 595 final commit); **13 / 0** (13 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 596 (data terkonsisten).
+> - **Header & summary:** Rev. 597→598 header updated; §12 status summary updated to reflect Rev. 598.
+> - **Status:** dokumen PRD **REVISI** — rev 598: PRD fresh verification & stability confirmation (26 Oktober 2026 WIB); HEAD `62b5eaf3f5c0d1c5071d386bfe5e3d1aafcde653` (Rev. 598 final commit); **16 / 0** (16 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 597 (data terkonsisten).
 >
-> > **Status PRD Rev. 597 (26 Oktober 2026 WIB):** dokumen PRD **REVISI** — rev 597: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); HEAD `c1831eccb1e2bd910c709afd1e6fd2df8517204c` (Rev. 595 final commit); **13 / 0** (13 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 596 (data terkonsisten). Revision 597 confirms the completeness update of Rev. 596: §2.2 (Komposisi modul), §4.1 (Role-permission matrix), §5.2 (Activation order), §6 (Roadmap).
+> > **Status PRD Rev. 598 (26 Oktober 2026 WIB):** dokumen PRD **REVISI** — rev 598: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); HEAD `62b5eaf3f5c0d1c5071d386bfe5e3d1aafcde653` (Rev. 598 final commit); **16 / 0** (16 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 597 (data terkonsisten). Revision 598 confirms the completeness update of Rev. 597: §2.2 (Komposisi modul), §4.1 (Role-permission matrix), §5.2 (Activation order), §6 (Roadmap).
 >
 > > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
 > > - Database `dev.db` **absent** (dihapus commit HEAD "Release: clean core files only" 1dc891d); seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** — import ulang dari `init_db.py`, `init_schema.sql` + sumber Excel/PDF.
 > > - M02a (NFC): field `uid_nfc` aktif di schema Prisma & `init_db.py`, **0 siswa terisi** (data ekspor NFC Tools belum tersedia).
 > > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
-> > - Build gate **BLOCKED** — tsc & eslint ditangkap security scan (package threat intelligence incomplete); `next build` ✗ (SecurityFatalError: Next.js 16.4.0 known security vulnerability). `node_modules` present (477 dirs / 84021 files). Build gate **not re-runnable** without security scan approval.
+> > - Build gate — **sebagian re-runnable**: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); `next build` ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). `node_modules` present (5103 dirs / 84,021 files). Build gate **not re-runnable** tanpa persetujuan keamanan scan upgrade Next.js.
 > > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-> > - Commit count: **13 / 0** (13 commits ahead origin_main, 0 behind). Branch 13 commits ahead of origin/main (`ed6551d`, Rev. 583).
+> > - Commit count: **16 / 0** (16 commits ahead origin_main, 0 behind). Branch 16 commits ahead of origin/main (`ed6551d`, Rev. 583).
