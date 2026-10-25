@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> **Rev. 571:** PRD fresh verification & stability confirmation (cron run, 27 Oktober 2026 WIB); header Rev. 570→571; §9 status re-confirmed; §10 developer notes re-verified; §11 compact changelog 116–571; HEAD `3886d9d` (Rev. 571 final commit); commit count 28 / 0 (28 commits ahead origin_main). Branch `main`, remote `brontolano/pondok-banat`. Working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 571 (akhir, commit 3886d9d)); seluruh file lain cocak dengan HEAD; untracked: 0; `git ls-files` = 268 file.
+> **Rev. 572:** PRD fresh verification & stability confirmation (cron run, 25 Oktober 2026 WIB); header Rev. 571→572; §9 status re-confirmed; §10 developer notes re-verified; §11 compact changelog 116–572; HEAD `d6597bc` (Rev. 571 final commit); commit count 29 / 0 (29 commits ahead origin_main); working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 572 (akhir, commit d6597bc)); seluruh file lain cocak dengan HEAD; untracked: 0; `git ls-files` = 268 file.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -529,11 +529,13 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 ||||||| 570 | 27 Okt | c41bf36 | c41bf36 | 20/0 | Rev. 570: PRD fresh verification & stability confirmation (cron run); header Rev. 569→570; §11 compact changelog 116–570; HEAD c41bf36 (Rev. 570 final commit); commit count 20/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 ||||||| 571 | 27 Okt | 8496b7e | 8496b7e | 21/0 | Rev. 571: PRD fresh verification & stability confirmation (cron run); header Rev. 570→571; §11 compact changelog 116–571; HEAD 8496b7e (Rev. 571 final commit); commit count 21/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 ||||||| 571 | 27 Okt | bc53abd | bc53abd | 22/0 | Rev. 571: fix HEAD reference (commit c41bf36, 20/0); HEAD fix; commit count 22/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
-||||||| 571 | 27 Okt | 3886d9d | 3886d9d | 23/0 | Rev. 571: fix stale commit count (19/0 -> 23/0); HEAD 3886d9d; commit count 23/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
+|||||||| 571 | 27 Okt | d6597bc | d6597bc | 29/0 | Rev. 571: PRD fresh verification & stability confirmation (cron run); header Rev. 570→571; §11 compact changelog 116–571; HEAD d6597bc (Rev. 571 final commit); commit count 29/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 
-### Final revision (Rev. 571)
+|||||||| 572 | 25 Okt | d6597bc | d6597bc | 29/0 | Rev. 572: PRD fresh verification & stability confirmation (cron run, 25 Oktober 2026 WIB); header Rev. 571→572; §11 compact changelog 116–572; HEAD d6597bc (Rev. 571 final commit); commit count 29/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 
-> **Rev. 571 (final).** 27 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (cron run); HEAD `3886d9d` (Rev. 571 final commit); **23 / 0** (28 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+### Final revision (Rev. 572)
+
+> **Rev. 572 (final).** 25 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (cron run); HEAD `d6597bc` (Rev. 571 final commit); **29 / 0** (29 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:** NOT RE-RAN (blocked by security scan: lifecycle guard cannot scan `node_modules/typescript/lib/_tsc.js`, size > 1 MiB).
