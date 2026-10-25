@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> **Rev. 576→577:** PRD fresh verification & stability confirmation (cron run, 27 Oktober 2026 WIB); header Rev. 576→577; §11 compact changelog 116–576; §12 updated & re-verified; HEAD `9a76082` (Rev. 577 final commit); commit count 45 / 0 (45 commits ahead origin_main); working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 577 (akhir, commit 9a76082)); seluruh file lain cocak dengan HEAD; untracked: 0; `git ls-files` = 268 file.
+Rev. 577→578: PRD fresh verification & stability confirmation (cron run, 25 Oktober 2026 WIB); header Rev. 577→578; §11 compact changelog 116–577; §12 updated & re-verified; HEAD `47daf31` (Rev. 577 final commit); commit count 46 / 0 (46 commits ahead origin_main); working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 577 (akhir, commit 47daf31)); seluruh file lain cocak dengan HEAD; untracked: 0; `git ls-files` = 268 file.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -540,10 +540,11 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 ||||| 576 | 27 Okt | 9a76082 | 9a76082 | 44/0 | Rev. 576: PRD fresh verification & stability confirmation (cron run, 27 Oktober 2026 WIB); header Rev. 575→576; §11 compact changelog 116–575; §12 updated & re-verified; HEAD 9a76082 (Rev. 576 final commit); commit count 44/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 ||||| 577 | 27 Okt | 9a76082 | 9a76082 | 45/0 | Rev. 577: PRD fresh verification & stability confirmation (cron run, 27 Oktober 2026 WIB); header Rev. 576→577; §11 compact changelog 116–576; §12 updated & re-verified; HEAD 9a76082 (Rev. 577 final commit); commit count 45/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
+||||| 578 | 25 Okt | 47daf31 | 47daf31 | 46/0 | Rev. 578: PRD fresh verification & stability confirmation (cron run, 25 Oktober 2026 WIB); header Rev. 577→578; §11 compact changelog 116–577; §12 updated & re-verified; HEAD 47daf31 (Rev. 577 final commit); commit count 46/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 
-### Final revision (Rev. 577)
+### Final revision (Rev. 578)
 
-> **Rev. 577 (final).** 27 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (cron run); HEAD `9a76082` (Rev. 577 final commit); **45 / 0** (45 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> **Rev. 578 (fresh).** 25 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `47daf31` (Rev. 577 final commit); **46 / 0** (46 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:** NOT RE-RAN (blocked by security scan: lifecycle guard cannot scan `node_modules/typescript/lib/_tsc.js`, size > 1 MiB).
