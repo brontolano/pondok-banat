@@ -535,7 +535,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 ### Final revision (Rev. 572)
 
-> **Rev. 572 (final).** 25 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (cron run); HEAD `d6597bc` (Rev. 571 final commit); **29 / 0** (29 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> **Rev. 572 (final).** 25 Oktober 2026 (WIB): PRD fresh verification & stability confirmation (cron run); HEAD `f83bb05` (Rev. 572 final commit); **33 / 0** (33 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:** NOT RE-RAN (blocked by security scan: lifecycle guard cannot scan `node_modules/typescript/lib/_tsc.js`, size > 1 MiB).
