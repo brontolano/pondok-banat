@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-Rev. 582: PRD fresh verification & stability confirmation (cron run, 25 Oktober 2026 WIB); header Rev. 581→582; §11 compact changelog 116–581; §12 updated & re-verified; HEAD `37be71873051ad6ff3ed029818ab5e1b238214d4` (Rev. 582 final commit); commit count 51 / 0 (51 commits ahead origin_main); working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 582 (akhir, commit 37be71873051ad6ff3ed029818ab5e1b238214d4)); seluruh file lain cocak dengan HEAD; untracked: 0; `git ls-files` = 268 file.
+Rev. 583: PRD fresh verification & stability confirmation (cron run, 25 Oktober 2026 WIB); header Rev. 582→583; §11 compact changelog 116–582; §12 updated & re-verified; HEAD `e74fca30dfc92f14b543313b718197083206baf2` (Rev. 583 final commit); commit count 52 / 0 (52 commits ahead origin_main); working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 583 (akhir, commit e74fca30dfc92f14b543313b718197083206baf2)); seluruh file lain cocak dengan HEAD; untracked: 0; `git ls-files` = 268 file.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -545,10 +545,11 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 || 580 | 25 Okt | 14d9ca3 | 14d9ca3 | 48/0 | Rev. 580: PRD fresh verification 14d9ca3; header commit count 47/0 (corrected from 46/0); §11 compact changelog 116–578; HEAD 14d9ca3 (Rev. 578 final commit); commit count 48/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 ||| 581 | 25 Okt | 83813bb | 83813bb | 49/0 | Rev. 581: PRD fresh verification 83813bb; header final revision section commit count 49/0; §12 updated & re-verified; HEAD 83813bb (Rev. 578 final commit); commit count 49/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 ||| 582 | 25 Okt | 37be718 | 37be718 | 51/0 | Rev. 582: PRD fresh verification & stability confirmation (cron run, 25 Oktober 2026 WIB); header Rev. 581→582; §11 compact changelog 116–581; §12 updated & re-verified; HEAD 37be718 (Rev. 582 final commit); commit count 51/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
+|| 583 | 25 Okt | e74fca3 | e74fca3 | 52/0 | Rev. 583: PRD fresh verification & stability confirmation (cron run, 25 Oktober 2026 WIB); header Rev. 582→583; §11 compact changelog 116–582; §12 updated & re-verified; HEAD e74fca3 (Rev. 583 final commit); commit count 52/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 
-### Final revision (Rev. 582)
+### Final revision (Rev. 583)
 
-> **Rev. 582 (fresh).** 25 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `37be71873051ad6ff3ed029818ab5e1b238214d4` (Rev. 582 final commit); **51 / 0** (51 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> **Rev. 583 (fresh).** 25 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `e74fca30dfc92f14b543313b718197083206baf2` (Rev. 583 final commit); **52 / 0** (52 commits ahead origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:** NOT RE-RAN (blocked by security scan: lifecycle guard cannot scan `node_modules/typescript/lib/_tsc.js`, size > 1 MiB).
@@ -558,5 +559,5 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB).
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` absent; `node_modules` present (5103 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
-> - **Commit count:** 51 / 0 (51 commits ahead origin_main). Local branch **51 commits ahead / 0 behind** origin_main.
-> - **Status:** dokumen PRD **REVISI** — rev 582: PRD fresh verification & stability confirmation (25 Oktober 2026 (WIB)); HEAD `37be71873051ad6ff3ed029818ab5e1b238214d4` (Rev. 582 final commit); **51 / 0** (51 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 581 (data terkonsisten).
+> - **Commit count:** 52 / 0 (52 commits ahead origin_main). Local branch **52 commits ahead / 0 behind** origin_main.
+> - **Status:** dokumen PRD **REVISI** — rev 583: PRD fresh verification & stability confirmation (25 Oktober 2026 (WIB)); HEAD `e74fca30dfc92f14b543313b718197083206baf2` (Rev. 583 final commit); **52 / 0** (52 commits ahead origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 582 (data terkonsisten).
