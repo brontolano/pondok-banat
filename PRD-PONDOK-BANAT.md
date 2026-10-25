@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> **Rev. 572:** PRD fresh verification & stability confirmation (cron run, 25 Oktober 2026 WIB); header Rev. 571→572; §9 status re-confirmed; §10 developer notes re-verified; §11 compact changelog 116–572; HEAD `6873ce9` (Rev. 572 final commit); commit count 32 / 0 (32 commits ahead origin_main); working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 572 (akhir, commit 6873ce9)); seluruh file lain cocak dengan HEAD; untracked: 0; `git ls-files` = 268 file.
+> **Rev. 572:** PRD fresh verification & stability confirmation (cron run, 25 Oktober 2026 WIB); header Rev. 571→572; §9 status re-confirmed; §10 developer notes re-verified; §11 compact changelog 116–572; HEAD `f83bb05` (Rev. 572 final commit); commit count 33 / 0 (33 commits ahead origin_main); working tree: `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 572 (akhir, commit f83bb05)); seluruh file lain cocak dengan HEAD; untracked: 0; `git ls-files` = 268 file.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -531,7 +531,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 ||||||| 571 | 27 Okt | bc53abd | bc53abd | 22/0 | Rev. 571: fix HEAD reference (commit c41bf36, 20/0); HEAD fix; commit count 22/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 |||||||| 571 | 27 Okt | d6597bc | d6597bc | 29/0 | Rev. 571: PRD fresh verification & stability confirmation (cron run); header Rev. 570→571; §11 compact changelog 116–571; HEAD d6597bc (Rev. 571 final commit); commit count 29/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 
-|||||||| 572 | 25 Okt | 6873ce9 | 6873ce9 | 32/0 | Rev. 572: PRD fresh verification & stability confirmation (cron run, 25 Oktober 2026 WIB); header Rev. 571→572; §11 compact changelog 116–572; HEAD 6873ce9 (Rev. 572 final commit); commit count 32/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
+|||||||| 572 | 25 Okt | f83bb05 | f83bb05 | 33/0 | Rev. 572: PRD fresh verification & stability confirmation (cron run, 25 Oktober 2026 WIB); header Rev. 571→572; §11 compact changelog 116–572; HEAD f83bb05 (Rev. 572 final commit); commit count 33/0; node_modules present (5103 dirs / 84021 files); dev.db absent; build gate NOT RE-RUNABLE (security scan) |
 
 ### Final revision (Rev. 572)
 
