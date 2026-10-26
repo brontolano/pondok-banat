@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> Rev. 615: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 614→615; §11 compact changelog 116–614→116–615; §12 updated; HEAD `383f0f9` (Rev. 615 final commit); commit count **9 / 0** (9 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 615, commit 383f0f9); seluruh file lain cocak dengan HEAD; untracked: 6 (fix_line713.py, fix_stale.py, table_fix.py, update_prd.py, update_prd603.py, update_prd609.py); git ls-files = 268 files.
+> Rev. 615: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 614→615; §11 compact changelog 116–614→116–615; §12 updated; HEAD `2c3d96e` (Rev. 615 final commit); commit count **11 / 0** (11 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 615, commit 2c3d96e); seluruh file lain cocak dengan HEAD; untracked: 6 (fix_line713.py, fix_stale.py, table_fix.py, update_prd.py, update_prd603.py, update_prd609.py); git ls-files = 268 files.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -789,4 +789,4 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
 > > - Build gate — **SEBABAGIAN RE-RUNNABLE**: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); `next build` ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability; upgrade recommended). Build gate **sebagian re-runnable** (semua gate kecuali `next build` lulus; `next build` diblokir security nudge upgrade Next.js).
 > > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-Commit count: **9 / 0** (9 commits ahead origin_main, 0 behind). Local branch 9 commits ahead / 0 behind origin_main (HEAD 383f0f9, Rev. 615 final commit).
+Commit count: **11 / 0** (11 commits ahead origin_main, 0 behind). Local branch 11 commits ahead / 0 behind origin_main (HEAD 2c3d96e, Rev. 615 final commit).
