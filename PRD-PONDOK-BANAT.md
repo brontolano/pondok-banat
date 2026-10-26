@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> Rev. 623: PRD fresh verification & stability confirmation (cron run, 27 Oktober 2026 WIB); header Rev. 622→623; §11 compact changelog 116–622→116–623; §12 updated; HEAD `5860659ef195112439c77674bb5900514745eb01` (Rev. 622 final commit); commit count **624 / 3/0** (624 local commits, 3 ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 623, commit 5860659ef195112439c77674bb5900514745eb01); seluruh file lain cocak dengan HEAD; untracked: 12 (correct_sha.py, fix_line713.py, fix_stale.py, table_fix.py, update_prd.py, update_prd603.py, update_prd609.py, update_prd616.py, update_prd619.py, update_prd619_sha.py, update_prd620.py, update_prd_sha2.py); git ls-files = 268 files.
+> Rev. 623: PRD fresh verification & stability confirmation (cron run, 27 Oktober 2026 WIB); header Rev. 622→623; §11 compact changelog 116–622→116–623; §12 updated; HEAD `8790549abbca63ab51f3eb99f9d8ac1d77e92a92` (Rev. 623 final commit); commit count **625 / 4/0** (625 local commits, 4 ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 623, commit 8790549abbca63ab51f3eb99f9d8ac1d77e92a92); seluruh file lain cocak dengan HEAD; untracked: 12 (correct_sha.py, fix_line713.py, fix_stale.py, table_fix.py, update_prd.py, update_prd603.py, update_prd609.py, update_prd616.py, update_prd619.py, update_prd619_sha.py, update_prd620.py, update_prd_sha2.py); git ls-files = 268 files.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -832,4 +832,4 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
 > > - Build gate — **sebagian re-runnable**: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability, upgrade recommended). Build gate **sebagian re-runnable** (tsc + eslint lulus; `next build` diblokir SecurityFatalError).
 > > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-> > - Commit count: **624 / 3/0** (624 local commits, 3 ahead origin_main, 0 behind). Local branch 624 commits ahead / 0 behind origin_main (HEAD 5860659ef195112439c77674bb5900514745eb01, Rev. 622 final commit).
+> > - Commit count: **625 / 4/0** (625 local commits, 4 ahead origin_main, 0 behind). Local branch 625 commits ahead / 0 behind origin_main (HEAD 8790549abbca63ab51f3eb99f9d8ac1d77e92a92, Rev. 623 final commit).
