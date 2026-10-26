@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> Rev. 604: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 603→604; §11 compact changelog 116–603→116–604; §12 updated; HEAD `a82c197b0f7d80983fd09200fca13132bff2b181` (Rev. 604 final commit); commit count **31 / 0** (31 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 604, commit a82c197b0f7d80983fd09200fca13132bff2b181); seluruh file lain cocak dengan HEAD; untracked: 5 (fix_line713.py, fix_stale.py, table_fix.py, update_prd.py, update_prd603.py); git ls-files = 268 files.
+> Rev. 604: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 603→604; §11 compact changelog 116–603→116–604; §12 updated; HEAD `c5b736e6e4bcd09422c6e59338b7421625cfa4c9` (Rev. 604 final commit); commit count **33 / 0** (33 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 604, commit c5b736e6e4bcd09422c6e59338b7421625cfa4c9); seluruh file lain cocak dengan HEAD; untracked: 5 (fix_line713.py, fix_stale.py, table_fix.py, update_prd.py, update_prd603.py); git ls-files = 268 files.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -748,7 +748,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 ## 12. STATUS RINGKASAN (26 Oktober 2026 WIB)
 
-> **Status PRD Rev. 604 (26 Oktober 2026 WIB):** dokumen PRD **REVISI** — rev 604: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); HEAD `a82c197b0f7d80983fd09200fca13132bff2b181` (Rev. 604 final commit); **31 / 0** (31 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 603 (data terkonsisten). Revision 604 mengonfirmasi completeness update dari Rev. 603: §11 extended changelog (to Rev. 604) & §12 updated.
+> **Status PRD Rev. 604 (26 Oktober 2026 WIB):** dokumen PRD **REVISI** — rev 604: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); HEAD `c5b736e6e4bcd09422c6e59338b7421625cfa4c9` (Rev. 604 final commit); **33 / 0** (33 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 603 (data terkonsisten). Revision 604 mengonfirmasi completeness update dari Rev. 603: §11 extended changelog (to Rev. 604) & §12 updated.
 
 > > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
 > > - Database `dev.db` **absent** (dihapus commit HEAD "Release: clean core files only" 1dc891d); seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** — import ulang dari `init_db.py`, `init_schema.sql` + sumber Excel/PDF.
@@ -756,4 +756,4 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
 > > - Build gate — **BLOCKED**: lifecycle guard cannot scan `node_modules/typescript/lib/_tsc.js` (> 1 MiB); `npm run type-check` (tsc --noEmit) ✗; `npm run lint` ✗; `npm run build` ✗. Build gate **NOT RE-RUNABLE** dalam cron environment ini (security scan).
 > > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-> > - Commit count: **31 / 0** (31 commits ahead origin_main, 0 behind). Branch 31 commits ahead of origin/main (ed6551d, Rev. 583).
+> > - Commit count: **33 / 0** (33 commits ahead origin_main, 0 behind). Branch 33 commits ahead of origin/main (ed6551d, Rev. 583).
