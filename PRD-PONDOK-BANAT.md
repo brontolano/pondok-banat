@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> Rev. 619: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 618→619; §11 compact changelog 116–618→116–619; §12 updated; HEAD `9881fb2bb82e4015d5ea42b889d6045f615891f0` (Rev. 619 final commit); commit count **2 / 0** (2 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 619, commit 9881fb2bb82e4015d5ea42b889d6045f615891f0); seluruh file lain cocak dengan HEAD; untracked: 7 (fix_line713.py, fix_stale.py, table_fix.py, update_prd.py, update_prd603.py, update_prd609.py, update_prd616.py); git ls-files = 268 files.
+> Rev. 620: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 619→620; §11 compact changelog 116–619→116–620; §12 updated; HEAD `22b6af393e6f8f7899d731013afb02daea19c85e` (Rev. 620 final commit); commit count **0 / 0** (0 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 620, commit 22b6af393e6f8f7899d731013afb02daea19c85e); seluruh file lain cocak dengan HEAD; untracked: 12 (correct_sha.py, fix_line713.py, fix_stale.py, table_fix.py, update_prd.py, update_prd603.py, update_prd609.py, update_prd616.py, update_prd619.py, update_prd619_sha.py, update_prd620.py, update_prd_sha2.py); git ls-files = 268 files.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -517,6 +517,8 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 ### Key milestones in Rev. 116–546 (full detail in git history; `git log --oneline`)
 
+||| 620 | 26 Okt | 22b6af393e6f8f7899d731013afb02daea19c85e | 22b6af393e6f8f7899d731013afb02daea19c85e | 0/0 | Rev. 620: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 619→620; §11 compact changelog 116–619→116–620; §12 updated; HEAD 22b6af3 (Rev. 620 final commit); commit count 0/0; node_modules present (477 dirs / 84021 files); dev.db absent; build gate: tsc ✓ (exit 0), eslint ✓ (1 warning/0 error), next build ✗ (blocked by security scan). Build gate NOT RE-RUNABLE. |
+
 | Rev | Tanggal | Commit | HEAD (terminal) | A/D | Key note |
 |---|---|---|---|---|---|
 | 116 | 19 Okt | — | — | — | §11 starts, compact changelog 116–115 |
@@ -829,4 +831,4 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
 > > - Build gate — **SEBABAGIAN RE-RUNNABLE**: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); `next build` ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability; upgrade recommended). Build gate **sebagian re-runnable** (semua gate kecuali `next build` lulus; `next build` diblokir security nudge upgrade Next.js).
 > > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-Commit count: **2 / 0** (2 commits ahead origin_main, 0 behind). Local branch 2 commits ahead / 0 behind origin_main (HEAD 9881fb2bb82e4015d5ea42b889d6045f615891f0, Rev. 619 final commit).
+Commit count: **0 / 0** (0 commits ahead origin_main, 0 behind). Local branch 0 commits ahead / 0 behind origin_main (HEAD 22b6af393e6f8f7899d731013afb02daea19c85e, Rev. 620 final commit).
