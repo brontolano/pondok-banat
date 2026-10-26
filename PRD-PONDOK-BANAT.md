@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> Rev. 602: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 601→602; §11 compact changelog 116–601→116–602; §12 updated; HEAD `b7a5fc4` (Rev. 602 final commit); commit count **24 / 0** (24 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 602, commit b7a5fc4); seluruh file lain cocak dengan HEAD; untracked: 3 (fix_stale.py, table_fix.py, update_prd.py); git ls-files = 268 files.
+> Rev. 602: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 601→602; §11 compact changelog 116–601→116–602; §12 updated; HEAD `b7a5fc4` (Rev. 602 final commit); commit count **25 / 0** (25 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 602, commit b7a5fc4); seluruh file lain cocak dengan HEAD; untracked: 3 (fix_stale.py, table_fix.py, update_prd.py); git ls-files = 268 files.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
