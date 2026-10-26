@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> Rev. 604: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 603→604; §11 compact changelog 116–603→116–604; §12 updated; HEAD `c5b736e6e4bcd09422c6e59338b7421625cfa4c9` (Rev. 604 final commit); commit count **33 / 0** (33 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 604, commit c5b736e6e4bcd09422c6e59338b7421625cfa4c9); seluruh file lain cocak dengan HEAD; untracked: 5 (fix_line713.py, fix_stale.py, table_fix.py, update_prd.py, update_prd603.py); git ls-files = 268 files.
+> Rev. 604: PRD fresh verification & stability confirmation (cron run, 26 Oktober 2026 WIB); header Rev. 603→604; §11 compact changelog 116–603→116–604; §12 updated; HEAD `8c2d26b84997ccfd6116e5ae0f3fe270c1f078f7` (Rev. 604 final commit); commit count **34 / 0** (34 commits ahead origin_main, 0 behind); working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 604, commit 8c2d26b84997ccfd6116e5ae0f3fe270c1f078f7); seluruh file lain cocak dengan HEAD; untracked: 5 (fix_line713.py, fix_stale.py, table_fix.py, update_prd.py, update_prd603.py); git ls-files = 268 files.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -756,4 +756,4 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
 > > - Build gate — **BLOCKED**: lifecycle guard cannot scan `node_modules/typescript/lib/_tsc.js` (> 1 MiB); `npm run type-check` (tsc --noEmit) ✗; `npm run lint` ✗; `npm run build` ✗. Build gate **NOT RE-RUNABLE** dalam cron environment ini (security scan).
 > > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-> > - Commit count: **33 / 0** (33 commits ahead origin_main, 0 behind). Branch 33 commits ahead of origin/main (ed6551d, Rev. 583).
+> > - Commit count: **34 / 0** (34 commits ahead origin_main, 0 behind). Branch 34 commits ahead of origin/main (ed6551d, Rev. 583).
