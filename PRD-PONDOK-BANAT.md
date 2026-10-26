@@ -789,4 +789,4 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
 > > - Build gate — **SEBABAGIAN RE-RUNNABLE**: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); `next build` ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability; upgrade recommended). Build gate **sebagian re-runnable** (semua gate kecuali `next build` lulus; `next build` diblokir security nudge upgrade Next.js).
 > > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-Commit count: **3 / 0** (3 commits ahead origin_main, 0 behind). Local branch 3 commits ahead / 0 behind origin_main (HEAD d3c0be7, Rev. 615 final commit).
+Commit count: **4 / 0** (4 commits ahead origin_main, 0 behind). Local branch 4 commits ahead / 0 behind origin_main (HEAD c686c83, Rev. 615 final commit).
