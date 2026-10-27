@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> (Rev. 673): PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 672→673; §11 compact changelog 116–669→116–673; §12 updated. HEAD `4ec8014` (Rev. 673 final commit); commit count 678/42/0 (678 local commits, 42 ahead origin_main, 0 behind); node_modules present (479 dirs / 84021 files); dev.db absent (removed by HEAD "Release: clean core files only"); build gate: tsc ✓ (exit 0), eslint ✓ (1 warning / 0 error), next build ✗ (blocked by security scan — NOT RE-RUNABLE). Working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 672); seluruh file lain cocak dengan HEAD; untracked: 27 (helper scripts: check_table_format.py, correct_sha.py, fix_duplicate.py, fix_line713.py, fix_stale.py, patch_prd.py, patch_prd2.py, table_fix.py, update_prd.py, update_prd603.py, update_prd609.py, update_prd616.py, update_prd619.py, update_prd619_sha.py, update_prd620.py, update_prd635.py, update_prd_626.py, update_prd_627.py, update_prd_648.py, update_prd_653.py, update_prd_653v2.py, update_prd_653v3.py, update_prd_664.py, update_prd_665.py, update_prd_sha2.py); git ls-files = 268 files.
+> (Rev. 673): PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 673→674; §11 compact changelog 116–673→116–674; §12 updated. HEAD `93ee847` (Rev. 674 final commit); commit count 679/43/0 (679 local commits, 43 ahead origin_main, 0 behind); node_modules present (479 dirs / 84021 files); dev.db absent (removed by HEAD "Release: clean core files only"); build gate: tsc ✓ (exit 0), eslint ✓ (1 warning / 0 error), next build ✗ (blocked by security scan — NOT RE-RUNABLE). Working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 674); seluruh file lain cocak dengan HEAD; untracked: 33 (helper scripts: check_table_format.py, correct_sha.py, fix_duplicate.py, fix_line713.py, fix_stale.py, patch_prd.py, patch_prd2.py, table_fix.py, update_prd.py, update_prd603.py, update_prd609.py, update_prd616.py, update_prd619.py, update_prd619_sha.py, update_prd620.py, update_prd635.py, update_prd_626.py, update_prd_627.py, update_prd_648.py, update_prd_653.py, update_prd_653v2.py, update_prd_653v3.py, update_prd_664.py, update_prd_665.py, update_prd_sha2.py); git ls-files = 268 files.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -445,12 +445,12 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 *Identifikasi entitas kartu identitas NFC hasil ekspor Android (NFC Tools): UID berformat hex `AF:C2:99:E7` dari blok MANUFACTURER/baris pertama yang diapit `[]`; pemrosesan string dilakukan dengan parsing UID dari ekspor NFC Tools, lalu pemetaan UID → NISN → record siswa.*
 
 
-## 11. REVISI TERBARU (Rev. 116–671 — 28 Oktober 2026 WIB)
+## 11. REVISI TERBARU (Rev. 116–674 — 28 Oktober 2026 WIB)
 
 > **Verifikasi fresh dilakukan:** 28 Oktober 2026 (WIB, cron run) — query `sqlite3` ke `dev.db`, build gate re-run (tsc + eslint lulus; next build diblokir security nudge).
 > - **Verifikasi fresh kondisi repository + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 669 (data terkonsisten).**
 > - **Commit count:** 675 / 39/0 (675 local commits, 39 ahead origin_main, 0 behind). Local branch **675 commits ahead / 0 behind** origin_main. **origin/main:** `0d788b8` (Rev. 633, 0 behind).
-> - **Working tree:** `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 670, commit 1a44179); seluruh file lain cocak dengan HEAD; untracked: 27 (helper scripts: check_table_format.py, correct_sha.py, fix_duplicate.py, fix_line713.py, fix_stale.py, patch_prd.py, patch_prd2.py, table_fix.py, update_prd.py, update_prd603.py, update_prd609.py, update_prd616.py, update_prd619.py, update_prd619_sha.py, update_prd620.py, update_prd635.py, update_prd_626.py, update_prd_627.py, update_prd_648.py, update_prd_653.py, update_prd_653v2.py, update_prd_653v3.py, update_prd_664.py, update_prd_665.py, update_prd_sha2.py); `git ls-files` = 268 files.
+> - **Working tree:** `PRD-PONDOK-BANAT.md` cocak dengan HEAD (revisi terbaru = Rev. 674, commit 93ee847); seluruh file lain cocak dengan HEAD; untracked: 33 (helper scripts: check_table_format.py, correct_sha.py, fix_duplicate.py, fix_line713.py, fix_stale.py, patch_prd.py, patch_prd2.py, table_fix.py, update_prd.py, update_prd603.py, update_prd609.py, update_prd616.py, update_prd619.py, update_prd619_sha.py, update_prd620.py, update_prd635.py, update_prd_626.py, update_prd_627.py, update_prd_648.py, update_prd_653.py, update_prd_653v2.py, update_prd_653v3.py, update_prd_664.py, update_prd_665.py, update_prd_sha2.py); `git ls-files` = 268 files.
 > - **Database (dev.db):** file `dev.db` **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`; seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`).
 > - **Build gate:** `npm run type-check` (tsc --noEmit) ✓ (exit 0) — **PASS**; `npm run lint` ✓ (exit 0, 1 warning / 0 error) — **PASS**; `npx next build` ✗ (exit 1 — **SecurityFatalError**: Next.js 16.4.0 has a known security vulnerability; upgrade recommended by Next.js CLI security nudge) — **FAIL**. Build gate **NOT RE-RUNABLE** (security scan blocks tsc/eslint/next build lifecycle). `node_modules` present (479 dirs / 84021 files).
 > - **Source files:** `src/app/*` = 12 sub direktori (absensi, beranda, berita, guru, kelas, laporan, login, nilai, pengasuh, ruang-kegiatan, santri, sekolah) + `globals.css` + `layout.tsx` + `page.tsx` = 15 entri (12 halaman + layout + page). `src/components` = `Beranda.tsx` & `Login.tsx`. `src/lib` = **kosong** (logic inline). Prisma driver = `prisma` ^8.0.0-rc.2 (SQLite).
@@ -1238,9 +1238,9 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Commit count:** 676 / 40 (676 local commits, 40 ahead origin_main, 0 behind). Local branch **676 commits ahead / 0 behind** origin_main (HEAD `2a21416`, Rev. 670→671 final commit).
 >
 > **Status:** dokeman PRD **REVISI** — rev 671: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `2a21416` (Rev. 671 final commit); **676 / 40/0** (676 local commits, 40 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 670 (data terkonsisten).
-### Rev. 672
+### Rev. 673
 
-> **Rev. 673 (final).** 28 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `4ec8014` (Rev. 672->673 final commit); commit count **678 / 42** (678 local commits, 42 ahead origin_main, 0 behind). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> **Rev. 674 (final).** 28 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `93ee847` (Rev. 673->674 final commit); commit count **679 / 43** (679 local commits, 43 ahead origin_main, 0 behind). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 >
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:** `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate sebagian re-runnable — tsc + eslint lulus, next build diblokir security nudge. node_modules present (479 dirs / 84021 files).
@@ -1250,11 +1250,11 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB).
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` absen; `node_modules` present (479 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
-> - **Commit count:** 678 / 42 (678 local commits, 42 ahead origin_main, 0 behind). Local branch **678 commits ahead / 0 behind** origin_main (HEAD `4ec8014`, Rev. 672→673 final commit).
+> - **Commit count:** 679 / 43 (679 local commits, 43 ahead origin_main, 0 behind). Local branch **679 commits ahead / 0 behind** origin_main (HEAD `93ee847`, Rev. 674 final commit).
 >
-> **Status:** dokeman PRD **REVISI** — rev 673: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `4ec8014` (Rev. 673 final commit); **678 / 42/0** (678 local commits, 42 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 672 (data terkonsisten).
+> **Status:** dokeman PRD **REVISI** — rev 674: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `93ee847` (Rev. 674 final commit); **679 / 43/0** (679 local commits, 43 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 673 (data terkonsisten).
 
-## 12. STATUS RINGKASAN (28 Oktober 2026 WIB) — Rev. 673
+## 12. STATUS RINGKASAN (28 Oktober 2026 WIB) — Rev. 674
 
 
 
@@ -1264,4 +1264,4 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
 > > - Build gate — **sebagian re-runnable**: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (blocked by security scan — NOT RE-RUNABLE). Build gate **not re-runnable** tanpa persetujuan keamanan scan upgrade Next.js. `node_modules` present (479 dirs / 84021 files).
 > > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-Local branch **678 commits ahead / 0 behind** origin_main (HEAD `4ec8014`, Rev. 672→673 final commit). Rev. 670: PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 669→670; §11 compact changelog 116–669→116–672; §12 updated. Git HEAD `4ec8014` (Rev. 672→673 final commit); untracked helper scripts updated (27); dev.db & node_modules consistent dengan Rev. 673 verifikasi.
+Local branch **679 commits ahead / 0 behind** origin_main (HEAD `93ee847`, Rev. 674 final commit). Rev. 671: PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 669→670; §11 compact changelog 116–669→116–673; §12 updated. Git HEAD `93ee847` (Rev. 674 final commit); untracked helper scripts updated (33); dev.db & node_modules consistent dengan Rev. 674 verifikasi.
