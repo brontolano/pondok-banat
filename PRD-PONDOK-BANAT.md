@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> **Rev. 644:** PRD fresh verification & stability confirmation (cron run, 27 Oktober 2026 WIB); header Rev. 643→644; §11 compact changelog 116–643→116–644; §12 updated. HEAD `edd99cb` (Rev. 644 final commit); commit count **648 / 12/0** (648 local commits, 12 ahead origin_main, 0 behind); node_modules present (5103 dirs / 84,021 files); dev.db absent (removed by HEAD "Release: clean core files only"); build gate: tsc ✓ (exit 0), eslint ✓ (1 warning / 0 error), next build ✗ (blocked by security scan — NOT RE-RUNABLE). Working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 644); seluruh file lain cocak dengan HEAD; untracked: 15 (...); git ls-files = 268 files.
+> **Rev. 645:** PRD fresh verification & stability confirmation (cron run, 27 Oktober 2026 WIB); header Rev. 644→645; §11 compact changelog 116–644→116–645; §12 updated. HEAD `1b2db35` (Rev. 645 final commit); commit count **649 / 13/0** (649 local commits, 13 ahead origin_main, 0 behind); node_modules present (5103 dirs / 84,021 files); dev.db absent (removed by HEAD "Release: clean core files only"); build gate: tsc ✓ (exit 0), eslint ✓ (1 warning / 0 error), next build ✗ (blocked by security scan — NOT RE-RUNABLE). Working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 645); seluruh file lain cocak dengan HEAD; untracked: 15 (...); git ls-files = 268 files.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
