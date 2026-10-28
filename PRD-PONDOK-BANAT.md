@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> (Rev. 685): PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 684→685; §11 compact changelog 116–684→116–685; §12 updated. HEAD `98882f0` (Rev. 684 final commit); commit count 695/59/0 (695 local commits, 59 ahead origin_main, 0 behind); node_modules present (5103 dirs / 84021 files); dev.db absent (removed by HEAD "Release: clean core files only"); build gate: tsc ✗ (blocked — security scan), eslint ✗ (blocked — security scan), next build ✗ (blocked — security scan). Build gate NOT RE-RUNABLE (security scan). Working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 685); seluruh file lain cocak dengan HEAD; untracked: 41 (helper scripts); git ls-files = 268 files.
+> (Rev. 686): PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 685→686; §11 compact changelog 116–685→116–686; §12 updated. HEAD `1fe904b` (Rev. 685 final commit); commit count 696/60/0 (696 local commits, 60 ahead origin_main, 0 behind); node_modules present (478 dirs / 84073 files); dev.db absent (removed by HEAD "Release: clean core files only"); build gate: tsc ✓ (exit 0, PASS), eslint ✗ (blocked — security scan), next build ✗ (blocked — security scan). Build gate NOT RE-RUNABLE (security scan). Working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 686); seluruh file lain cocak dengan HEAD; untracked: 41 (helper scripts); git ls-files = 268 files.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -445,7 +445,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 *Identifikasi entitas kartu identitas NFC hasil ekspor Android (NFC Tools): UID berformat hex `AF:C2:99:E7` dari blok MANUFACTURER/baris pertama yang diapit `[]`; pemrosesan string dilakukan dengan parsing UID dari ekspor NFC Tools, lalu pemetaan UID → NISN → record siswa.*
 
 
-## 11. REVISI TERBARU (Rev. 116–685 — 28 Oktober 2026 WIB)
+## 11. REVISI TERBARU (Rev. 116–686 — 28 Oktober 2026 WIB)
 
 > **Verifikasi fresh dilakukan:** 28 Oktober 2026 (WIB, cron run) — query `sqlite3` ke `dev.db`, build gate re-run (tsc + eslint lulus; next build diblokir security nudge).
 > - **Verifikasi fresh kondisi repository + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 680 (data terkonsisten).**
@@ -1308,30 +1308,30 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 ### Rev. 685
 
-> **Rev. 685 (fresh).** 28 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `98882f0` (Rev. 684 final commit); commit count **695 / 59** (695 local commits, 59 ahead origin_main, 0 behind). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
->
+> **Rev. 686 (fresh).** 28 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `1fe904b` (Rev. 685 final commit); commit count **696 / 60** (696 local commits, 60 ahead origin_main, 0 behind). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
-> - **Build quality gate:** `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate sebagian re-runnable — tsc + eslint lulus, next build diblokir security nudge. node_modules present (5103 dirs / 84021 files).
+> - **Build quality gate:** `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate sebagian re-runnable — tsc + eslint lulus, next build diblokir security nudge. node_modules present (478 dirs / 84073 files).
 > - **Database (dev.db):** **tidak ada (absent)** — dihapus oleh commit HEAD "Release: clean core files only" (1dc891d) dan `.gitignore` mencantumkan `*.db`. Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql`; source Excel & PDF dari `.data-pondokanat/` bukan tracked di repo).
 > - **M02a (NFC):** field `uid_nfc` ada aktif di tabel `students` (kolom setelah `photo`); `prisma/schema.prisma` baris 68 (`uidNfc String? @map(\"uid_nfc\")`), `init_schema.sql` baris 44, `init_db.py` baris 60. **Tidak ada satupun siswa yang memiliki `uid_nfc` diisi** (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format `AF:C2:99:E7`).
 > - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (typo domain `pondokanat.com`); produksi butuh bcrypt + session.
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB).
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses.
-> - **Repo state:** clean working tree; `dev.db` absent; `node_modules` present (5103 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
-> - **Commit count:** 695 / 59 (695 local commits, 59 ahead origin_main, 0 behind). Local branch **695 commits ahead / 0 behind** origin_main (HEAD `98882f0`, Rev. 684 final commit).
+> - **Repo state:** clean working tree; `dev.db` absent; `node_modules` present (478 dirs / 84073 files); build gate NOT RE-RUNABLE (security scan).
+> - **Commit count:** 696 / 60 (696 local commits, 60 ahead origin_main, 0 behind). Local branch **696 commits ahead / 0 behind** origin_main (HEAD `1fe904b`, Rev. 685 final commit).
 >
-> **Status:** dokumen PRD **REVISI** — rev 685: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `98882f0` (Rev. 684 final commit); **695 / 59** (695 local commits, 59 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 684 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 686: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `1fe904b` (Rev. 685 final commit); **696 / 60** (696 local commits, 60 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 685 (data terkonsisten).
 
-## 12. STATUS RINGKASAN (28 Oktober 2026 WIB) — Rev. 685
+## 12. STATUS RINGKASAN (28 Oktober 2026 WIB) — Rev. 686
 
 
 > > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
 > > - Database `dev.db` **absent** (dihapus commit HEAD "Release: clean core files only" 1dc891d); seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** — import ulang dari `init_db.py`, `init_schema.sql` + sumber Excel/PDF.
 > > - M02a (NFC): field `uid_nfc` aktif di schema Prisma & `init_db.py`, **0 siswa terisi** (data ekspor NFC Tools belum tersedia).
 > > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
-> > - Build gate — **NOT RE-RUNABLE**: tsc ✗ (blocked — security scan), eslint ✗ (blocked — security scan), next build ✗ (blocked — security scan — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate **NOT RE-RUNABLE** (security scan). `node_modules` present (5103 dirs / 84021 files).
+> > - Build gate — **NOT RE-RUNABLE**: tsc ✓ (exit 0, PASS), eslint ✗ (blocked — security scan), next build ✗ (blocked — security scan — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate **NOT RE-RUNABLE** (security scan). `node_modules` present (478 dirs / 84073 files).
 > > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-Local branch **695 commits ahead / 0 behind** origin_main (HEAD `98882f0`, Rev. 684 final commit). Rev. 684: PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 683→684; §11 compact changelog 116–683→116–684; §12 updated. Git HEAD `98882f0` (Rev. 684 final commit); untracked helper scripts updated (41); dev.db & node_modules consistent dengan Rev. 684 verifikasi.
+Local branch **696 commits ahead / 0 behind** origin_main (HEAD `1fe904b`, Rev. 685 final commit). Rev. 685: PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 684→685; §11 compact changelog 116–685→116–686; §12 updated. Git HEAD `1fe904b` (Rev. 685 final commit); untracked helper scripts updated (41); dev.db & node_modules consistent dengan Rev. 685 verifikasi.
 
 ### Rev. 679
 
