@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> (Rev. 694): PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 693->694; §11 compact changelog 116–693→116–694; §12 updated. HEAD `aa3b720` (Rev. 693 final commit); commit count 705/1/0 (705 local commits, 1 ahead origin_main, 0 behind); node_modules present (84021 files / 5103 dirs); dev.db absent (removed by HEAD "Release: clean core files only"); build gate: tsc ✓ (exit 0, PASS), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (blocked — security scan — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate partially re-runnable (tsc + eslint pass; next build blocked — security scan). Working tree: PRD synced to Rev. 694; seluruh file lain cocak dengan HEAD; untracked: 41 (helper scripts); git ls-files = 268 files.
+**(Rev. 695): PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 694->695; §11 compact changelog 116–694→116–695; §12 updated. HEAD `331f357` (Rev. 694 final commit); commit count 706/2/0 (706 local commits, 2 ahead origin_main, 0 behind); node_modules present (84021 files / 5103 dirs); dev.db absent (removed by HEAD "Release: clean core files only"); build gate: tsc ✓ (exit 0, PASS), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (blocked — security scan — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate partially re-runnable (tsc + eslint pass; next build blocked — security scan). Working tree: PRD synced to Rev. 695; seluruh file lain cocak dengan HEAD; untracked: 41 (helper scripts); git ls-files = 268 files.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -834,6 +834,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > > - Commit count: **35 / 0** (35 commits ahead origin_main, 0 behind). Branch 35 commits ahead of origin/main (ed6551d, Rev. 583).
 
 | 694 | 28 Okt | aa3b720 | aa3b720 | 705/1/0 | Rev. 694: PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 693->694; §11 compact changelog 116–693→116–694; §12 updated; HEAD `aa3b720` (Rev. 693 final commit); commit count 705/1/0 (705 local commits, 1 ahead origin_main, 0 behind); node_modules present (84021 files / 5103 dirs); dev.db absent; build gate: tsc ✓ (exit 0), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate partially re-runnable (tsc + eslint pass; next build blocked — security scan). |
+| 695 | 28 Okt | 331f357 | 331f357 | 706/2/0 | Rev. 695: PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 694->695; §11 compact changelog 116–694→116–695; §12 updated; HEAD `331f357` (Rev. 694 final commit); commit count 706/2/0 (706 local commits, 2 ahead origin_main, 0 behind); node_modules present (84021 files / 5103 dirs); dev.db absent; build gate: tsc ✓ (exit 0), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate partially re-runnable (tsc + eslint pass; next build blocked — security scan). |
 ### Rev. 618
 
 > **Rev. 619 (fresh).** 27 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `9881fb2bb82e4015d5ea42b889d6045f615891f0` (Rev. 619 final commit); **2 / 0** (2 commits ahead origin_main, 0 behind). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
@@ -1353,7 +1354,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 > **Status:** dokumen PRD **REVISI** — rev 694: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `aa3b720` (Rev. 693 final commit); **705 / 1/0** (705 local commits, 1 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 693 (data terkonsisten).
 
-## 12. STATUS RINGKASAN (28 Oktober 2026 WIB) — Rev. 694
+## 12. STATUS RINGKASAN (28 Oktober 2026 WIB) — Rev. 695
 
 
 > > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
@@ -1362,7 +1363,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
 > > - Build gate — **PARTIALLY RE-RUNNABLE**: tsc ✓ (exit 0, PASS), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (blocked — security scan — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate **PARTIALLY RE-RUNNABLE** (tsc + eslint pass; next build blocked — security scan). `node_modules` present (479 dirs / 84021 files).
 > > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-Local branch **705 commits ahead / 0 behind** origin_main (HEAD `aa3b720`, Rev. 693 final commit). Rev. 694: PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 693→694; §11 compact changelog 116–693→116–694; §12 updated. Git HEAD `aa3b720` (Rev. 693 final commit); untracked helper scripts updated (41); dev.db & node_modules consistent dengan Rev. 694 verifikasi.
+Local branch **706 commits ahead / 0 behind** origin_main (HEAD `331f357`, Rev. 694 final commit). Rev. 695: PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 694→695; §11 compact changelog 116–694→116–695; §12 updated. Git HEAD `331f357` (Rev. 694 final commit); untracked helper scripts updated (41); dev.db & node_modules consistent dengan Rev. 695 verifikasi.
 
 ### Rev. 686
 
