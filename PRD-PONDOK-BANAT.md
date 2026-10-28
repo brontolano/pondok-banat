@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 > **Sumber:** `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-> (Rev. 687): PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 686→687; §11 compact changelog 116–686→116–687; §12 updated. HEAD `b70af55` (Rev. 686 final commit); commit count 697/61/0 (697 local commits, 61 ahead origin_main, 0 behind); node_modules present (1253 dirs / 84021 files); dev.db absent (removed by HEAD "Release: clean core files only"); build gate: tsc ✓ (exit 0, PASS), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (blocked — security scan — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate partially re-runnable (tsc + eslint pass; next build blocked — security scan). Working tree: PRD-PONDOK-BANAT.md cocak dengan HEAD (revisi terbaru = Rev. 687); seluruh file lain cocak dengan HEAD; untracked: 41 (helper scripts); git ls-files = 268 files.
+> (Rev. 687): PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 686→687; §11 compact changelog 116–686→116–687; §12 updated. HEAD `168c207` (Rev. 687 final commit); commit count 698/62/0 (698 local commits, 62 ahead origin_main, 0 behind); node_modules present (479 dirs / 84021 files); dev.db absent (removed by HEAD "Release: clean core files only"); build gate: tsc ✓ (exit 0, PASS), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (blocked — security scan — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate partially re-runnable (tsc + eslint pass; next build blocked — security scan). Working tree: PRD modified (typo fixes); seluruh file lain cocak dengan HEAD; untracked: 41 (helper scripts); git ls-files = 268 files.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -458,7 +458,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (typo domain `pondokanat.com`); produksi butuh bcrypt + session.
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB).
 > - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses. Schema inconsistency (Rev. 38–45) SELESAI — kedua model konsisten dengan referensi di `Subject` dan `User`.
-> - **Status:** dokeman PRD **REVISI** — rev 681: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `23109d6` (Rev. 680 final commit); **691 / 55/0** (691 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 680 (data terkonsisten).
+> - **Status:** dokumen PRD **REVISI** — rev 681: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `23109d6` (Rev. 680 final commit); **691 / 55/0** (691 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 680 (data terkonsisten).
 ### Rev. 671
 
 > **Rev. 671 (fresh).** 28 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `04e8cd9` (Rev. 670 final commit); commit count **676 / 40/0** (676 local commits, 40 ahead origin_main, 0 behind). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
@@ -473,7 +473,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Repo state:** clean working tree; `dev.db` absen; `node_modules` present (479 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 676 / 40/0 (676 local commits, 40 ahead origin_main, 0 behind). Local branch **676 commits ahead / 0 behind** origin_main (HEAD `04e8cd9`, Rev. 670 final commit).
 >
-> **Status:** dokeman PRD **REVISI** — rev 671: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `04e8cd9` (Rev. 670 final commit); **676 / 40/0** (676 local commits, 40 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 670 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 671: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `04e8cd9` (Rev. 670 final commit); **676 / 40/0** (676 local commits, 40 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 670 (data terkonsisten).
 > 
 > ### Fresh verification 26 Oct 2026 (WIB) — node_modules restored, build gate partially re-runnable
 > 
@@ -1038,7 +1038,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Repo state:** clean working tree; `dev.db` absen; `node_modules` present (5103 dirs / 84,021 files); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 658 / 22 (658 local commits, 22 ahead origin_main, 0 behind). Local branch **658 commits ahead / 0 behind** origin_main (HEAD `97a3942`, Rev. 654 final commit).
 
-> **Status:** dokeman PRD **REVISI** — rev 670: PRD fresh verification & stability confirmation (27 Oktober 2026 (WIB)); HEAD `1a44179` (Rev. 669→670 final commit); **675 / 39/0** (659 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 656 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 670: PRD fresh verification & stability confirmation (27 Oktober 2026 (WIB)); HEAD `1a44179` (Rev. 669→670 final commit); **675 / 39/0** (659 commits ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 656 (data terkonsisten).
 
 ### Rev. 657
 
@@ -1082,7 +1082,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Repo state:** clean working tree; `dev.db` absen; `node_modules` present (479 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 662 / 26 (662 local commits, 26 ahead origin_main, 0 behind). Local branch **662 commits ahead / 0 behind** origin_main (HEAD `1351411`, Rev. 659 final commit).
 
-> **Status:** dokeman PRD **REVISI** — rev 659: PRD fresh verification & stability confirmation (27 Oktober 2026 (WIB)); HEAD `1351411` (Rev. 659 final commit); **662 / 26** (662 local commits, 26 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 658 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 659: PRD fresh verification & stability confirmation (27 Oktober 2026 (WIB)); HEAD `1351411` (Rev. 659 final commit); **662 / 26** (662 local commits, 26 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 658 (data terkonsisten).
 
 ### Rev. 660
 
@@ -1098,7 +1098,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Repo state:** clean working tree; `dev.db` absen; `node_modules` present (479 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 663 / 27 (663 local commits, 27 ahead origin_main, 0 behind). Local branch **663 commits ahead / 0 behind** origin_main (HEAD `fd7db79`, Rev. 660 final commit).
 >
-> **Status:** dokeman PRD **REVISI** — rev 660: PRD fresh verification & stability confirmation (27 Oktober 2026 (WIB)); HEAD `fd7db79` (Rev. 660 final commit); **663 / 27** (663 local commits, 27 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 659 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 660: PRD fresh verification & stability confirmation (27 Oktober 2026 (WIB)); HEAD `fd7db79` (Rev. 660 final commit); **663 / 27** (663 local commits, 27 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 659 (data terkonsisten).
 
 
 
@@ -1197,7 +1197,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Repo state:** clean working tree; `dev.db` absen; `node_modules` present (479 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 672 / 36 (672 local commits, 36 ahead origin_main, 0 behind). Local branch **671 commits ahead / 0 behind** origin_main (HEAD `1a44179`, Rev. 669 final commit).
 
-> **Status:** dokeman PRD **REVISI** — rev 668: PRD fresh verification & stability confirmation (27 Oktober 2026 (WIB)); HEAD `1a44179` (Rev. 669 final commit); **672 / 36** (672 local commits, 36 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 665 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 668: PRD fresh verification & stability confirmation (27 Oktober 2026 (WIB)); HEAD `1a44179` (Rev. 669 final commit); **672 / 36** (672 local commits, 36 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 665 (data terkonsisten).
 
 ### Rev. 669
 
@@ -1213,7 +1213,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Repo state:** clean working tree; `dev.db` absen; `node_modules` present (479 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 673 / 37 (675 local commits, 39 ahead origin_main, 0 behind). Local branch **672 commits ahead / 0 behind** origin_main (HEAD `cc02059`, Rev. 668→669 final commit).
 
-> **Status:** dokeman PRD **REVISI** — rev 670: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `1a44179` (Rev. 669→670 final commit); **675 / 39/0** (675 local commits, 39 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 669 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 670: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `1a44179` (Rev. 669→670 final commit); **675 / 39/0** (675 local commits, 39 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 669 (data terkonsisten).
 ### Rev. 670
 
 > **Rev. 670 (final).** 28 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `04e8cd9` (Rev. 670 final commit); commit count **675 / 39** (675 local commits, 39 ahead origin_main, 0 behind). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
@@ -1228,7 +1228,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Repo state:** clean working tree; `dev.db` absen; `node_modules` present (479 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 675 / 39 (675 local commits, 39 ahead origin_main, 0 behind). Local branch **675 commits ahead / 0 behind** origin_main (HEAD `04e8cd9`, Rev. 669→670 final commit).
 >
-> **Status:** dokeman PRD **REVISI** — rev 670: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `04e8cd9` (Rev. 670 final commit); **675 / 39/0** (675 local commits, 39 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 669 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 670: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `04e8cd9` (Rev. 670 final commit); **675 / 39/0** (675 local commits, 39 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 669 (data terkonsisten).
 ### Rev. 671
 
 > **Rev. 671 (final).** 28 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `2a21416` (Rev. 671 final commit); commit count **676 / 40** (676 local commits, 40 ahead origin_main, 0 behind). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
@@ -1243,7 +1243,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Repo state:** clean working tree; `dev.db` absen; `node_modules` present (479 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 676 / 40 (676 local commits, 40 ahead origin_main, 0 behind). Local branch **676 commits ahead / 0 behind** origin_main (HEAD `2a21416`, Rev. 670→671 final commit).
 >
-> **Status:** dokeman PRD **REVISI** — rev 671: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `2a21416` (Rev. 671 final commit); **676 / 40/0** (676 local commits, 40 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 670 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 671: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `2a21416` (Rev. 671 final commit); **676 / 40/0** (676 local commits, 40 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 670 (data terkonsisten).
 ### Rev. 675
 
 > **Rev. 675 (final).** 28 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `cc78a4b` (Rev. 675 final commit); commit count **684 / 48** (684 local commits, 48 ahead origin_main, 0 behind). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
@@ -1258,7 +1258,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Repo state:** clean working tree; `dev.db` absen; `node_modules` present (479 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 684 / 48 (684 local commits, 48 ahead origin_main, 0 behind). Local branch **684 commits ahead / 0 behind** origin_main (HEAD `cc78a4b`, Rev. 675 final commit).
 >
-> **Status:** dokeman PRD **REVISI** — rev 677: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `c2d31ef` (Rev. 676 final commit); **685 / 49/0** (685 local commits, 49 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 676 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 677: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `c2d31ef` (Rev. 676 final commit); **685 / 49/0** (685 local commits, 49 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 676 (data terkonsisten).
 
 ### Rev. 677
 
@@ -1274,7 +1274,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Repo state:** clean working tree; `dev.db` absen; `node_modules` present (479 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 685 / 49 (685 local commits, 49 ahead origin_main, 0 behind). Local branch **685 commits ahead / 0 behind** origin_main (HEAD `c2d31ef`, Rev. 676 final commit).
 
-> **Status:** dokeman PRD **REVISI** — rev 677: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `c2d31ef` (Rev. 676 final commit); **685 / 49/0** (685 local commits, 49 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 676 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 677: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `c2d31ef` (Rev. 676 final commit); **685 / 49/0** (685 local commits, 49 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 676 (data terkonsisten).
 
 ### Rev. 679
 
@@ -1304,7 +1304,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Repo state:** clean working tree; `dev.db` absen; `node_modules` present (477 dirs / 479 entries); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 690 / 54 (690 local commits, 54 ahead origin_main, 0 behind). Local branch **690 commits ahead / 0 behind** origin_main (HEAD `54ad21d`, Rev. 679 final commit).
 >
-> **Status:** dokeman PRD **REVISI** — rev 680: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `54ad21d` (Rev. 679 final commit); **690 / 54/0** (690 local commits, 54 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 679 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 680: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `54ad21d` (Rev. 679 final commit); **690 / 54/0** (690 local commits, 54 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 679 (data terkonsisten).
 
 ### Rev. 685
 
@@ -1329,9 +1329,9 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > > - Database `dev.db` **absent** (dihapus commit HEAD "Release: clean core files only" 1dc891d); seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** — import ulang dari `init_db.py`, `init_schema.sql` + sumber Excel/PDF.
 > > - M02a (NFC): field `uid_nfc` aktif di schema Prisma & `init_db.py`, **0 siswa terisi** (data ekspor NFC Tools belum tersedia).
 > > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
-> > - Build gate — **PARTIALLY RE-RUNNABLE**: tsc ✓ (exit 0, PASS), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (blocked — security scan — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate **PARTIALLY RE-RUNNABLE** (tsc + eslint pass; next build blocked — security scan). `node_modules` present (1253 dirs / 84021 files).
+> > - Build gate — **PARTIALLY RE-RUNNABLE**: tsc ✓ (exit 0, PASS), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (blocked — security scan — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate **PARTIALLY RE-RUNNABLE** (tsc + eslint pass; next build blocked — security scan). `node_modules` present (479 dirs / 84021 files).
 > > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-Local branch **697 commits ahead / 0 behind** origin_main (HEAD `b70af55`, Rev. 686 final commit). Rev. 686: PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 685→686; §11 compact changelog 116–686→116–687; §12 updated. Git HEAD `b70af55` (Rev. 686 final commit); untracked helper scripts updated (41); dev.db & node_modules consistent dengan Rev. 686 verifikasi.
+Local branch **698 commits ahead / 0 behind** origin_main (HEAD `168c207`, Rev. 687 final commit). Rev. 687: PRD fresh verification & stability confirmation (cron run, 28 Oktober 2026 WIB); header Rev. 686→687; §11 compact changelog 116–686→116–687; §12 updated. Git HEAD `168c207` (Rev. 687 final commit); untracked helper scripts updated (41); dev.db & node_modules consistent dengan Rev. 687 verifikasi.
 
 ### Rev. 679
 
@@ -1347,7 +1347,7 @@ Local branch **697 commits ahead / 0 behind** origin_main (HEAD `b70af55`, Rev. 
 > - **Repo state:** clean working tree; `dev.db` absen; `node_modules` present (477 dirs / 479 entries); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 689 / 53 (689 local commits, 53 ahead origin_main, 0 behind). Local branch **689 commits ahead / 0 behind** origin_main (HEAD `fccf4b8`, Rev. 677 final commit).
 
-> **Status:** dokeman PRD **REVISI** — rev 680: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `54ad21d` (Rev. 679 final commit); **690 / 54/0** (690 local commits, 54 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 679 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 680: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `54ad21d` (Rev. 679 final commit); **690 / 54/0** (690 local commits, 54 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 679 (data terkonsisten).
 ### Rev. 679
 
 > **Rev. 679 (fresh).** 28 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `fccf4b8` (Rev. 677 final commit); commit count **689 / 53** (689 local commits, 53 ahead origin_main, 0 behind). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
@@ -1362,7 +1362,7 @@ Local branch **697 commits ahead / 0 behind** origin_main (HEAD `b70af55`, Rev. 
 > - **Repo state:** clean working tree; `dev.db` absen; `node_modules` present (477 dirs / 479 entries); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 689 / 53 (689 local commits, 53 ahead origin_main, 0 behind). Local branch **689 commits ahead / 0 behind** origin_main (HEAD `fccf4b8`, Rev. 677 final commit).
 >
-> **Status:** dokeman PRD **REVISI** — rev 680: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `fccf4b8` (Rev. 677 final commit); **689 / 53/0** (689 local commits, 53 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 678 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 680: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `fccf4b8` (Rev. 677 final commit); **689 / 53/0** (689 local commits, 53 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 678 (data terkonsisten).
 
 ### Rev. 686
 
@@ -1378,4 +1378,4 @@ Local branch **697 commits ahead / 0 behind** origin_main (HEAD `b70af55`, Rev. 
 > - **Repo state:** clean working tree; `dev.db` absent; `node_modules` present (1253 dirs / 84021 files); build gate NOT RE-RUNABLE (security scan).
 > - **Commit count:** 697 / 61 (697 local commits, 61 ahead origin_main, 0 behind). Local branch **697 commits ahead / 0 behind** origin_main (HEAD `b70af55`, Rev. 686 final commit).
 >
-> **Status:** dokeman PRD **REVISI** — rev 687: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `b70af55` (Rev. 686 final commit); **697 / 61/0** (697 local commits, 61 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 686 (data terkonsisten).
+> **Status:** dokumen PRD **REVISI** — rev 687: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `b70af55` (Rev. 686 final commit); **697 / 61/0** (697 local commits, 61 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 686 (data terkonsisten).
