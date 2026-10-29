@@ -1330,15 +1330,6 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 >
 > > **Status:** dokumen PRD **REVISI** — rev 703: PRD fresh verification & stability confirmation (28 Oktober 2026 (WIB)); HEAD `ee7282b` (Rev. 702 final commit); **714 / 10/0** (714 local commits, 11 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 702 (data terkonsisten). Build gate: tsc ✓, eslint ✓ (1 warning), next build ✗ (SecurityFatalError Next.js 16.4.0).
 
-## 12. STATUS RINGKASAN (29 Oktober 2026 WIB) — Rev. 727
-
-
-> > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
-> > - Database `dev.db` **ada** — direkonstruksi schema-only via `init_db.py` (15 tabel, seluruh record 0). Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** — import ulang dari `init_db.py`, `init_schema.sql` + sumber Excel/PDF. dev.db direkonstruksi via `init_db.py` (15 tabel, schema kosong tanpa seed data).
-> > - M02a (NFC): field `uid_nfc` aktif di schema Prisma & `init_db.py`, **0 siswa terisi** (data ekspor NFC Tools belum tersedia).
-> > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
-> > - Build gate — **sebagian re-runnable**: `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). tsc + eslint lulus, next build diblokir security nudge. node_modules present (5103 dirs / 84021 files).
-> > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
 
 ### Rev. 687
 
@@ -1592,3 +1583,11 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Commit count:** 738 / 3 (738 local commits, 3 ahead origin_main, 0 behind). Local branch **3 commits ahead / 0 behind** origin_main (HEAD `c1eac67`, Rev. 727 final commit).
 
 > **Status:** dokumen PRD **REVISI** — rev 727: PRD fresh verification & stability confirmation (29 Oktober 2026 (WIB)); HEAD `c1eac67` (Rev. 727 final commit); **738 / 3/0** (738 local commits, 3 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 726 (data terkonsisten). Build gate: tsc ✓ (exit 0), eslint ✓ (exit 0, 1 warning), next build ✗ (SecurityFatalError Next.js 16.4.0).
+## 12. STATUS RINGKASAN (29 Oktober 2026 WIB) — Rev. 727
+
+> > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
+> > - Database `dev.db` **ada** — direkonstruksi schema-only via `init_db.py` (15 tabel, seluruh record 0). Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** — import ulang dari `init_db.py`, `init_schema.sql` + sumber Excel/PDF. dev.db direkonstruksi via `init_db.py` (15 tabel, schema kosong tanpa seed data).
+> > - M02a (NFC): field `uid_nfc` aktif di schema Prisma & `init_db.py`, **0 siswa terisi** (data ekspor NFC Tools belum tersedia).
+> > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
+> > - Build gate — **sebagian re-runnable**: `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). tsc + eslint lulus, next build diblokir security nudge. node_modules present (5103 dirs / 84021 files).
+> > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
