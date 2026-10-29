@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 (Source: `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-(Rev. 735): PRD fresh verification & stability confirmation (cron run, 29 Oktober 2026 WIB); header Rev. 735→736; §11 compact changelog 116–735→116–736; §12 updated. HEAD `09c1286` (Rev. 735 final commit); commit count 749/5/0 (749 local commits, 5 ahead origin_main, 0 behind); node_modules present (477 dirs / 84021 files); dev.db ada (direkonstruksi schema-only via init_db.py; 15 tabel, seluruh record 0 — seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: npm run type-check (tsc --noEmit) ✓ (exit 0); npm run lint ✓ (exit 0, 1 warning / 0 error); npm run build (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate: npm run type-check dan npm run lint lulus; npm run build TIDAK RE-RUNNABLE dalam lingkungan cron — security scan memblokir next build. Working tree: PRD synced ke Rev. 736; 341 files; 1 untracked (verify_db.py helper).
+(Rev. 736): PRD fresh verification & stability confirmation (cron run, 29 Oktober 2026 WIB); header Rev. 736→737; §11 compact changelog 116–736→116–737; §12 updated. HEAD `b66b17c` (Rev. 736 final commit); commit count 750/6/0 (750 local commits, 6 ahead origin_main, 0 behind); node_modules present (477 dirs / 84021 files); dev.db ada (direkonstruksi schema-only via init_db.py; 15 tabel, seluruh record 0 — seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: npm run type-check (tsc --noEmit) ✓ (exit 0); npm run lint ✓ (exit 0, 1 warning / 0 error); npm run build (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate: npm run type-check dan npm run lint lulus; npm run build TIDAK RE-RUNNABLE dalam lingkungan cron — security scan memblokir next build. Working tree: PRD synced ke Rev. 737; 341 files; 1 untracked (verify_db.py helper).
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -1667,9 +1667,9 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 > **Status:** dokumen PRD **REVISI** — rev 734: PRD fresh verification & stability confirmation (29 Oktober 2026 (WIB)); HEAD `591d233` (Rev. 733 final commit); **747 / 3/0** (747 local commits, 3 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 733 (data terkonsisten). Build gate: tsc ✓ (exit 0), eslint ✓ (exit 0, 1 warning), next build ✗ (SecurityFatalError Next.js 16.4.0).
 
-### Rev. 736
+### Rev. 737
 
-> **Rev. 736 (fresh).** 29 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `09c1286` (Rev. 735 final commit); commit count **749 / 5/0** (749 local commits, 5 ahead origin_main, 0 behind). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> **Rev. 737 (fresh).** 29 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `b66b17c` (Rev. 736 final commit); commit count **750 / 6/0** (750 local commits, 6 ahead origin_main, 0 behind). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 >
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:** `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate sebagian re-runnable — tsc + eslint lulus, next build diblokir security nudge. node_modules present (477 dirs / 84021 files).
@@ -1679,10 +1679,10 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB).
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses.
 > - **Repo state:** clean working tree; `dev.db` schema-only (0 record); `node_modules` present (477 dirs / 84021 files); build gate sebagian re-runnable (tsc + eslint lulus; next build diblokir security nudge). 1 untracked helper script (verify_db.py) in working tree.
-> - **Commit count:** 749 / 5 (749 local commits, 5 ahead origin_main, 0 behind). Local branch **5 commits ahead / 0 behind** origin_main (HEAD `09c1286`, Rev. 735 final commit).
+> - **Commit count:** 750 / 6 (750 local commits, 6 ahead origin_main, 0 behind). Local branch **6 commits ahead / 0 behind** origin_main (HEAD `b66b17c`, Rev. 736 final commit).
 >
-> **Status:** dokumen PRD **REVISI** — rev 736: PRD fresh verification & stability confirmation (29 Oktober 2026 (WIB)); HEAD `09c1286` (Rev. 735 final commit); **749 / 5/0** (749 local commits, 5 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 735 (data terkonsisten). Build gate: tsc ✓ (exit 0), eslint ✓ (exit 0, 1 warning), next build ✗ (SecurityFatalError Next.js 16.4.0).
-## 12. STATUS RINGKASAN (29 Oktober 2026 WIB) — Rev. 736
+> **Status:** dokumen PRD **REVISI** — rev 737: PRD fresh verification & stability confirmation (29 Oktober 2026 (WIB)); HEAD `b66b17c` (Rev. 736 final commit); **750 / 6/0** (750 local commits, 6 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 736 (data terkonsisten). Build gate: tsc ✓ (exit 0), eslint ✓ (exit 0, 1 warning), next build ✗ (SecurityFatalError Next.js 16.4.0).
+## 12. STATUS RINGKASAN (29 Oktober 2026 WIB) — Rev. 737
 
 > > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
 > > - Database `dev.db` **ada** — direkonstruksi schema-only via `init_db.py` (15 tabel, seluruh record 0). Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** — import ulang dari `init_db.py`, `init_schema.sql` + sumber Excel/PDF. dev.db direkonstruksi via `init_db.py` (15 tabel, schema kosong tanpa seed data).
