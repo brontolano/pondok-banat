@@ -458,7 +458,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Auth hardcode:** `src/components/Login.tsx` masih pakai `admin@pondokanbat.com` / `admin123` (typo domain `pondokanat.com`); produksi butuh bcrypt + session.
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB).
 > - **Prisma schema:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses. Schema inconsistency (Rev. 38–45) SELESAI — kedua model konsisten dengan referensi di `Subject` dan `User`.
-> - **Status:** dokumen PRD **REVISI** — rev 717: PRD fresh verification & stability confirmation (1 November 2026 (WIB)); HEAD `6d2114e` (Rev. 717 final commit); **727 / 5/0** (727 local commits, 5 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 716 (data terkonsisten).
+> - **Status:** dokumen PRD **REVISI** — rev 718: PRD fresh verification & stability confirmation (1 November 2026 (WIB)); HEAD `6d2114e` (Rev. 718 final commit); **727 / 5/0** (727 local commits, 5 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 716 (data terkonsisten).
 ### Rev. 671
 
 > **Rev. 671 (fresh).** 28 Oktober 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `04e8cd9` (Rev. 670 final commit); commit count **676 / 40/0** (676 local commits, 40 ahead origin_main, 0 behind). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
