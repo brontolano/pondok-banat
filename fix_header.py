@@ -1,36 +1,22 @@
+import sys
+
 path = "PRD-PONDOK-BANAT.md"
-with open(path, "r") as f:
+with open(path, "r", encoding="utf-8") as f:
     content = f.read()
 
-# Find and replace the header
-# The header starts with "> **Rev. 283 — 19 Oktober 2026 (WIB).**" 
-# and contains old references that need updating
+# FIX: Header build gate - update to match actual verification
+old = "Build gate: npm run type-check (tsc --noEmit) \u2717 (blocked \u2014 security scan); npm run lint \u2717 (blocked \u2014 security scan); npm run build (next build) \u2717 (exit 1 \u2014 SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate TIDAK RE-RUNNABLE \u2014 tsc, eslint, dan next build diblokir (security scan). Working tree: PRD synced ke Rev. 713;"
+new = "Build gate: npm run type-check (tsc --noEmit) \u2713 (exit 0); npm run lint \u2713 (exit 0, 1 warning / 0 error); npm run build (next build) \u2717 (exit 1 \u2014 SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate sebagian re-runnable \u2014 tsc + eslint lulus, next build diblokir security nudge. Working tree: PRD synced ke Rev. 713;"
+content = content.replace(old, new)
+print(f"Fixed header build gate: {1 if old in content else 'already done'}")
 
-old_header_start = "> **Rev. 283 — 19 Oktober 2026 (WIB).**"
-old_header_end = "init_schema.sql: 15 tabel."
+# FIX: §11 intro build gate
+old2 = "> - **Build gate:** `npm run type-check` (tsc --noEmit) \u2713 (exit 0) \u2014 **PASS**; `npm run lint` \u2713 (exit 0, 1 warning / 0 error) \u2014 **PASS**; `npx next build` \u2713 (exit 0 \u2014 build berhasil tanpa SecurityFatalError, next build berhasil tanpa SecurityFatalError) \u2014 **PASS**. Build gate **FULLY RE-RUNNABLE** \u2014 seluruh gate lulus. `node_modules` present (5103 dirs / 84021 files)."
+new2 = "> - **Build gate:** `npm run type-check` (tsc --noEmit) \u2713 (exit 0) \u2014 **PASS**; `npm run lint` \u2713 (exit 0, 1 warning / 0 error) \u2014 **PASS**; `npx next build` \u2717 (exit 1 \u2014 SecurityFatalError: Next.js 16.4.0 has a known security vulnerability) \u2014 **FAIL**. Build gate **sebagian re-runnable** \u2014 tsc + eslint lulus, next build diblokir security nudge. `node_modules` present (5103 dirs / 84021 files)."
+content = content.replace(old2, new2)
+print(f"Fixed §11 intro build gate: {1 if old2 in content else 'already done'}")
 
-# We need to find the exact end of the header line
-# The header is line 4 (index 3), it ends with "init_schema.sql: 15 tabel."
-# and is followed by "\n"
-
-# Find the header line
-lines = content.splitlines(keepends=True)
-for i, line in enumerate(lines):
-    if line.startswith("> **Rev. 283 — 19 Oktober 2026 (WIB).**"):
-        header_line = line
-        print(f"Found header at line {i+1}")
-        print(f"Header length: {len(header_line)}")
-        print(f"Header ends with: ...{header_line[-100:]}")
-        
-        # Build new header
-        new_header = """> **Rev. 283 — 19 Oktober 2026 (WIB).** Verifikasi fresh kondisi repo + dev.db (SQLite, cron run): state stabil. Git HEAD (local): `8217a6167574989fa6b9108ce12876ff1085a48b` "Rev. 282: PRD fresh verification & stability confirmation (19 Oct 2026 WIB); updated header to Rev. 282 + added section 60" (branch `main`, remote `brontolano/pondok-banat`; `git rev-parse HEAD` = `8217a6167574989fa6b9108ce12876ff1085a48b`). Git HEAD (origin/main): `03fe91a913233ca207008ac82516d9d2d7a6dcd1` (Rev. 279) — berbeda dengan local HEAD (local 3 commit ahead). Working tree: PRD mencakup perubahan lokal (revisi terbaru = Rev. 283, belum dicomit). Local branch **3 commit ahead**, **0 commit behind** origin/main. Database (dev.db): file dev.db saat ini tidak ada (absent) — dihapus oleh commit "Release: clean core files only" (1dc891d) dan .gitignore mencantumkan *.db; seluruh record (453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) tidak tersedia dan harus di-import ulang menggunakan skrip semula (init_db.py, init_schema.sql; import_excel.py dan import_students_grades_clean.py tidak ditemukan di working tree). Build quality gate: NO LONGER RE-RUNABLE — node_modules/absent (0 package; .bin tidak ada); .next ada (partial: cache + diagnostics + package.json + server + static + trace + trace-build + turbopack + types, bukan production build). tsc --noEmit, npm run lint, npm run build memerlukan npm instal ulang sebelum dapat dijalankan. M02a (NFC): field uid_nfc masih di schema Prisma, init_schema.sql baris 44, init_db.py baris 60, namun 0 siswa terisi (semua 453 NULL) — data ekspor NFC Tools belum tersedia (tersimpan manual, format AF:C2:99:E7). Auth hardcode: src/components/Login.tsx masih pakai admin@pondokanbat.com / admin123 (domain pondokanbat.com (sesuai nama 'Pondok Banat')); produksi butuh bcrypt + session. Beranda: src/app/page.tsx (login page) masih hardcode; belum ada dashboard utama yang terhubung ke DB. Prisma: 17 model terdefinisi (termasuk KitabProgress, Sertakan — ditambahkan Rev. 51). init_schema.sql: 15 tabel."""
-        
-        lines[i] = new_header + "\n"
-        content = "".join(lines)
-        print("Header replaced successfully")
-        break
-
-with open(path, "w") as f:
+with open("PRD-PONDOK-BANAT.md", "w", encoding="utf-8") as f:
     f.write(content)
 
 print("Done")
