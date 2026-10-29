@@ -1789,7 +1789,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 >
 > **Status:** dokumen PRD **REVISI** — rev 745: PRD fresh verification & stability confirmation (1 November 2026 (WIB)); HEAD `1c4a73c` (Rev. 744 final commit); **758 / 14/0** (758 local commits, 14 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 744 (data terkonsisten).
 
-## 12. STATUS RINGKASAN (2 November 2026 WIB) — Rev. 746
+### Rev. 746
 
 > **Rev. 746 (fresh).** 2 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `38b0d74` (Rev. 745 final commit); commit count **759 / 15/0** (759 local commits, 15 ahead origin_main, 0 behind). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 
@@ -1804,6 +1804,8 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Commit count:** 759 / 15/0 (759 local commits, 15 ahead origin_main, 0 behind). Local branch **15 commits ahead / 0 behind** origin_main (HEAD `38b0d74`, Rev. 745 final commit).
 
 > **Status:** dokumen PRD **REVISI** — rev 746: PRD fresh verification & stability confirmation (2 November 2026 (WIB)); HEAD `38b0d74` (Rev. 745 final commit); **759 / 15/0** (759 local commits, 15 ahead origin_main, 0 behind). State stabil, tidak ada perubahan signifikan dari Rev. 745 (data terkonsisten).
+
+## 12. STATUS RINGKASAN (2 November 2026 WIB) — Rev. 746
 
 > > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
 > > - Database `dev.db` **ada** — direkonstruksi schema-only via `init_db.py` (15 tabel, seluruh record 0). Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** — import ulang dari `init_db.py`, `init_schema.sql` + sumber Excel/PDF. dev.db direkonstruksi via `init_db.py` (15 tabel, schema kosong tanpa seed data).
