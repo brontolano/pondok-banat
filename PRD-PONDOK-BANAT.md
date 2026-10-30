@@ -2505,7 +2505,3 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Commit count:** 802 / 15/0 (802 local commits, 15 ahead / 0 behind origin_main). Local branch **802 commits ahead / 0 behind** origin_main (HEAD `99c9dbee03c6393bacaeac7215d44f72c0b6c625`, Rev. 783 committed; PRD synced ke Rev. 784).
 >
 > - **Status:** dokumen PRD **REVISI** — rev 784: PRD fresh verification & stability confirmation (30 Oktober 2026 (WIB)); HEAD `99c9dbee03c6393bacaeac7215d44f72c0b6c625` (Rev. 783 committed; PRD synced ke Rev. 784). State stabil, tidak ada perubahan signifikan dari Rev. 783 (data terkonsisten).
-
-> - **Status:** dokumen PRD **REVISI** — rev 785: PRD fresh verification & stability confirmation (30 Oktober 2026 (WIB), cron run); HEAD `12253eb680f2245d5c33a804a58daf3d97706b8a` (Rev. 784, PRD synced ke Rev. 785). State stabil, tidak ada perubahan signifikan dari Rev. 784 (data terkonsisten).
-
-
