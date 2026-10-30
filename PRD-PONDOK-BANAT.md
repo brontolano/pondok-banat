@@ -2379,7 +2379,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Commit count:** 793 / 6/0 local commits (793 local commits, 6 ahead / 0 behind origin_main). Local branch **793 commits ahead / 0 behind** origin_main (HEAD `8bf9119`, Rev. 776 committed).
 > - **Status:** dokumen PRD **REVISI** — rev 777: PRD fresh verification & stability confirmation (cron run, 30 Oktober 2026 (WIB)); HEAD `8bf9119` (Rev. 776 committed); **793 / 6/0** (793 local commits, 6 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 776 (data terkonsisten).
 
-## 12. STATUS RINGKASAN (30 Oktober 2026 WIB) — Rev. 777
+## 12. STATUS RINGKASAN (30 Oktober 2026 WIB) — Rev. 778
 
 > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
 > - Database `dev.db` **ada** — schema-only via `init_db.py` (15 tabel, seluruh record 0). Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql` + sumber Excel/PDF).
