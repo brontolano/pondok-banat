@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 (Source: `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-header Rev. 764; §11 compact changelog 116–754→116–765; §12 updated. HEAD 64e1d71 (Rev. 764 committed); Rev. 764 committed (working tree synced dengan HEAD, 0 perubahan lokal); commit count 781/4/0 (781 local commits, 4 ahead / 0 behind origin_main); node_modules present (478 dirs / 84073 files); dev.db absen (tidak ada — dihapus oleh commit HEAD "Release: clean core files only" dan .gitignore mencantumkan *.db); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: npm run type-check (tsc --noEmit) ✓ (exit 0); npm run lint ✓ (exit 0, 1 warning / 0 error); npm run build (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate sebagian re-runnable. Working tree: PRD synced ke Rev. 764; 340 tracked files; 15 untracked (check_db.py, check_header.py, dev_report.py, prd_update_758.py, prd_update_script.py, update_prd_757.py, update_prd_760.py, update_prd_760b.py, update_prd_761.py, update_prd_762.py, update_prd_764.py, verify_current.py, verify_db.py, verify_db_check.py, verify_fresh.py); 0 deleted (fix_duplicate.py removed); node_modules present (478 dirs / 84073 files).
+header Rev. 766; §11 compact changelog 116–754→116–766; §12 updated. HEAD c619dae (Rev. 765 committed); Rev. 765 committed (working tree synced dengan HEAD, 0 perubahan lokal); commit count 782/5/0 (782 local commits, 5 ahead / 0 behind origin_main); node_modules present (479 dirs / 84021 files); dev.db ada (tidak ada — dihapus oleh commit HEAD "Release: clean core files only" dan .gitignore mencantumkan *.db); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: npm run type-check (tsc --noEmit) ✓ (exit 0); npm run lint ✓ (exit 0, 1 warning / 0 error); npm run build (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate sebagian re-runnable. Working tree: PRD synced ke Rev. 766; 340 tracked files; 15 untracked (check_db.py, check_header.py, dev_report.py, prd_update_758.py, prd_update_script.py, update_prd_757.py, update_prd_760.py, update_prd_760b.py, update_prd_761.py, update_prd_762.py, update_prd_764.py, verify_current.py, verify_db.py, verify_db_check.py, verify_fresh.py); 0 deleted (fix_duplicate.py removed); node_modules present (479 dirs / 84021 files).
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -448,7 +448,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 *Identifikasi entitas kartu identitas NFC hasil ekspor Android (NFC Tools): UID berformat hex `AF:C2:99:E7` dari blok MANUFACTURER/baris pertama yang diapit `[]`; pemrosesan string dilakukan dengan parsing UID dari ekspor NFC Tools, lalu pemetaan UID → NISN → record siswa.*
 
 
-## 11. REVISI TERBARU (Rev. 116–764 — 6 November 2026 WIB)
+## 11. REVISI TERBARU (Rev. 116–766 — 6 November 2026 WIB)
 
 > **Verifikasi fresh dilakukan:** 1 November 2026 (WIB, cron run) — query `sqlite3` ke `dev.db`, build gate re-run.
 > - **Verifikasi fresh kondisi repository + dev.db (SQLite, cron run): state stabil. Tidak ada perubahan signifikan dari Rev. 764 (data terkonsisten).**
@@ -2179,7 +2179,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 >
 > - **Status:** dokumen PRD **REVISI** — rev 765: PRD fresh verification & stability confirmation (30 Oktober 2026 (WIB)); HEAD `64e1d71` (Rev. 764 committed); **781 / 4/0** (781 local commits, 4 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 764 (data terkonsisten).
 
-## 12. STATUS RINGKASAN (30 Oktober 2026 WIB) — Rev. 765
+## 12. STATUS RINGKASAN (30 Oktober 2026 WIB) — Rev. 766
 
 > > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
 > > - Database `dev.db` **absen** — belum tersedia (dirujuk .gitignore: `*.db`). Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** — import ulang dari `init_db.py`, `init_schema.sql` + sumber Excel/PDF.
