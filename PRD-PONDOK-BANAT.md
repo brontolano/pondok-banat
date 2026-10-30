@@ -1,7 +1,7 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 
 (Source: `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-header Rev. 784; §11 compact changelog 116–784; §12 updated. HEAD `99c9dbee03c6393bacaeac7215d44f72c0b6c625` (Rev. 783); commit count 802/15/0 (802 local commits, 15 ahead / 0 behind origin_main); node_modules present (477 dirs / 84073 files); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: npm run type-check (tsc --noEmit) ✓ (exit 0); npm run lint ✓ (exit 0, 1 warning / 0 error); npm run build (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate: npm run type-check dan npm run lint sebagian re-runnable. Working tree: PRD synced ke Rev. 784; 340 tracked files; 21 untracked (_state_check.py, check_db.py, check_db_current.py, check_header.py, dev_report.py, prd_update_758.py, prd_update_script.py, update_prd_757.py, update_prd_760.py, update_prd_760b.py, update_prd_761.py, update_prd_762.py, update_prd_764.py, update_prd_770.py, update_prd_777.py, verify_current.py, verify_db.py, verify_db_check.py, verify_fresh.py, verify_fresh2.py, verify_fresh_run.py); 0 deleted (fix_duplicate.py removed); node_modules present (477 dirs / 84073 files); Dev.db ada schema-only (0 record); seluruh data belum di-import (import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF); build gate tsc+lint lulus, next build diblokir security nudge.
+header Rev. 785; §11 compact changelog 116–784→785; §12 updated. HEAD `12253eb680f2245d5c33a804a58daf3d97706b8a` (Rev. 784); commit count 803/16/0 (803 local commits, 16 ahead / 0 behind origin_main); node_modules present (477 dirs / 84073 files); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: npm run type-check (tsc --noEmit) ✓ (exit 0); npm run lint ✓ (exit 0, 1 warning / 0 error); npm run build (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate: npm run type-check dan npm run lint sebagian re-runnable. Working tree: PRD synced ke Rev. 785; 340 tracked files; 21 untracked (_state_check.py, check_db.py, check_db_current.py, check_header.py, dev_report.py, prd_update_758.py, prd_update_script.py, update_prd_757.py, update_prd_760.py, update_prd_760b.py, update_prd_761.py, update_prd_762.py, update_prd_764.py, update_prd_770.py, update_prd_777.py, verify_current.py, verify_db.py, verify_db_check.py, verify_fresh.py, verify_fresh2.py, verify_fresh_run.py); 0 deleted (fix_duplicate.py removed); node_modules present (477 dirs / 84073 files); Dev.db ada schema-only (0 record); seluruh data belum di-import (import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF); build gate tsc+lint lulus, next build diblokir security nudge.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -2462,8 +2462,10 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 >
 > - **Status:** dokumen PRD **REVISI** — rev 784: PRD fresh verification & stability confirmation (30 Oktober 2026 (WIB)); HEAD `99c9dbee03c6393bacaeac7215d44f72c0b6c625` (Rev. 783 committed; PRD synced ke Rev. 784). State stabil, tidak ada perubahan signifikan dari Rev. 783 (data terkonsisten).
 
+> - **Status:** dokumen PRD **REVISI** — rev 785: PRD fresh verification & stability confirmation (30 Oktober 2026 (WIB), cron run); HEAD `12253eb680f2245d5c33a804a58daf3d97706b8a` (Rev. 784, PRD synced ke Rev. 785). State stabil, tidak ada perubahan signifikan dari Rev. 784 (data terkonsisten).
 
-## 12. STATUS RINGKASAN (30 Oktober 2026 WIB) — Rev. 784
+
+## 12. STATUS RINGKASAN (30 Oktober 2026 WIB) — Rev. 785
 
 > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
 > - Database `dev.db` **ada** — schema-only via `init_db.py` (15 tabel, seluruh record 0). Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql` + sumber Excel/PDF).
@@ -2503,5 +2505,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Commit count:** 802 / 15/0 (802 local commits, 15 ahead / 0 behind origin_main). Local branch **802 commits ahead / 0 behind** origin_main (HEAD `99c9dbee03c6393bacaeac7215d44f72c0b6c625`, Rev. 783 committed; PRD synced ke Rev. 784).
 >
 > - **Status:** dokumen PRD **REVISI** — rev 784: PRD fresh verification & stability confirmation (30 Oktober 2026 (WIB)); HEAD `99c9dbee03c6393bacaeac7215d44f72c0b6c625` (Rev. 783 committed; PRD synced ke Rev. 784). State stabil, tidak ada perubahan signifikan dari Rev. 783 (data terkonsisten).
+
+> - **Status:** dokumen PRD **REVISI** — rev 785: PRD fresh verification & stability confirmation (30 Oktober 2026 (WIB), cron run); HEAD `12253eb680f2245d5c33a804a58daf3d97706b8a` (Rev. 784, PRD synced ke Rev. 785). State stabil, tidak ada perubahan signifikan dari Rev. 784 (data terkonsisten).
 
 
