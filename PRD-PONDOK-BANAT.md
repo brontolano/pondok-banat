@@ -3133,8 +3133,8 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 **Repo state:** clean working tree; PRD ditulis ke Rev. 818; `dev.db` ada (schema-only); `node_modules` present (479 dirs / 84021 files); build gate sebagian re-runnable. 49 untracked helper scripts; 0 deleted.
 
-**Commit count:** 846 local commits, **38 ahead / 0 behind** origin_main. Local branch **846 commits ahead / 0 behind** origin_main (HEAD `ab0c5c0`, Rev. 817 final committed). origin/main at `60d2d99` (Rev. 788).
+**Commit count:** 847 local commits, **39 ahead / 0 behind** origin_main. Local branch **847 commits ahead / 0 behind** origin_main (HEAD `ab0c5c0`, Rev. 817 final committed). origin/main at `60d2d99` (Rev. 788).
 
-**Status:** dokumen PRD **REVISI** — rev 818: PRD fresh verification & stability confirmation (cron run, 7 November 2026 WIB); HEAD `ab0c5c0` (Rev. 817 final committed); **846 / 38/0** (846 local commits, 38 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 817 (data terkonsisten).
+**Status:** dokumen PRD **REVISI** — rev 818: PRD fresh verification & stability confirmation (cron run, 7 November 2026 WIB); HEAD `ab0c5c0` (Rev. 817 final committed); **847 / 39/0** (847 local commits, 39 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 817 (data terkonsisten).
 
 
