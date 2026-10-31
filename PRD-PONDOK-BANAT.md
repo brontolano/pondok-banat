@@ -3503,6 +3503,8 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses. Schema inconsistency (Rev. 38–45) SELESAI.
 
+### Rev. 836 (fresh verification)
+
 > - **Repo state:** clean working tree; PRD ditulis ke Rev. 836; `dev.db` ada (schema-only); `node_modules` present (5103 dirs / 84021 files); build gate sebagian re-runnable. 55 untracked helper scripts; 0 deleted.
 
 > - **Commit count:** 867 local commits, **1 ahead / 0 behind** origin_main.
