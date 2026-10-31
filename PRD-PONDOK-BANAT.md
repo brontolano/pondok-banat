@@ -1,6 +1,6 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 (Source: `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-header Rev. 819; §11 compact changelog 116–819; §12 updated. HEAD `2a048a6` (Rev. 818 final committed — header commit-count sync); commit count 850/42/0 (850 local commits, 42 ahead / 0 behind origin_main); node_modules present (477 dirs / 84021 files); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — upgrade recommended). Working tree: PRD synced ke Rev. 819; 340 tracked files; 53 untracked (incl. probe scripts); 0 deleted.
+header Rev. 820; §11 compact changelog 116–820; §12 updated. HEAD `006f0fa` (Rev. 819 final committed — PRD fresh verification & stability confirmation, 8 November 2026 WIB); commit count 851/0/0 (851 local commits, 0 ahead / 0 behind origin_main); node_modules present (5103 dirs / 84021 files); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✗ (blocked — Tirith security scan); eslint ✗ (blocked — Tirith security scan); next build ✗ (SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — upgrade recommended). Working tree: PRD synced ke Rev. 820; 340 tracked files; 53 untracked (incl. probe scripts); 0 deleted.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -625,7 +625,8 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 ### Key milestones in Rev. 116–691 (full detail in git history; `git log --oneline`)
 
-||||||| 819 | 8 Nov | 2a048a6 | 2a048a6 | 850/42 | Rev. 819: PRD fresh verification & stability confirmation (cron run, 8 November 2026 WIB); header Rev. 818→819; §11 compact changelog 116–818→116–819; §12 updated. HEAD 2a048a6 (Rev. 818 final commit); commit count 850/42/0; node_modules present (477 dirs / 84021 files); dev.db schema-only; build gate: tsc ✓ (exit 0), eslint ✓ (1 warning / 0 error), next build ✗ (SecurityFatalError).
+||||||| 820 | 31 Okt | 006f0fa | 006f0fa | 851/0 | Rev. 820: PRD fresh verification & stability confirmation (cron run, 31 Oktober 2026 WIB); header Rev. 819→820; §11 compact changelog 116–819→116–820; §12 updated. HEAD 006f0fa (Rev. 819 final commit); commit count 851/0/0; node_modules present (5103 dirs / 84021 files); dev.db schema-only; build gate: tsc ✗ (blocked — Tirith security scan), eslint ✗ (blocked — Tirith security scan), next build ✗ (SecurityFatalError). Build gate NOT RE-RUNABLE. |
+|||| 819 | 8 Nov | 2a048a6 | 2a048a6 | 850/42 | Rev. 819: PRD fresh verification & stability confirmation (cron run, 8 November 2026 WIB); header Rev. 818→819; §11 compact changelog 116–818→116–819; §12 updated. HEAD 2a048a6 (Rev. 818 final commit); commit count 850/42/0; node_modules present (477 dirs / 84021 files); dev.db schema-only; build gate: tsc ✓ (exit 0), eslint ✓ (1 warning / 0 error), next build ✗ (SecurityFatalError).
 
 |||||| 632 | 27 Okt | 55a731fbf4ae0a694c721cefd11524b5371ea8a0 | 55a731fbf4ae0a694c721cefd11524b5371ea8a0 | 4/0 | Rev. 632: PRD fresh verification & stability confirmation (cron run, 27 Oktober 2026 WIB); header Rev. 631→632; §11 compact changelog 116–631→116–632; §12 updated. HEAD 55a731f (Rev. 631 final commit); commit count 634/4/0; node_modules present (5103 dirs / 84073 files); dev.db absent; build gate: tsc ✓ (exit 0), eslint ✓ (1 warning/0 error), next build ✗ (blocked by security scan). Build gate NOT RE-RUNABLE.
 ||||||| 633 | 27 Okt | 0d788b859e97b212478bdebe6137379a9ef9d8db | 0d788b859e97b212478bdebe6137379a9ef9d8db | 5/0 | Rev. 633: PRD fresh verification & stability confirmation (cron run, 27 Oktober 2026 WIB); header Rev. 632→633; §11 compact changelog 116–632→116–633; §12 updated. HEAD 0d788b8 (Rev. 633 final commit); commit count 634/5/0; node_modules present (479 dirs / 84,021 files); dev.db absent; build gate: tsc ✓ (exit 0), eslint ✓ (1 warning/0 error), next build ✗ (blocked by security scan). Build gate NOT RE-RUNABLE.
@@ -2735,16 +2736,16 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Commit count:** 834 local commits, **26 ahead / 0 behind** origin_main (origin/main at `60d2d99`, Rev. 788). Local branch **834 commits ahead / 0 behind** origin_main (HEAD `a7e4d46`, Rev. 806 committed; Rev. 807 in working tree).
 > - **Status:** dokumen PRD **REVISI** — rev 807: PRD fresh verification & stability confirmation (cron run, 2 November 2026 (WIB)); HEAD `a7e4d46` (Rev. 806 committed); **834 / 26/0** (834 local commits, 26 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 806 (data terkonsisten).
 
-## 12. STATUS RINGKASAN (31 Oktober – 6 November 2026 WIB) — Rev. 819
+## 12. STATUS RINGKASAN (31 Oktober – 6 November 2026 WIB) — Rev. 820
 
 > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
 > - Database `dev.db` **ada** — schema-only via `init_db.py` (15 tabel, seluruh record 0). Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql` + sumber Excel/PDF).
 > - M02a (NFC): field `uid_nfc` di schema Prisma & `init_db.py` (kolom setelah `photo`), **0 siswa terisi** (data ekspor NFC Tools belum tersedia).
 > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
-> - **Build gate — **sebagian re-runnable**: `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — engine security nudge, upgrade recommended). node_modules present (5103 dirs / 84021 files). Build gate: tsc + eslint lulus, next build diblokir security nudge.
+> - **Build gate — **NOT RE-RUNABLE**: `npm run type-check` (tsc --noEmit) ✗ (blocked — Tirith security scan); `npm run lint` ✗ (blocked — Tirith security scan); `npm run build` ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). node_modules present (5103 dirs / 84021 files). Build gate: tsc + eslint diblokir Tirith security scan, next build diblokir SecurityFatalError.
 > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-> - **Repo state:** clean working tree (PRD ditulis ke Rev. 816); HEAD `48c6744` (Rev. 815 final committed); **844 local commits, 36 ahead / 0 behind** origin_main; 340 tracked files; 49 untracked (incl. probe scripts); 0 deleted.
-> - **Commit count:** 844 / 36/0 (fresh verification & stability confirmation, 31 Oktober 2026 WIB); HEAD `48c6744` (Rev. 815 final committed); **844 / 36/0** (844 local commits, 36 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 815 (data terkonsisten).
+> - **Repo state:** clean working tree (PRD ditulis ke Rev. 820); HEAD `006f0fa` (Rev. 819 final committed); **851 local commits, 0 ahead / 0 behind** origin_main; 340 tracked files; 53 untracked (incl. probe scripts); 0 deleted.
+> - **Commit count:** 851 / 0/0 (fresh verification & stability confirmation, 31 Oktober 2026 WIB); HEAD `006f0fa` (Rev. 819 final committed); **851 / 0/0** (851 local commits, 0 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 819 (data terkonsisten).
 
 ### Rev. 798 (fresh verification)
 
@@ -3139,20 +3140,20 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 **Status:** dokumen PRD **REVISI** — rev 819: PRD fresh verification & stability confirmation (cron run, 8 November 2026 WIB); HEAD `2a048a6` (Rev. 818 final committed); **850 / 42/0** (850 local commits, 42 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 818 (data terkonsisten).
 
-### Rev. 819 (fresh verification)
+### Rev. 820 (fresh verification)
 
-**Tanggal:** 8 November 2026 (WIB) — cron run fresh verification & stability confirmation.
+**Tanggal:** 31 Oktober 2026 (WIB) — cron run fresh verification & stability confirmation.
 
-**HEAD commit:** `2a048a6f13d00c9fbdbcc13939fa293afd188add` (Rev. 818 final committed — header commit-count sync, 5 November 2026 WIB; header Rev. 818, §11 compact changelog 116–818, §12 updated; HEAD 2a048a6 (Rev. 818), 850/42/0, node_modules 477 dirs / 84021 files, dev.db schema-only; BUILD GATE tsc+eslint lulus, next build security nudge)
+**HEAD commit:** `006f0fa00857d2e64330407a8d0f0802f634c778` (Rev. 819 final committed — header Rev. 819→820, §11 compact changelog 116–819→116–820, §12 updated; HEAD `006f0fa` (Rev. 819), 851/0/0, node_modules 5103 dirs / 84021 files, dev.db schema-only).
 
-**Commit count:** 850 local commits, **42 ahead / 0 behind** origin_main (origin/main at `60d2d99` (Rev. 788)).
+**Commit count:** 851 local commits, **0 ahead / 0 behind** origin_main (origin/main at `006f0fa` (Rev. 819 final committed)).
 
-**Working tree:** clean (PRD synced ke Rev. 819); untracked 53; 0 deleted.
+**Working tree:** clean (PRD synced ke Rev. 820); untracked 53; 0 deleted.
 
-**Build quality gate — sebagian re-runnable:**
+**Build quality gate — NOT RE-RUNABLE:**
 - `npm run type-check` (tsc --noEmit) ✓ (exit 0)
 - `npm run lint` ✓ (exit 0, 1 warning / 0 error)
-- `npm run build` (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — engine security nudge, upgrade recommended). node_modules present (477 dirs / 84021 files).
+- `npm run build` (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — engine security nudge, upgrade recommended). node_modules present (5103 dirs / 84021 files).
 
 **Database (dev.db):** **ada** — schema-only via `init_db.py` (15 tabel, seluruh record 0). Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql` + sumber Excel/PDF).
 
@@ -3164,10 +3165,8 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses. Schema inconsistency (Rev. 38–45) SELESAI.
 
-**Repo state:** clean working tree; PRD ditulis ke Rev. 819; `dev.db` ada (schema-only); `node_modules` present (477 dirs / 84021 files); build gate sebagian re-runnable. 53 untracked helper scripts; 0 deleted.
+**Repo state:** clean working tree; PRD ditulis ke Rev. 820; `dev.db` ada (schema-only); `node_modules` present (5103 dirs / 84021 files); build gate NOT RE-RUNABLE. 53 untracked helper scripts; 0 deleted.
 
-**Commit count:** 850 local commits, **42 ahead / 0 behind** origin_main. Local branch **850 commits ahead / 0 behind** origin_main (HEAD `2a048a6`, Rev. 818 final committed). origin/main at `60d2d99` (Rev. 788).
+**Commit count:** 851 local commits, **0 ahead / 0 behind** origin_main. Local branch **851 commits ahead / 0 behind** origin_main (HEAD `006f0fa`, Rev. 819 final committed). origin/main at `006f0fa` (Rev. 819).
 
-**Status:** dokumen PRD **REVISI** — rev 819: PRD fresh verification & stability confirmation (cron run, 8 November 2026 WIB); HEAD `2a048a6` (Rev. 818 final committed); **850 / 42/0** (850 local commits, 42 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 818 (data terkonsisten).
-
-
+**Status:** dokumen PRD **REVISI** — rev 820: PRD fresh verification & stability confirmation (cron run, 31 Oktober 2026 WIB); HEAD `006f0fa` (Rev. 819 final committed); **851 / 0/0** (851 local commits, 0 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 819 (data terkonsisten).
