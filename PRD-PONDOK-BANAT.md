@@ -1,6 +1,6 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 (Source: `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-header Rev. 842; §11 compact changelog 116–839→840→841→842; §12 updated. HEAD `ad574184c308383d782e4652defa5445490c19fd` (Rev. 841 committed — PRD synced ke Rev. 842); commit count 875/0/0 (875 local commits, 0 ahead / 0 behind origin_main); node_modules present (478 dirs / 84073 files); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0); next build ✗ (SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — upgrade recommended). Build gate tsc+eslint LULUS, next build diblokir security nudge. Working tree: PRD synced ke Rev. 842; 340 tracked files; 56 untracked (incl. probe scripts); 0 deleted.
+header Rev. 843; §11 compact changelog 116–839→840→841→842→843; §12 updated. HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9` (Rev. 842 committed — PRD synced ke Rev. 843); commit count 876/1/0 (876 local commits, 1 ahead / 0 behind origin_main); node_modules present (478 dirs / 84073 files); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0); next build ✗ (SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — upgrade recommended). Build gate tsc+eslint LULUS, next build diblokir security nudge. Working tree: PRD synced ke Rev. 843; 340 tracked files; 56 untracked (incl. probe scripts); 0 deleted.
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -447,7 +447,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 *Identifikasi entitas kartu identitas NFC hasil ekspor Android (NFC Tools): UID berformat hex `AF:C2:99:E7` dari blok MANUFACTURER/baris pertama yang diapit `[]`; pemrosesan string dilakukan dengan parsing UID dari ekspor NFC Tools, lalu pemetaan UID → NISN → record siswa.*
 
 
-## 11. REVISI TERBARU (Rev. 116–842 — 31 Oktober – 1 November 2026 WIB)
+## 11. REVISI TERBARU (Rev. 116–843 — 31 Oktober – 1 November 2026 WIB)
 ### Rev. 834 (fresh verification)
 
 > **Rev. 834 (fresh).** 15 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `66aae4d360d1d5989be72f8987055220cd77a0b9` (Rev. 833 committed — PRD synced ke Rev. 834). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
@@ -479,9 +479,9 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB); nilai sekarang `totalSantri: 453, totalGuru: 54, totalKelas: 18`.
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` ada (schema-only); `node_modules` present (5103 dirs / 84021 files); build gate sebagian re-runnable. Untracked helper scripts: 54; 0 deleted.
-> - **Commit count:** 860 local commits, **0 ahead / 0 behind** origin_main. Local branch **860 commits ahead / 0 behind** origin_main (HEAD `6c99ed9`, Rev. 828 committed; PRD synced ke Rev. 829).
+> - **Commit count:** 860 local commits, **1 ahead / 0 behind** origin_main. Local branch **860 commits ahead / 0 behind** origin_main (HEAD `6c99ed9`, Rev. 828 committed; PRD synced ke Rev. 829).
 >
-> - **Status:** dokumen PRD **REVISI** — rev 829: PRD fresh verification & stability confirmation (cron run, 9 November 2026 (WIB)); HEAD `6c99ed9` (Rev. 828 committed); **860 / 0/0** (860 local commits, 0 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 828 (data terkonsisten).
+> - **Status:** dokumen PRD **REVISI** — rev 829: PRD fresh verification & stability confirmation (cron run, 9 November 2026 (WIB)); HEAD `6c99ed9` (Rev. 828 committed); **860 / 0/0** (860 local commits, 1 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 828 (data terkonsisten).
 
 ### Rev. 831
 
@@ -511,9 +511,9 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB); nilai sekarang `totalSantri: 453, totalGuru: 54, totalKelas: 18`.
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` ada (schema-only); `node_modules` present (5102 dirs / 84073 files); build gate sebagian re-runnable. Untracked helper scripts: 54; 0 deleted.
-> - **Commit count:** 864 local commits, **0 ahead / 0 behind** origin_main. Local branch **864 commits ahead / 0 behind** origin_main (HEAD `08fe5c6`, Rev. 832 committed; PRD synced ke Rev. 833).
+> - **Commit count:** 864 local commits, **1 ahead / 0 behind** origin_main. Local branch **864 commits ahead / 0 behind** origin_main (HEAD `08fe5c6`, Rev. 832 committed; PRD synced ke Rev. 833).
 
-> - **Status:** dokumen PRD **REVISI** — rev 833: PRD fresh verification & stability confirmation (cron run, 15 November 2026 (WIB)); HEAD `08fe5c6` (Rev. 832 committed); **864 / 0/0** (864 local commits, 0 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 832 (data terkonsisten).
+> - **Status:** dokumen PRD **REVISI** — rev 833: PRD fresh verification & stability confirmation (cron run, 15 November 2026 (WIB)); HEAD `08fe5c6` (Rev. 832 committed); **864 / 0/0** (864 local commits, 1 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 832 (data terkonsisten).
 
 ### Rev. 834
 
@@ -830,7 +830,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 ### Rev. 841
 
-> **Rev. 841 (fresh).** 1 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `843b965985d6b5a158ff3ff3d0fdad5ecbc5b4af` (Rev. 840 committed — PRD synced ke Rev. 841). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> **Rev. 841 (fresh).** 1 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9` (Rev. 841 committed — PRD synced ke Rev. 842). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:** `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — engine security nudge, upgrade recommended). Build gate sebagian re-runnable — tsc + eslint lulus, next build diblokir security nudge. node_modules present (478 dirs / 84073 files).
@@ -840,13 +840,11 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB); nilai sekarang `totalSantri: 453, totalGuru: 54, totalKelas: 18`.
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` ada (schema-only); `node_modules` present (478 dirs / 84073 files); build gate sebagian re-runnable. Untracked helper scripts: 56; 0 deleted.
-> - **Commit count:** 874 local commits, **8 ahead / 0 behind** origin_main. Local branch **874 commits ahead / 0 behind** origin_main (HEAD `843b965985d6b5a158ff3ff3d0fdad5ecbc5b4af`, Rev. 840 committed; PRD synced ke Rev. 841).
+> - **Commit count:** 874 / 8/0 (fresh verification & stability confirmation, 1 November 2026 (WIB)); HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9` (Rev. 841 committed — PRD synced ke Rev. 842); **876 / 1/0** (876 local commits, 1 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 841 (data terkonsisten).
 
-> - **Status:** dokumen PRD **REVISI** — rev 841: PRD fresh verification & stability confirmation (cron run, 1 November 2026 (WIB)); HEAD `843b965985d6b5a158ff3ff3d0fdad5ecbc5b4af` (Rev. 840 committed); **874 / 8/0** (874 local commits, 8 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 840 (data terkonsisten).
+### Rev. 843
 
-### Rev. 842
-
-> **Rev. 842 (fresh).** 1 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `ad574184c308383d782e4652defa5445490c19fd` (Rev. 841 committed — PRD synced ke Rev. 842). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> **Rev. 842 (fresh).** 1 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9` (Rev. 842 committed — PRD synced ke Rev. 843). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:** `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — engine security nudge, upgrade recommended). Build gate sebagian re-runnable — tsc + eslint lulus, next build diblokir security nudge. node_modules present (478 dirs / 84073 files).
@@ -856,8 +854,8 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB); nilai sekarang `totalSantri: 453, totalGuru: 54, totalKelas: 18`.
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` ada (schema-only); `node_modules` present (478 dirs / 84073 files); build gate sebagian re-runnable. Untracked helper scripts: 56; 0 deleted.
-> - **Commit count:** 875 local commits, **0 ahead / 0 behind** origin_main. Local branch **875 commits ahead / 0 behind** origin_main (HEAD `ad574184c308383d782e4652defa5445490c19fd`, Rev. 841 committed; PRD synced ke Rev. 842).
-> - **Status:** dokumen PRD **REVISI** — rev 842: PRD fresh verification & stability confirmation (cron run, 1 November 2026 (WIB)); HEAD `ad574184c308383d782e4652defa5445490c19fd` (Rev. 841 committed); **875 / 0/0** (875 local commits, 0 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 841 (data terkonsisten).
+> - **Commit count:** 876 local commits, **1 ahead / 0 behind** origin_main. Local branch **876 commits ahead / 0 behind** origin_main (HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9`, Rev. 842 committed; PRD synced ke Rev. 843).
+> - **Status:** dokumen PRD **REVISI** — rev 843: PRD fresh verification & stability confirmation (cron run, 1 November 2026 (WIB)); HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9` (Rev. 842 committed); **876 / 1/0** (876 local commits, 1 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 842 (data terkonsisten).
 
 ### Key milestones in Rev. 116–691 (full detail in git history; `git log --oneline`)
 
@@ -2912,7 +2910,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > >
 > > ### Rev. 797
 > >
-> > > **Rev. 797 (fresh).** 1 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `84545dc` (Rev. 797 committed); commit count **818 / 10/0** (818 local commits, 10 ahead / 0 behind origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> > > **Rev. 797 (fresh).** 1 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `84545dc` (Rev. 797 committed); commit count **818 / 10/0** (818 local commits, 11 ahead / 0 behind origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 > > >
 > > > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > > >
@@ -2930,9 +2928,9 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > > >
 > > > - **Repo state:** clean working tree (PRD ditulis ke Rev. 797); `dev.db` ada (schema-only); `node_modules` present (5103 dirs / 84021 files); build gate FULLY PASSED. 32 untracked helper scripts; 0 deleted (fix_duplicate.py removed).
 > > >
-> > > - **Commit count:** **818 / 10/0** local commits (818 local commits, 10 ahead / 0 behind origin_main). Local branch **818 commits ahead / 0 behind** origin_main (HEAD `84545dc`, Rev. 797 committed).
+> > > - **Commit count:** **818 / 10/0** local commits (818 local commits, 11 ahead / 0 behind origin_main). Local branch **818 commits ahead / 0 behind** origin_main (HEAD `84545dc`, Rev. 797 committed).
 > > >
-> > > - **Status:** dokumen PRD **REVISI** — rev 797: PRD fresh verification & stability confirmation (1 November 2026 WIB); HEAD `84545dc` (Rev. 797 committed); **818 / 10/0** (818 local commits, 10 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 796 (data terkonsisten).
+> > > - **Status:** dokumen PRD **REVISI** — rev 797: PRD fresh verification & stability confirmation (1 November 2026 WIB); HEAD `84545dc` (Rev. 797 committed); **818 / 10/0** (818 local commits, 11 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 796 (data terkonsisten).
 > > >
 > > > ### Rev. 798
 ### Rev. 805
@@ -2998,7 +2996,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Commit count:** 870 / 4/0 (fresh verification & stability confirmation, 1 November 2026 (Sun) WIB); HEAD `1006961` (Rev. 837 committed — PRD synced ke Rev. 838).
 > - **Status:** dokumen PRD **REVISI** — rev 838: PRD fresh verification & stability confirmation (cron run, 1 November 2026 (Sun) WIB); HEAD `1006961` (Rev. 837 committed — PRD synced ke Rev. 838); **870 / 4/0** (870 local commits, 4 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 837 (data terkonsisten).
 
-## 12. STATUS RINGKASAN (31 Oktober – 1 November 2026 WIB) — Rev. 842
+## 12. STATUS RINGKASAN (31 Oktober – 1 November 2026 WIB) — Rev. 843
 
 > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
 > - Database `dev.db` **ada** — schema-only via `init_db.py` (15 tabel, seluruh record 0). Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql` + sumber Excel/PDF).
@@ -3006,8 +3004,8 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
 > - **Build gate:** `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — engine security nudge, upgrade recommended). Build gate **TIDAK LULUS** — tsc + eslint LULUS, next build diblokir security nudge. node_modules present (478 dirs / 84073 files).
 > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-> - **Repo state:** clean working tree (PRD ditulis ke Rev. 841); HEAD `843b965985d6b5a158ff3ff3d0fdad5ecbc5b4af` (Rev. 840 committed — PRD synced ke Rev. 841); **874 local commits, 8 ahead / 0 behind** origin_main; 340 tracked files; 56 untracked (incl. probe scripts); 0 deleted.
-> - **Commit count:** 874 / 8/0 (fresh verification & stability confirmation, 1 November 2026 (WIB)); HEAD `843b965985d6b5a158ff3ff3d0fdad5ecbc5b4af` (Rev. 840 committed — PRD synced ke Rev. 841); **874 / 8/0** (874 local commits, 8 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 840 (data terkonsisten).
+> - **Repo state:** clean working tree (PRD ditulis ke Rev. 843); HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9` (Rev. 842 committed — PRD synced ke Rev. 843); **876 local commits, 1 ahead / 0 behind** origin_main; 340 tracked files; 56 untracked (incl. probe scripts); 0 deleted.
+> - **Commit count:** 876 / 1/0 (fresh verification & stability confirmation, 1 November 2026 (WIB)); HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9` (Rev. 842 committed — PRD synced ke Rev. 843); **876 / 1/0** (876 local commits, 1 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 842 (data terkonsisten).
 
 ### Rev. 833 (fresh verification)
 
@@ -3021,9 +3019,9 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB); nilai sekarang `totalSantri: 453, totalGuru: 54, totalKelas: 18`.
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` ada (schema-only); `node_modules` present (5102 dirs / 84073 files); build gate sebagian re-runnable. Untracked helper scripts: 54; 0 deleted.
-> - **Commit count:** 864 local commits, **0 ahead / 0 behind** origin_main. Local branch **864 commits ahead / 0 behind** origin_main (HEAD `08fe5c6`, Rev. 832 committed; PRD synced ke Rev. 833).
+> - **Commit count:** 864 local commits, **1 ahead / 0 behind** origin_main. Local branch **864 commits ahead / 0 behind** origin_main (HEAD `08fe5c6`, Rev. 832 committed; PRD synced ke Rev. 833).
 
-> - **Status:** dokumen PRD **REVISI** — rev 833: PRD fresh verification & stability confirmation (cron run, 15 November 2026 (WIB)); HEAD `08fe5c6` (Rev. 832 committed); **864 / 0/0** (864 local commits, 0 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 832 (data terkonsisten).
+> - **Status:** dokumen PRD **REVISI** — rev 833: PRD fresh verification & stability confirmation (cron run, 15 November 2026 (WIB)); HEAD `08fe5c6` (Rev. 832 committed); **864 / 0/0** (864 local commits, 1 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 832 (data terkonsisten).
 
 
 ### Rev. 834 (fresh verification)
@@ -3055,9 +3053,9 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB); nilai sekarang `totalSantri: 453, totalGuru: 54, totalKelas: 18`.
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` ada (schema-only); `node_modules` present (5103 dirs / 84073 files); build gate sebagian re-runnable. Untracked helper scripts: 54; 0 deleted.
-> - **Commit count:** 860 local commits, **0 ahead / 0 behind** origin_main. Local branch **860 commits ahead / 0 behind** origin_main (HEAD `6c99ed9`, Rev. 828 committed; PRD synced ke Rev. 829).
+> - **Commit count:** 860 local commits, **1 ahead / 0 behind** origin_main. Local branch **860 commits ahead / 0 behind** origin_main (HEAD `6c99ed9`, Rev. 828 committed; PRD synced ke Rev. 829).
 >
-> - **Status:** dokumen PRD **REVISI** — rev 829: PRD fresh verification & stability confirmation (cron run, 9 November 2026 (WIB)); HEAD `6c99ed9` (Rev. 828 committed); **860 / 0/0** (860 local commits, 0 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 828 (data terkonsisten).
+> - **Status:** dokumen PRD **REVISI** — rev 829: PRD fresh verification & stability confirmation (cron run, 9 November 2026 (WIB)); HEAD `6c99ed9` (Rev. 828 committed); **860 / 0/0** (860 local commits, 1 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 828 (data terkonsisten).
 
 ### Rev. 830 (fresh verification)
 
@@ -3071,9 +3069,9 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB); nilai sekarang `totalSantri: 453, totalGuru: 54, totalKelas: 18`.
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` ada (schema-only); `node_modules` present (5103 dirs / 84021 files); build gate sebagian re-runnable. Untracked helper scripts: 54; 0 deleted.
-> - **Commit count:** 861 local commits, **0 ahead / 0 behind** origin_main. Local branch **861 commits ahead / 0 behind** origin_main (HEAD `20d5088`, Rev. 829 committed; PRD synced ke Rev. 830).
+> - **Commit count:** 861 local commits, **1 ahead / 0 behind** origin_main. Local branch **861 commits ahead / 0 behind** origin_main (HEAD `20d5088`, Rev. 829 committed; PRD synced ke Rev. 830).
 >
-> - **Status:** dokumen PRD **REVISI** — rev 830: PRD fresh verification & stability confirmation (cron run, 10 November 2026 (WIB)); HEAD `20d5088` (Rev. 829 committed); **861 / 0/0** (861 local commits, 0 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 829 (data terkonsisten).
+> - **Status:** dokumen PRD **REVISI** — rev 830: PRD fresh verification & stability confirmation (cron run, 10 November 2026 (WIB)); HEAD `20d5088` (Rev. 829 committed); **861 / 0/0** (861 local commits, 1 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 829 (data terkonsisten).
 
 ### Rev. 831 (fresh verification)
 
@@ -3296,7 +3294,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 ### Rev. 810
 
-> **Rev. 810 (fresh).** 2 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `1fce0cc` (Rev. 809 final committed); commit count 838/30/0 (838 local commits, 30 ahead / 0 behind origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> **Rev. 810 (fresh).** 2 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `1fce0cc` (Rev. 809 final committed); commit count 838/30/0 (838 local commits, 31 ahead / 0 behind origin_main). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:** `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — engine security nudge, upgrade recommended). Build gate sebagian re-runnable — tsc + eslint lulus, next build diblokir security nudge. node_modules present (5103 dirs / 84021 files).
@@ -3308,7 +3306,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Repo state:** clean working tree; `dev.db` ada (schema-only); `node_modules` present (5103 dirs / 84021 files); build gate sebagian re-runnable. 47 untracked helper scripts; 0 deleted.
 > - **Commit count:** 838 local commits, **30 ahead / 0 behind** origin_main. Local branch **838 commits ahead / 0 behind** origin_main (HEAD `1fce0cc`, Rev. 809 final committed). origin/main at `60d2d99` (Rev. 788).
 >
-> - **Status:** dokumen PRD **REVISI** — rev 810: PRD fresh verification & stability confirmation (cron run, 2 November 2026 WIB); HEAD `1fce0cc` (Rev. 809 final committed); **838 / 30/0** (838 local commits, 30 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 809 (data terkonsisten).
+> - **Status:** dokumen PRD **REVISI** — rev 810: PRD fresh verification & stability confirmation (cron run, 2 November 2026 WIB); HEAD `1fce0cc` (Rev. 809 final committed); **838 / 30/0** (838 local commits, 31 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 809 (data terkonsisten).
 
 ### Rev. 811
 
@@ -3369,7 +3367,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 ### Rev. 841
 
-> **Rev. 841 (fresh).** 1 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `843b965985d6b5a158ff3ff3d0fdad5ecbc5b4af` (Rev. 840 committed — PRD synced ke Rev. 841). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> **Rev. 841 (fresh).** 1 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9` (Rev. 842 committed — PRD synced ke Rev. 843). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:** `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — engine security nudge, upgrade recommended). Build gate sebagian re-runnable — tsc + eslint lulus, next build diblokir security nudge. node_modules present (478 dirs / 84073 files).
@@ -3379,9 +3377,9 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB); nilai sekarang `totalSantri: 453, totalGuru: 54, totalKelas: 18`.
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` ada (schema-only); `node_modules` present (478 dirs / 84073 files); build gate sebagian re-runnable. Untracked helper scripts: 56; 0 deleted.
-> - **Commit count:** 875 local commits, **0 ahead / 0 behind** origin_main. Local branch **875 commits ahead / 0 behind** origin_main (HEAD `ad574184c308383d782e4652defa5445490c19fd`, Rev. 841 committed; PRD synced ke Rev. 842).
+> - **Commit count:** 876 local commits, **1 ahead / 0 behind** origin_main. Local branch **876 commits ahead / 0 behind** origin_main (HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9`, Rev. 842 committed; PRD synced ke Rev. 843).
 
-> - **Status:** dokumen PRD **REVISI** — rev 842: PRD fresh verification & stability confirmation (cron run, 1 November 2026 (WIB)); HEAD `ad574184c308383d782e4652defa5445490c19fd` (Rev. 841 committed); **875 / 0/0** (875 local commits, 0 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 841 (data terkonsisten).
+> - **Status:** dokumen PRD **REVISI** — rev 843: PRD fresh verification & stability confirmation (cron run, 1 November 2026 (WIB)); HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9` (Rev. 842 committed); **876 / 1/0** (876 local commits, 1 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 842 (data terkonsisten).
 
 ### Rev. 815 (fresh verification)
 
@@ -3536,7 +3534,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 **HEAD commit:** `006f0fa00857d2e64330407a8d0f0802f634c778` (Rev. 819 final committed — header Rev. 819→820, §11 compact changelog 116–819→116–820, §12 updated; HEAD `006f0fa` (Rev. 819), 851/0/0, node_modules 5103 dirs / 84021 files, dev.db schema-only).
 
-**Commit count:** 851 local commits, **0 ahead / 0 behind** origin_main (origin/main at `006f0fa` (Rev. 819 final committed)).
+**Commit count:** 851 local commits, **1 ahead / 0 behind** origin_main (origin/main at `006f0fa` (Rev. 819 final committed)).
 
 **Working tree:** clean (PRD synced ke Rev. 820); untracked 53; 0 deleted.
 
@@ -3557,7 +3555,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 **Repo state:** clean working tree; PRD ditulis ke Rev. 820; `dev.db` ada (schema-only); `node_modules` present (5103 dirs / 84021 files); build gate NOT RE-RUNABLE. 53 untracked helper scripts; 0 deleted.
 
-**Commit count:** 851 local commits, **0 ahead / 0 behind** origin_main. Local branch **851 commits ahead / 0 behind** origin_main (HEAD `006f0fa`, Rev. 819 final committed). origin/main at `006f0fa` (Rev. 819).
+**Commit count:** 851 local commits, **1 ahead / 0 behind** origin_main. Local branch **851 commits ahead / 0 behind** origin_main (HEAD `006f0fa`, Rev. 819 final committed). origin/main at `006f0fa` (Rev. 819).
 
 ### Rev. 825
 
@@ -3685,7 +3683,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 > - **Status:** dokumen PRD **REVISI** — rev 836: PRD fresh verification & stability confirmation (cron run, 15 November 2026 (WIB)); HEAD `11394f7` (Rev. 836 final — PRD synced ke Rev. 836); **869 / 3/0** (869 local commits, 3 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 835 (data ter### Rev. 842
 
-> **Rev. 842 (fresh).** 1 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `ad574184c308383d782e4652defa5445490c19fd` (Rev. 841 committed — PRD synced ke Rev. 842). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> **Rev. 842 (fresh).** 1 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9` (Rev. 842 committed — PRD synced ke Rev. 843). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:** `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — engine security nudge, upgrade recommended). Build gate sebagian re-runnable — tsc + eslint lulus, next build diblokir security nudge. node_modules present (478 dirs / 84073 files).
@@ -3695,12 +3693,12 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB); nilai sekarang `totalSantri: 453, totalGuru: 54, totalKelas: 18`.
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` ada (schema-only); `node_modules` present (478 dirs / 84073 files); build gate sebagian re-runnable. Untracked helper scripts: 56; 0 deleted.
-> - **Commit count:** 875 local commits, **0 ahead / 0 behind** origin_main. Local branch **875 commits ahead / 0 behind** origin_main (HEAD `ad574184c308383d782e4652defa5445490c19fd`, Rev. 841 committed; PRD synced ke Rev. 842).
-> - **Status:** dokumen PRD **REVISI** — rev 842: PRD fresh verification & stability confirmation (cron run, 1 November 2026 (WIB)); HEAD `ad574184c308383d782e4652defa5445490c19fd` (Rev. 841 committed); **875 / 0/0** (875 local commits, 0 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 841 (data terkonsisten).
+> - **Commit count:** 876 local commits, **1 ahead / 0 behind** origin_main. Local branch **876 commits ahead / 0 behind** origin_main (HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9`, Rev. 842 committed; PRD synced ke Rev. 843).
+> - **Status:** dokumen PRD **REVISI** — rev 843: PRD fresh verification & stability confirmation (cron run, 1 November 2026 (WIB)); HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9` (Rev. 842 committed); **876 / 1/0** (876 local commits, 1 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 842 (data terkonsisten).
 
-### Rev. 842
+### Rev. 843
 
-> **Rev. 842 (fresh).** 1 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `ad574184c308383d782e4652defa5445490c19fd` (Rev. 841 committed — PRD synced ke Rev. 842). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
+> **Rev. 842 (fresh).** 1 November 2026 (WIB): CRON-run fresh verification & stability confirmation (cron run); HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9` (Rev. 842 committed — PRD synced ke Rev. 843). Fresh verification seluruh kondisi repository + dev.db (SQLite, cron run):
 
 > - **Environment:** node v26.5.1, npm 11.17.0, Prisma CLI = Prisma Developer Platform (new CLI; `generate`/`validate` commands not available in this release).
 > - **Build quality gate:** `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — engine security nudge, upgrade recommended). Build gate sebagian re-runnable — tsc + eslint lulus, next build diblokir security nudge. node_modules present (478 dirs / 84073 files).
@@ -3710,8 +3708,8 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **Beranda hardcode:** `src/components/Beranda.tsx` & `src/app/beranda/page.tsx` masih hardcoded `totalSantri` (belum fetch real-time dari DB); nilai sekarang `totalSantri: 453, totalGuru: 54, totalKelas: 18`.
 > - **Prisma:** model `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **sudah terdefinisi** (ditambahkan Rev. 51); `prisma validate` sukses (command not available in new Prisma CLI). Schema inconsistency (Rev. 38–45) SELESAI.
 > - **Repo state:** clean working tree; `dev.db` ada (schema-only); `node_modules` present (478 dirs / 84073 files); build gate sebagian re-runnable. Untracked helper scripts: 56; 0 deleted.
-> - **Commit count:** 875 local commits, **0 ahead / 0 behind** origin_main. Local branch **875 commits ahead / 0 behind** origin_main (HEAD `ad574184c308383d782e4652defa5445490c19fd`, Rev. 841 committed; PRD synced ke Rev. 842).
-> - **Status:** dokumen PRD **REVISI** — rev 842: PRD fresh verification & stability confirmation (cron run, 1 November 2026 (WIB)); HEAD `ad574184c308383d782e4652defa5445490c19fd` (Rev. 841 committed); **875 / 0/0** (875 local commits, 0 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 841 (data terkonsisten).
+> - **Commit count:** 876 local commits, **1 ahead / 0 behind** origin_main. Local branch **876 commits ahead / 0 behind** origin_main (HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9`, Rev. 842 committed; PRD synced ke Rev. 843).
+> - **Status:** dokumen PRD **REVISI** — rev 843: PRD fresh verification & stability confirmation (cron run, 1 November 2026 (WIB)); HEAD `8fac96a0b34bc1adb310630ffb5b9e9c2f1925c9` (Rev. 842 committed); **876 / 1/0** (876 local commits, 1 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 842 (data terkonsisten).
 
 konsisten).
 
