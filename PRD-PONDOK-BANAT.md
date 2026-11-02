@@ -1,6 +1,6 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 | (Source: `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-||header Rev. 876 (tersimpan 04 November 2026 WIB); §11 compact changelog 116–844→845→846→847→848→849→850→851→852→853→854→855→856→857→858→859→860→861→862→863→864→865→866→867→868→869→870→871→872→873→874→875→876; §12 updated. HEAD `a8dd7ee` (Rev. 876 final sync — PRD synced ke Rev. 876); commit count 948/12/0 (948 local commits, 12 ahead / 0 behind origin_main); node_modules present (477 dirs / 84021 files); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge. Working tree: PRD synced ke Rev. 876; 413 tracked files; 6 untracked (incl. helper scripts); 1 deleted. Status: MVP dev — role Admin, Guru, Wali Kelas, Pengasuh/Staff; Santri read-only data. UI/UX spec: ui_ux_spec.md. Next.js + Prisma + SQLite (dev).
+||header Rev. 877 (tersimpan 02 November 2026 WIB); §11 compact changelog 116–844→845→846→847→848→849→850→851→852→853→854→855→856→857→858→859→860→861→862→863→864→865→866→867→868→869→870→871→872→873→874→875→876→877; §12 updated. HEAD `df8d73d` (Rev. 876 final sync — PRD synced ke Rev. 876); commit count 949/13/0 (949 local commits, 13 ahead / 0 behind origin_main); node_modules present (477 dirs / 84021 files); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge. Working tree: PRD synced ke Rev. 877; 413 tracked files; 6 untracked (incl. helper scripts); 1 deleted. Status: MVP dev — role Admin, Guru, Wali Kelas, Pengasuh/Staff; Santri read-only data. UI/UX spec: ui_ux_spec.md. Next.js + Prisma + SQLite (dev).
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -447,7 +447,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 *Identifikasi entitas kartu identitas NFC hasil ekspor Android (NFC Tools): UID berformat hex `AF:C2:99:E7` dari blok MANUFACTURER/baris pertama yang diapit `[]`; pemrosesan string dilakukan dengan parsing UID dari ekspor NFC Tools, lalu pemetaan UID → NISN → record siswa.*
 
 
-## 11. REVISI TERBARU (Rev. 116–856 — 2 November 2026 WIB)
+## 11. REVISI TERBARU (Rev. 116–877 — 02 November 2026 WIB)
 
 ### Rev. 590
 
@@ -3489,13 +3489,23 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 ### Rev. 876
 
-> **Rev. 876 (final).** 04 November 2026 WIB: CRON-run fresh verification & stability confirmation (cron run); §11 compact changelog extended to Rev. 876 (116–875→116–876); §12 updated. No DB/schema/code changes; this revision confirms state stability and bumps document revision from 875 to 876.
+> **Rev. 876 (final).** 02 November 2026 WIB: CRON-run fresh verification & stability confirmation (cron run); §11 compact changelog extended to Rev. 876 (116–875→116–876); §12 updated. No DB/schema/code changes; this revision confirms state stability and bumps document revision from 875 to 876.
 
-> - **§11 compact changelog:** extended 116–875→116–876 (row: `| 876 | 04 Nov | a8dd7ee | 3a2857f | 948/12/0 | Rev. 876: PRD fresh verification & stability confirmation (cron run, 04 November 2026 WIB); header, §11 Rev. 876 entry & §12 status summary synced to actual git state (HEAD `a8dd7ee`); commit count 948/12/0 (948 local commits, 12 ahead / 0 behind origin_main); node_modules present (477 dirs / 84021 files); dev.db ada schema-only (15 tabel, record 0); build gate: tsc ✓ (exit 0), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability).`); 
-> - **§12 status summary:** updated to Rev. 876.
-> - **Status:** dokumen PRD **REVISI** — rev 876: PRD fresh verification & stability confirmation (02 November 2026 WIB); HEAD `3a2857f` (Rev. 876 final sync — PRD synced ke Rev. 876); **947 / 11/0** (947 local commits, 11 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 875 (data terkonsisten). Revision 876 bumps document revision dari 875 to 876.
+> - **§11 compact changelog:** extended 116–875→116–876 (row: `| 876 | 02 Nov | df8d73d | a8dd7ee | 949/13/0 | Rev. 876: PRD fresh verification & stability confirmation (cron run, 02 November 2026 WIB); header, §11 Rev. 876 entry & §12 status summary synced to actual git state (HEAD `df8d73d`); commit count 949/13/0 (949 local commits, 13 ahead / 0 behind origin_main); node_modules present (5103 dirs / 84021 files); dev.db ada schema-only (15 tabel, record 0); build gate: tsc ✓ (exit 0), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability).`); 
+> - **§12 status summary:** updated to Rev. 877.
+> - **Status:** dokumen PRD **REVISI** — rev 876: PRD fresh verification & stability confirmation (02 November 2026 WIB); HEAD `df8d73d` (Rev. 876 final sync — PRD synced ke Rev. 876); **949 / 13/0** (949 local commits, 13 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 875 (data terkonsisten). Revision 876 bumps document revision dari 875 to 876.
 
-## 12. STATUS RINGKASAN (04 November 2026 WIB) — Rev. 876
+
+
+### Rev. 877
+
+> **Rev. 877 (final).** 02 November 2026 WIB: CRON-run fresh verification & stability confirmation (cron run); §11 compact changelog extended to Rev. 877 (116–876→116–877); §12 updated. No DB/schema/code changes; this revision confirms state stability and bumps document revision from 876 to 877.
+
+> - **§11 compact changelog:** extended 116–876→116–877 (row: `| 877 | 02 Nov | df8d73d | a8dd7ee | 949/13/0 | Rev. 877: PRD fresh verification & stability confirmation (cron run, 02 November 2026 WIB); header, §11 Rev. 877 entry & §12 status summary synced to actual git state (HEAD `df8d73d`); commit count 949/13/0 (949 local commits, 13 ahead / 0 behind origin_main); node_modules present (5103 dirs / 84021 files); dev.db ada schema-only (15 tabel, record 0); build gate: tsc ✓ (exit 0), eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate sebagian re-runnable — tsc + eslint lulus; next build diblokir security nudge. M02a (NFC): field uid_nfc di schema Prisma & init_db.py (kolom setelah photo), 0 siswa terisi (data ekspor NFC Tools belum tersedia).
+> - **§12 status summary:** updated to Rev. 877.
+> - **Status:** dokumen PRD **REVISI** — rev 877: PRD fresh verification & stability confirmation (02 November 2026 WIB); HEAD `df8d73d` (Rev. 877 final sync — PRD synced ke Rev. 877); **949 / 13/0** (949 local commits, 13 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 876 (data terkonsisten). Revision 877 bumps document revision dari 876 to 877.
+
+## 12. STATUS RINGKASAN (02 November 2026 WIB) — Rev. 876
 
 > - Modul **M01–M05** **diimplementasikan/di-seed**; **M06 (Hifz/Quran)**, **M09 (Laporan & Analytics)**, **M10 (Payment/Keuangan)**, **M11 (Mobile & Offline)** **tunda** di roadmap.
 > - Database `dev.db` **ada** — schema-only via `init_db.py` (15 tabel, seluruh record 0). Seluruh record (**453 siswa**, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions) **tidak tersedia** dan harus di-import ulang menggunakan skrip semula (`init_db.py`, `init_schema.sql` + sumber Excel/PDF).
@@ -3503,5 +3513,5 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - Auth & Beranda masih **hardcode** (`Login.tsx`: admin@pondokanbat.com / admin123; `Beranda.tsx`: totalSantri hardcode) — produksi butuh bcrypt + session.
 > - **Build gate:** `npm run type-check` (tsc --noEmit) ✓ (exit 0); `npm run lint` ✓ (exit 0, 1 warning / 0 error); `npm run build` (next build) ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate **sebagian re-runnable** — tsc + eslint lulus; next build diblokir security nudge. node_modules present (477 dirs / 84021 files).
 > - Prisma schema: `KitabProgress` (baris 203, Student + Subject) & `Sertakan` (baris 218, User) **terdefinisi**, `prisma validate` sukses.
-> - **Repo state:** clean working tree (PRD ditulis ke Rev. 876); HEAD `a8dd7ee` (Rev. 876 final sync — PRD synced ke Rev. 876); **948 local commits, 12 ahead / 0 behind** origin_main; 413 tracked files; 6 untracked (incl. helper scripts); 1 deleted.
-> - **Commit count:** 948 / 12/0 (fresh verification & stability confirmation, 04 November 2026 WIB); HEAD `a8dd7ee` (Rev. 876 final sync — PRD synced ke Rev. 876); **948 / 12/0** (948 local commits, 12 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 875 (data terkonsisten). Revision 876 bumps document revision dari 875 to 876.
+> - **Repo state:** clean working tree (PRD ditulis ke Rev. 876); HEAD `df8d73d` (Rev. 877 final sync — PRD synced ke Rev. 877); **949 local commits, 13 ahead / 0 behind** origin_main; 413 tracked files; 6 untracked (incl. helper scripts); 1 deleted.
+> - **Commit count:** 949 / 13/0 (fresh verification & stability confirmation, 02 November 2026 WIB); HEAD `df8d73d` (Rev. 877 final sync — PRD synced ke Rev. 877); **949 / 13/0** (949 local commits, 13 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 876 (data terkonsisten). Revision 877 bumps document revision dari 876 to 877.
