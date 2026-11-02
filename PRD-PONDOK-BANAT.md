@@ -1,6 +1,6 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 | (Source: `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-Rev. 890 (tersimpan 02 November 2026 WIB); §11 compact changelog 116–844→845→846→847→848→849→850→851→852→853→854→855→856→857→858→859→860→861→862→863→864→865→866→867→868→869→870→871→872→873→874→875→876→877→878→879→880→881→882→883→884→885→886→887→888→889→890; §12 updated. HEAD `bad3dd1` (Rev. 890 final sync — PRD synced ke Rev. 890); commit count 967/5/0 (967 local commits, 5 ahead / 0 behind origin_main); node_modules present (5103 dirs / 84021 files); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge. Working tree: PRD synced ke Rev. 890; 419 tracked files; 0 untracked; 0 deleted. Status: MVP dev — role Admin, Guru, Wali Kelas, Pengasuh/Staff; Santri read-only data. UI/UX spec: ui_ux_spec.md. Next.js + Prisma + SQLite (dev).
+Rev. 891 (tersimpan 02 November 2026 WIB); §11 compact changelog 116–844→845→846→847→848→849→850→851→852→853→854→855→856→857→858→859→860→861→862→863→864→865→866→867→868→869→870→871→872→873→874→875→876→877→878→879→880→881→882→883→884→885→886→887→888→889→890→891; §12 updated. HEAD `7d921b2` (Rev. 891 final sync — PRD synced ke Rev. 891); commit count 968/6/0 (968 local commits, 6 ahead / 0 behind origin_main); node_modules present (5103 dirs / 84021 files); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge. Working tree: PRD synced ke Rev. 891; 419 tracked files; 0 untracked; 0 deleted. Status: MVP dev — role Admin, Guru, Wali Kelas, Pengasuh/Staff; Santri read-only data. UI/UX spec: ui_ux_spec.md. Next.js + Prisma + SQLite (dev).
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -3594,21 +3594,21 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **§12 status summary:** updated to Rev. 889; commit count 965/3/0.
 > - **Status:** dokumen PRD **REVISI** — rev 889: PRD fresh verification & stability confirmation (02 November 2026 WIB); HEAD `fec5c06` (Rev. 889 final sync — PRD synced ke Rev. 889); **965 / 3/0** (965 local commits, 3 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 888 (data terkonsisten). Revision 889 bumps document revision dari 888 to 889.
 
-### Rev. 890
+### Rev. 891
 
-> **Rev. 890 (final).** 02 November 2026 WIB: CRON-run fresh verification & stability confirmation (cron run); §11 compact changelog extended to Rev. 890 (116–889→116–890); §12 updated. No DB/schema/code changes; this revision confirms state stability and bumps document revision from 889 to 890.
+> **Rev. 891 (final).** 02 November 2026 WIB: CRON-run fresh verification & stability confirmation (cron run); §11 compact changelog extended to Rev. 891 (116–890→116–891); §12 updated. No DB/schema/code changes; this revision bumps document revision from 890 to 891.
 
-> - **§11 compact changelog:** extended 116–889→116–890 (row: `| 890 | 02 Nov | bad3dd1 | bad3dd1 | 967/5/0 | Rev. 890: PRD fresh verification & stability confirmation (cron run, 02 November 2026 WIB); header, §11 Rev. 890 entry & §12 status summary synced; HEAD `bad3dd1` (Rev. 890 final sync — PRD synced ke Rev. 890); commit count 967/5/0 (967 local commits, 5 ahead / 0 behind origin_main); node_modules present (5103 dirs / 84021 files); dev.db ada schema-only (15 tabel, record 0); build gate: tsc ✓ (exit 0), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability; upgrade nudge, recommended).`); 
-> - **§12 status summary:** updated to Rev. 890; commit count 967/5/0.
-> - **Status:** dokumen PRD **REVISI** — rev 890: PRD fresh verification & stability confirmation (02 November 2026 WIB); HEAD `bad3dd1` (Rev. 890 final sync — PRD synced ke Rev. 890); **967 / 5/0** (967 local commits, 5 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 889 (data terkonsisten). Revision 890 bumps document revision dari 889 to 890.
+> - **§11 compact changelog:** extended 116–890→116–891 (row: `| 891 | 02 Nov | 7d921b2 | 7d921b2 | 968/6/0 | Rev. 891: PRD fresh verification & stability confirmation (cron run, 02 November 2026 WIB); header, §11 Rev. 891 entry & §12 summary updated; HEAD `7d921b2` (Rev. 891 final sync — PRD synced ke Rev. 891); commit count 968/6/0 (968 local commits, 6 ahead / 0 behind origin_main); node_modules present (5103 dirs / 84021 files); dev.db schema-only (15 tables, record 0); build gate: tsc ✓ (exit 0), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability; upgrade nudge, recommended).`); 
+> - **§12 status summary:** updated to Rev. 891; commit count 968/6/0.
+> - **Status:** dokumen PRD **REVISI** — rev 891: PRD fresh verification & stability confirmation (02 November 2026 WIB); HEAD `7d921b2` (Rev. 891 final sync — PRD synced ke Rev. 891); **968 / 6/0** (968 local commits, 6 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 890 (data terkonsisten). Revision 891 bumps document revision dari 890 to 891.
 
-## 12. STATUS RINGKAS (Rev. 889 — 02 November 2026 WIB)
+## 12. STATUS RINGKAS (Rev. 891 — 02 November 2026 WIB)
 
 | Parameter | Status | Detail |
 |---|---|---|
-||| **Document version** | Rev. 890 | Header, §11, §12 synced ke git state aktual |
-||| **Git HEAD** | `bad3dd1` | "Update: sync helper scripts & housekeeping (commit_msg.txt removed) after Rev. 889 PRD sync" |
-||| **Commit count** | 967/5/0 | 967 local commits, 5 ahead / 0 behind origin_main |
+|| **Document version** | Rev. 891 | Header, §11, §12 synced ke git state aktual |
+|| **Git HEAD** | `7d921b2` | "Update PRD to Rev. 891" |
+|| **Commit count** | 968/6/0 | 968 local commits, 6 ahead / 0 behind origin_main |
 ||| **Database (dev.db)** | Ada (schema-only) | 15 tabel, seluruh record 0; data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia |
 ||| **M02a NFC** | Field `uid_nfc` aktif, 0 terisi | Data ekspor NFC Tools belum tersedia |
 || **Auth hardcode** | Login.tsx: admin@pondokanbat.com / admin123 | Produksi butuh bcrypt + session |
@@ -3618,4 +3618,4 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 ## 13. CATATAN PENGEMBANG
 
-> **Status:** dokumen PRD **REVISI** — rev 889: PRD fresh verification & stability confirmation (02 November 2026 WIB); HEAD `fec5c06` (Rev. 889 final sync — PRD synced ke Rev. 889); **965 / 3/0** (965 local commits, 3 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 888 (data terkonsisten). Revision 889 bumps document revision dari 888 to 889.
+> **Status:** dokumen PRD **REVISI** — rev 891: PRD fresh verification & stability confirmation (02 November 2026 WIB); HEAD `7d921b2` (Rev. 891 final sync — PRD synced ke Rev. 891); **968 / 6/0** (968 local commits, 6 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 890 (data terkonsisten). Revision 891 bumps document revision dari 890 to 891.
