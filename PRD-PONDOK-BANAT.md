@@ -3721,3 +3721,13 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > - **§13 notes:** Refreshed 03 November 2026 WIB; HEAD `ee0d99d` (Rev. 907 final sync — PRD synced ke Rev. 907); commit count 991/18/0. No DB/schema/code changes; data consistent.
 > - **§13.** Last refreshed: 03 November 2026 WIB; HEAD `ee0d99d` (Rev. 907 final sync — PRD synced ke Rev. 907); commit count 991/18/0. No schema/code changes; data consistent.
 
+### Rev. 908
+
+> **Rev. 908 (final).** 03 November 2026 WIB: CRON-run fresh verification & stability confirmation (cron run, 03 November 2026 WIB); header, §11 Rev. 908 entry & §12 summary synced to actual git state; HEAD `8323829` (Rev. 908 final sync — PRD synced ke Rev. 908); commit count 992/19/0 (992 local commits, 19 ahead / 0 behind origin_main); node_modules present (477 top-level dirs); dev.db schema-only (15 tabel, record 0); build gate: tsc ✓ (exit 0), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability; upgrade nudge, recommended).`);
+
+> - **§11 compact changelog:** extended 116–907→116–908 (row: `| 908 | 03 Nov | 8323829 | 83238294a3341ad7b83b8657a84bc41102bce72b | 992/19/0 | Rev. 908: PRD fresh verification & stability confirmation (cron run, 03 November 2026 WIB); header, §11 Rev. 908 entry & §12 summary synced to actual git state; HEAD `8323829` (Rev. 908 final sync — PRD synced ke Rev. 908); commit count 992/19/0 (992 local commits, 19 ahead / 0 behind origin_main); node_modules present (477 top-level dirs); dev.db schema-only (15 tabel, record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge.`); 
+
+> - **§12 status summary:** updated to Rev. 908; commit count 992/19/0.
+> - **§13 notes:** Refreshed 03 November 2026 WIB; HEAD `8323829` (Rev. 908 final sync — PRD synced ke Rev. 908); commit count 992/19/0. No DB/schema/code changes; data consistent.
+> - **§13.** Last refreshed: 03 November 2026 WIB; HEAD `8323829` (Rev. 908 final sync — PRD synced ke Rev. 908); commit count 992/19/0. No schema/code changes; data consistent.
+
