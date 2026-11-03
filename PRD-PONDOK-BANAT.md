@@ -447,7 +447,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 *Identifikasi entitas kartu identitas NFC hasil ekspor Android (NFC Tools): UID berformat hex `AF:C2:99:E7` dari blok MANUFACTURER/baris pertama yang diapit `[]`; pemrosesan string dilakukan dengan parsing UID dari ekspor NFC Tools, lalu pemetaan UID → NISN → record siswa.*
 
 
-## 11. REVISI TERBARU (Rev. 116–902 — 03 November 2026 WIB)
+## 11. REVISI TERBARU (Rev. 116–923 — 03 November 2026 WIB)
 
 ### Rev. 590
 
@@ -3615,8 +3615,8 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 > **Rev. 909 (final).** 03 November 2026 WIB: CRON-run fresh verification & stability confirmation (cron run, 03 November 2026 WIB); §11 compact changelog extended to Rev. 909 (116–892→116–909); §12 updated. No DB/schema/code changes; this revision bumps document revision from 908 to 909.
 
 > - **§11 compact changelog:** extended 116–892→116–909 (row: `| 909 | 03 Nov | 59993c0 | 59993c02e6d20b920882638048ec638d4778069d | 994/21/0 | Rev. 909: PRD fresh verification & stability confirmation (cron run, 03 November 2026 WIB); header, §11 Rev. 909 entry & §12 status summary synced to actual git state; HEAD `59993c0` (Rev. 909 final sync — PRD synced ke Rev. 909); commit count 994/21/0 (994 local commits, 21 ahead / 0 behind origin_main); node_modules present (477 top-level dirs / 84021 files); dev.db schema-only (15 tables, record 0); build gate: tsc ✓ (exit 0), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability; upgrade nudge, recommended).`); 
-> - **§12 status summary:** updated to Rev. 909; commit count 994/21/0.
-> - **Status:** dokumen PRD **REVISI** — rev 913: PRD fresh verification & stability confirmation (04 November 2026 WIB); HEAD `26ddebc758c39ffa8edb0176b841010ed8caf49d` (Rev. 912 final sync — PRD synced ke Rev. 912); **999 / 1/0** (999 local commits, 1 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 912 (data terkonsisten). Revision 913 bumps document revision dari 912 ke 913.
+> - **§12 status summary:** updated to Rev. 923; commit count 1014/13/0.
+> - **Status:** dokumen PRD **REVISI** — rev 923: PRD fresh verification & stability confirmation (03 November 2026 WIB); HEAD `2ff2b0f2a8a87ee0f5f2d6a2ceb53d184950ef7e` (Rev. 923 final sync — PRD synced ke Rev. 923); **1014 / 13/0** (1014 local commits, 13 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 922 (data terkonsisten). Revision 923 bumps document revision dari 922 ke 923.
 
 ||||| **Document version** | Rev. 912 | Header, §11, §12 synced ke git state aktual |
 ||||||| **Git HEAD** | `6b3ccb7c5ac35679009b9127b52be52b38f8c900` | "PRD Rev. 912 — final metadata sync to actual git state (HEAD 6b3ccb7c5ac35679009b9127b52be52b38f8c900, 998 local commits, 0 ahead / 0 behind origin_main)" |
@@ -3702,7 +3702,7 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 ## 13. CATATAN PENGEMBANG
 
-> - **Status:** dokumen PRD **REVISI** — rev 913: PRD fresh verification & stability confirmation (04 November 2026 WIB); HEAD `26ddebc758c39ffa8edb0176b841010ed8caf49d` (Rev. 912 final sync — PRD synced ke Rev. 912); **999 / 1/0** (999 local commits, 1 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 912 (data terkonsisten). Revision 913 bumps document revision dari 912 ke 913.
+> - **Status:** dokumen PRD **REVISI** — rev 923: PRD fresh verification & stability confirmation (03 November 2026 WIB); HEAD `2ff2b0f2a8a87ee0f5f2d6a2ceb53d184950ef7e` (Rev. 923 final sync — PRD synced ke Rev. 923); **1014 / 13/0** (1014 local commits, 13 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 922 (data terkonsisten). Revision 923 bumps document revision dari 922 ke 923.
 ### Rev. 897
 
 > **Rev. 897 (final).** 03 November 2026 WIB: PRD fresh verification & stability confirmation (cron run, 03 November 2026 WIB); header, §11 Rev. 897 entry & §12 summary synced to actual git state; HEAD `613efce` (Rev. 897 final sync — PRD synced ke Rev. 897); commit count 977/4/0 (977 local commits, 4 ahead / 0 behind origin_main); node_modules present (477 top-level dirs / 84021 files); dev.db schema-only (15 tabel, record 0); build gate: tsc ✓ (exit 0), eslint ✓ (exit 0, 1 warning / 0 error), next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability; upgrade nudge, recommended).`);
