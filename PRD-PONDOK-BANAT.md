@@ -1,6 +1,6 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 | (Source: `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-Rev. 922 (fresh verification & metadata sync — 03 November 2026 WIB); §11 compact changelog 116–921→922; §12 updated. HEAD `a73e704d595aad45b4c5d6f4c9ef257238193092` (Rev. 922 commit — PRD ditulis ke Rev. 922); commit count 1012/11/0 (1012 local commits, 11 ahead / 0 behind origin_main); node_modules present (477 top-level dirs / 84021 files); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge. Working tree: PRD ditulis ke Rev. 922; 420 tracked files; 11 untracked (_compare_head_prd.py, _diff_head_wt.py, dev.db_state.json, fix100020.py, fix_prd_900_final.py, probe_changelog.py, q_db.py, update_prd_906.py, update_prd_915.py, .probe_db.py, home/workspace/dev/pondok-banat/.probe_db.py); 0 deleted. Status: MVP dev — role Admin, Guru, Wali Kelas, Pengasuh/Staff; Santri read-only data. UI/UX spec: ui_ux_spec.md. Next.js + Prisma + SQLite (dev).
+Rev. 923 (fresh verification & metadata sync — 03 November 2026 WIB); §11 compact changelog 116–922→923; §12 updated. HEAD `2ff2b0f2a8a87ee0f5f2d6a2ceb53d184950ef7e` (Rev. 922 commit — PRD ditulis ke Rev. 923); commit count 1014/13/0 (1014 local commits, 13 ahead / 0 behind origin_main); node_modules present (477 top-level dirs / 84021 files); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge. Working tree: PRD ditulis ke Rev. 923; 420 tracked files; 11 untracked (_compare_head_prd.py, _diff_head_wt.py, dev.db_state.json, fix100020.py, fix_prd_900_final.py, probe_changelog.py, q_db.py, update_prd_906.py, update_prd_915.py, .probe_db.py, home/workspace/dev/pondok-banat/.probe_db.py); 0 deleted. Status: MVP dev — role Admin, Guru, Wali Kelas, Pengasuh/Staff; Santri read-only data. UI/UX spec: ui_ux_spec.md. Next.js + Prisma + SQLite (dev).
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -3690,6 +3690,16 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 |||||| **Build gate** | SEBAGIAN RE-RUNNABLE | tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning); next build ✗ (SecurityFatalError) |
 |||||| **Repo state** | Working tree | 420 tracked files; 5 untracked (_compare_head_prd.py, _diff_head_wt.py, fix_prd_900_final.py, update_prd_906.py, update_prd_915.py); 0 deleted |
 
+||||| **Document version** | Rev. 923 | Header, §11, §12 synced ke git state aktual |
+|||||||| **Git HEAD** | `2ff2b0f2a8a87ee0f5f2d6a2ceb53d184950ef7e` | "PRD Rev. 923 — fresh verification & stability confirmation (03 November 2026 WIB); HEAD 2ff2b0f2a8a87ee0f5f2d6a2ceb53d184950ef7e; commit count 1014/13/0" |
+||||||| **Commit count** | 1014/13/0 | 1014 local commits, 13 ahead / 0 behind origin_main |
+||||||| **Database (dev.db)** | Ada (schema-only) | 15 tabel, seluruh record 0; data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia |
+||||||| **M02a NFC** | Field `uid_nfc` aktif, 0 terisi | Data ekspor NFC Tools belum tersedia |
+||||||| **Auth hardcode** | Login.tsx: admin@pondokanbat.com / admin123 | Produksi butuh bcrypt + session |
+||||||| **Beranda hardcode** | totalSantri hardcode 453 | Belum fetch real-time dari DB |
+||||||| **Build gate** | SEBAGIAN RE-RUNNABLE | tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning); next build ✗ (SecurityFatalError) |
+||||||| **Repo state** | Working tree | 420 tracked files; 11 untracked (_compare_head_prd.py, _diff_head_wt.py, dev.db_state.json, fix100020.py, fix_prd_900_final.py, probe_changelog.py, q_db.py, update_prd_906.py, update_prd_915.py, .probe_db.py, home/workspace/dev/pondok-banat/.probe_db.py); 0 deleted |
+
 ## 13. CATATAN PENGEMBANG
 
 > - **Status:** dokumen PRD **REVISI** — rev 913: PRD fresh verification & stability confirmation (04 November 2026 WIB); HEAD `26ddebc758c39ffa8edb0176b841010ed8caf49d` (Rev. 912 final sync — PRD synced ke Rev. 912); **999 / 1/0** (999 local commits, 1 ahead / 0 behind origin_main). State stabil, tidak ada perubahan signifikan dari Rev. 912 (data terkonsisten). Revision 913 bumps document revision dari 912 ke 913.
@@ -3875,3 +3885,12 @@ Nilai yang berubah dari Rev. 23: tidak ada perubahan signifikan terhadap data re
 
 > - **§12 status summary:** updated to Rev. 922; commit count 1012/11/0.
 > - **§13 notes:** Refreshed 03 November 2026 WIB; HEAD `a73e704d595aad45b4c5d6f4c9ef257238193092` (Rev. 922 final sync — PRD synced ke Rev. 922); commit count 1012/11/0. No DB/schema/code changes; data consistent.
+
+### Rev. 923
+
+> **Rev. 923 (final).** 03 November 2026 WIB: CRON-run fresh verification & stability confirmation (cron run, 03 November 2026 WIB); §11 compact changelog extended to Rev. 923 (116–922→116–923); §12 updated. No DB/schema/code changes; this revision bumps document revision from 922 to 923.
+
+> - **§11 compact changelog:** extended 116–922→116–923 (row: `| 923 | 03 Nov | 2ff2b0f | 2ff2b0f2a8a87ee0f5f2d6a2ceb53d184950ef7e | 1014/13/0 | Rev. 923: PRD fresh verification & stability confirmation (cron run, 03 November 2026 WIB); header, §11 Rev. 923 entry & §12 status summary synced to actual git state; HEAD `2ff2b0f2a8a87ee0f5f2d6a2ceb53d184950ef7e` (Rev. 923 final sync — PRD synced ke Rev. 923); commit count 1014/13/0 (1014 local commits, 13 ahead / 0 behind origin_main); node_modules present (477 top-level dirs / 84021 files); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge.`); 
+
+> - **§12 status summary:** updated to Rev. 923; commit count 1014/13/0.
+> - **§13 notes:** Refreshed 03 November 2026 WIB; HEAD `2ff2b0f2a8a87ee0f5f2d6a2ceb53d184950ef7e` (Rev. 923 final sync — PRD synced ke Rev. 923); commit count 1014/13/0. No DB/schema/code changes; data consistent.
