@@ -1,0 +1,15 @@
+{
+  "task": "PRD update",
+  "status": "running",
+  "head_commit": "637f1f7",
+  "rev": "914",
+  "next_rev": "915",
+  "dev_db_exists": true,
+  "git_up_to_date": true,
+  "build_gates": {
+    "tsc": "blocked",
+    "eslint": "blocked",
+    "next_build": "blocked (security scan)"
+  },
+  "notes": "Security scan blocking tsc/eslint/next_build. Build gate is SEBAGIAN RE-RUNNABLE per prior commits."
+}
