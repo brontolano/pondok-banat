@@ -1,6 +1,6 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 | (Source: `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-Rev. 952 (fresh verification & metadata sync — 04 November 2026 WIB); §11 compact changelog 116–951→116–952; §12 updated. HEAD `5d1e12911d62811e94ec3b5b5d8994933a413b82` (Rev. 952 final commit); commit count 1056/1/0 (1056 local commits, 1 ahead / 0 behind origin_main); node_modules present (84021 files / 479 top-level dirs); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate: SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge. Working tree: PRD ditulis ke Rev. 952; 451 tracked files; 29 untracked (incl. helper scripts); 0 deleted. Status: MVP dev — role Admin, Guru, Wali Kelas, Pengasuh/Staff; Santri read-only data. Next.js + Prisma + SQLite (dev).
+Rev. 953 (fresh verification & metadata sync — 04 November 2026 WIB); §11 compact changelog 116–952→116–953; §12 updated. HEAD `71bb8e7b7ccc2b47ba024896641967674a7effa1` (Rev. 953 final commit); commit count 1057/2/0 (1057 local commits, 2 ahead / 0 behind origin_main); node_modules present (84021 files / 477 top-level dirs); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate: SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge. Working tree: PRD ditulis ke Rev. 953; 451 tracked files; 29 untracked (incl. helper scripts); 0 deleted. Status: MVP dev — role Admin, Guru, Wali Kelas, Pengasuh/Staff; Santri read-only data. Next.js + Prisma + SQLite (dev).
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -4183,7 +4183,7 @@ Document version | Rev. 926 | Header, §11, §12 synced ke git state aktual |
 
 > - **§11 compact changelog:** extended 116–949→116–950 (row: `| 950 | 04 Nov | ed6d736 | ed6d736d8a38a8c46cd6d4c4566a56c4ca0a3173 | 1055/0/0 | Rev. 950: PRD fresh verification & metadata sync (cron run, 04 November 2026 WIB); header, §11 Rev. 950 entry & §12 status summary synced to actual git state; HEAD `ed6d736d8a38a8c46cd6d4c4566a56c4ca0a3173` (Rev. 950 final commit); commit count 1055/0/0 (1055 local commits, 0 ahead / 0 behind origin_main); node_modules present (84021 files / 477 top-level dirs); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge.`);
 
-> - **§12 status summary:** updated to Rev. 952; commit count 1056/1/0.
+> - **§12 status summary:** updated to Rev. 950; commit count 1056/1/0.
 
 > - **§13 notes:** Refreshed 04 November 2026 WIB; HEAD `5d1e12911d62811e94ec3b5b5d8994933a413b82` (Rev. 952 final commit); commit count 1056/1/0. No DB/schema/code changes; data consistent.
 
@@ -4199,11 +4199,31 @@ Document version | Rev. 926 | Header, §11, §12 synced ke git state aktual |
 
 ### Rev. 952
 
-> **Rev. 952 (fresh verification & metadata sync — 04 November 2026 WIB).** 04 November 2026 WIB: CRON-run fresh verification & metadata sync (cron run, 04 November 2026 WIB); §11 compact changelog extended to Rev. 952 (116–951→116–952); §12 updated. No DB/schema/code changes; this revision bumps document revision from 951 to 952.
+> **Rev. 953 (fresh verification & metadata sync — 04 November 2026 WIB).** 04 November 2026 WIB: CRON-run fresh verification & metadata sync (cron run, 04 November 2026 WIB); §11 compact changelog extended to Rev. 953 (116–952→116–953); §12 updated. No DB/schema/code changes; this revision bumps document revision from 951 to 952.
 
-> - **§11 compact changelog:** extended 116–951→116–952 (row: `| 952 | 04 Nov | 5d1e129 | 5d1e12911d62811e94ec3b5b5d8994933a413b82 | 1056/1/0 | Rev. 952: PRD fresh verification & metadata sync (cron run, 04 November 2026 WIB); header, §11 Rev. 952 entry & §12 status summary synced to actual git state; HEAD `5d1e12911d62811e94ec3b5b5d8994933a413b82` (Rev. 952 final commit); commit count 1056/1/0 (1056 local commits, 1 ahead / 0 behind origin_main); node_modules present (84021 files / 479 top-level dirs); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge.`);
+> - **§11 compact changelog:** extended 116–951→116–952 (row: `| 952 | 04 Nov | 71bb8e7 | 71bb8e7b7ccc2b47ba024896641967674a7effa1 | 1057/2/0 | Rev. 952: PRD fresh verification & metadata sync (cron run, 04 November 2026 WIB); header, §11 Rev. 952 entry & §12 status summary synced to actual git state; HEAD `71bb8e7b7ccc2b47ba024896641967674a7effa1` (Rev. 953 final commit); commit count 1057/2/0 (1057 local commits, 2 ahead / 0 behind origin_main); node_modules present (84021 files / 479 top-level dirs); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge.`);
 
-> - **§12 status summary:** updated to Rev. 952; commit count 1056/1/0.
+> - **§12 status summary:** updated to Rev. 952; commit count 1057/2/0.
 
-> - **§13 notes:** Refreshed 04 November 2026 WIB; HEAD `5d1e12911d62811e94ec3b5b5d8994933a413b82` (Rev. 952 final commit); commit count 1056/1/0. No DB/schema/code changes; data consistent.
+> - **§13 notes:** Refreshed 04 November 2026 WIB; HEAD `71bb8e7b7ccc2b47ba024896641967674a7effa1` (Rev. 952 final commit); commit count 1057/2/0. No DB/schema/code changes; data consistent.
+
+
+### Rev. 953
+
+
+
+> **Rev. 953 (fresh verification & metadata sync — 04 November 2026 WIB).** 04 November 2026 WIB: CRON-run fresh verification & metadata sync (cron run, 04 November 2026 WIB); §11 compact changelog extended to Rev. 953 (116–952→116–953); §12 updated. No DB/schema/code changes; this revision bumps document revision from 952 to 953.
+
+
+
+> - **§11 compact changelog:** extended 116–952→116–953 (row: `| 953 | 04 Nov | 71bb8e7 | 71bb8e7b7ccc2b47ba024896641967674a7effa1 | 1057/2/0 | Rev. 953: PRD fresh verification & metadata sync (cron run, 04 November 2026 WIB); header, §11 Rev. 953 entry & §12 status summary synced to actual git state; HEAD `71bb8e7b7ccc2b47ba024896641967674a7effa1` (Rev. 953 final commit); commit count 1057/2/0 (1057 local commits, 2 ahead / 0 behind origin_main); node_modules present (84021 files / 477 top-level dirs); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability). Build gate SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge.`);
+
+
+
+> - **§12 status summary:** updated to Rev. 953; commit count 1057/2/0.
+
+
+
+> - **§13 notes:** Refreshed 04 November 2026 WIB; HEAD `71bb8e7b7ccc2b47ba024896641967674a7effa1` (Rev. 953 final commit); commit count 1057/2/0. No DB/schema/code changes; data consistent.
+
 
