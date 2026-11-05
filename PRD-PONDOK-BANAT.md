@@ -1,6 +1,6 @@
 # PRD — Aplikasi Pondok Banat (Modular)
 | (Source: `IDEA.md` + `.data-pondokanat/` (3 Excel + 74 dokumen = 65 RPP + 9 SILABUS) + research.
-Rev. 963 (fresh verification & metadata sync — 05 November 2026 WIB); §11 compact changelog 116–962→116–963; §12 updated. HEAD `6cbfc7d` (Rev. 962 final sync); commit count 1071/16/0 (1071 local commits, 16 ahead / 0 behind origin_main); node_modules present (84073 files / 478 top-level dirs); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — builds but halts on the Next.js security upgrade recommendation). Build gate: SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge. Working tree: PRD ditulis ke Rev. 963; 451 tracked files; 43 untracked (incl. helper scripts); 2 deleted. Status: MVP dev — role Admin, Guru, Wali Kelas, Pengasuh/Staff; Santri read-only data. Next.js + Prisma + SQLite (dev).
+Rev. 964 (fresh verification & metadata sync — 05 November 2026 WIB); §11 compact changelog 116–963→116–964; §12 updated. HEAD `77c611a` (Rev. 963 final sync); commit count 1072/17/0 (1072 local commits, 17 ahead / 0 behind origin_main); node_modules present (84073 files / 479 top-level dirs); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — builds but halts on the Next.js security upgrade recommendation). Build gate: SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge. Working tree: PRD ditulis ke Rev. 964; 451 tracked files; 43 untracked (incl. helper scripts); 2 deleted. Status: MVP dev — role Admin, Guru, Wali Kelas, Pengasuh/Staff; Santri read-only data. Next.js + Prisma + SQLite (dev).
 
 > **Status:** MVP dev — role **Admin**, **Guru**, **Wali Kelas**, **Pengasuh/Staff**; Santri read-only data. UI/UX spec: `ui_ux_spec.md`. Next.js + Prisma + SQLite (dev).
 
@@ -4306,5 +4306,14 @@ Document version | Rev. 926 | Header, §11, §12 synced ke git state aktual |
 >
 > - **§12 status summary:** updated to Rev. 963; commit count 1071/16/0.
 > - **§13 notes:** Refreshed 05 November 2026 WIB; HEAD `6cbfc7d` (Rev. 962 final sync); commit count 1071/16/0. No DB/schema/code changes; data consistent.
+
+### Rev. 964
+
+> **Rev. 964 (fresh verification & metadata sync — 05 November 2026 WIB).** 05 November 2026 WIB: CRON-run fresh verification & metadata sync (cron run, 05 November 2026 WIB); §11 compact changelog extended to Rev. 964 (116–963→116–964); §12 updated. No DB/schema/code changes; this revision bumps document revision from 963 to 964.
+
+> - **§11 compact changelog:** extended 116–963→116–964 (row: `| 964 | 05 Nov | 77c611a | 77c611a2529a854e390acd6ebd50af4d21901936 | 1072/17/0 | Rev. 964: PRD fresh verification & metadata sync (cron run, 05 November 2026 WIB); header, §11 Rev. 964 entry & §12 status summary synced to actual git state; HEAD `77c611a` (Rev. 963 final sync); commit count 1072/17/0 (1072 local commits, 17 ahead / 0 behind origin_main); node_modules present (84073 files / 479 top-level dirs); dev.db ada (schema-only via init_db.py; 15 tabel, seluruh record 0); seluruh data 453 siswa, 54 guru, 18 kelas, 17 mapel, 65 RPP + 9 SILABUS, 5.420 nilai, 1 user, 5 role, 33 role_permissions belum tersedia, import ulang dari init_db.py + init_schema.sql + sumber Excel/PDF). Build gate: tsc ✓ (exit 0); eslint ✓ (exit 0, 1 warning / 0 error); next build ✗ (exit 1 — SecurityFatalError: Next.js 16.4.0 has a known security vulnerability — builds but halts on the Next.js security upgrade recommendation). Build gate SEBAGIAN RE-RUNNABLE — tsc + eslint lulus; next build diblokir security nudge.`); 
+
+> - **§12 status summary:** updated to Rev. 964; commit count 1072/17/0.
+> - **§13 notes:** Refreshed 05 November 2026 WIB; HEAD `77c611a` (Rev. 963 final sync); commit count 1072/17/0. No DB/schema/code changes; data consistent.
 
 
